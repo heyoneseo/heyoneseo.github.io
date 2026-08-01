@@ -224,7 +224,7 @@
         }
 
         /* ================================
-           3. Members 영역 디자인 (NEW)
+           3. Members 영역 디자인
         ================================ */
         .member-category {
             font-size: 22px;
@@ -235,21 +235,25 @@
             padding-bottom: 10px;
         }
         
-        /* PI 프로필 레이아웃 */
         .pi-profile {
             display: flex;
             gap: 35px;
-            align-items: center;
+            align-items: flex-start; /* 상단 정렬로 변경하여 이력서 공간 확보 */
             margin-bottom: 60px;
         }
         .pi-img {
             flex-shrink: 0;
             width: 220px;
+            position: sticky;
+            top: 100px; /* 스크롤할 때 사진이 화면에 따라다니게 함 */
         }
         .pi-img img {
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .pi-info {
+            flex: 1;
         }
         .pi-info h4 {
             font-size: 26px;
@@ -269,10 +273,10 @@
             line-height: 1.6;
         }
         
-        /* 구글 스칼라, ORCID 버튼 디자인 */
         .btn-group {
             display: flex;
             gap: 12px;
+            margin-bottom: 30px;
         }
         .profile-btn {
             display: inline-block;
@@ -291,7 +295,55 @@
             text-decoration: none;
         }
 
-        /* 학생 그리드 레이아웃 */
+        /* PI 상세 이력 (Research Interests, Education, Employment) */
+        .pi-details h5 {
+            font-size: 17px;
+            color: #1a4f8b;
+            margin: 0 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .interest-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 35px 0;
+        }
+        .interest-list li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #444;
+        }
+        .interest-list li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1a4f8b;
+        }
+
+        .cv-section {
+            margin-bottom: 35px;
+        }
+        .cv-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 12px;
+            font-size: 14.5px;
+            color: #444;
+            line-height: 1.5;
+        }
+        .cv-item .period {
+            flex-shrink: 0;
+            width: 100px;
+            font-weight: 600;
+            color: #1a4f8b;
+        }
+        .cv-item .desc {
+            flex: 1;
+        }
+
         .members-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -320,34 +372,57 @@
            4. Publications 영역
         ================================ */
         .pub-list {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
             margin: 0;
         }
-        .pub-list li {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            position: relative;
+        
+        .pub-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #ddd; 
+        }
+        
+        .pub-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a4f8b;
+            min-width: 25px; 
+        }
+
+        .pub-ga {
+            flex-shrink: 0;
+            width: 180px; 
+        }
+        .pub-ga img {
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .pub-info {
+            flex: 1;
             line-height: 1.6;
         }
-        .pub-list li::before {
-            content: "📄"; 
-            position: absolute;
-            left: 0;
-            top: 2px;
-            font-size: 12px;
-        }
-        .pub-list .title {
+        .pub-info .title {
             color: #222;
             display: block;
             margin-bottom: 4px;
         }
-        .pub-list .authors {
+        .pub-info .authors {
             color: #444;
             display: block;
             margin-bottom: 2px;
         }
-        .pub-list .journal {
+        .pub-info .journal {
             color: #0056b3;
             display: block;
         }
@@ -369,15 +444,16 @@
             .profile-img-container, .research-img, .pi-img {
                 max-width: 100%;
                 text-align: center;
+                position: static; /* 모바일에서는 고정 해제 */
             }
             .profile-img-container img, .pi-img img {
                 max-width: 250px;
             }
-            .pi-info {
-                text-align: center;
-            }
             .btn-group {
                 justify-content: center;
+            }
+            .pi-details {
+                text-align: left; /* 모바일에서도 이력은 왼쪽 정렬 */
             }
             header {
                 padding: 15px 20px;
@@ -388,6 +464,17 @@
             .news-list li {
                 flex-direction: column;
                 gap: 5px;
+            }
+            .pub-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .pub-ga {
+                width: 100%;
+                max-width: 250px;
+            }
+            .pub-number {
+                margin-bottom: -5px;
             }
         }
     </style>
@@ -434,12 +521,12 @@
             <ul class="news-list">
                 <li>
                     <span class="news-date">2026.08</span>
-                    <span class="news-content">Co-authored research paper on advanced electrochemical systems published as a cover story in <em>Advanced Science</em>.</span>
+                    <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
                 </li>
-                <li>
+                <!---<li>
                     <span class="news-date">2026.07</span>
                     <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
-                </li>                
+                </li>--->                
             </ul>
         </div>
 
@@ -463,8 +550,8 @@
                 <img src="https://via.placeholder.com/250x150.png?text=SOFC/SOEC" alt="Research 1">
             </div>
             <div class="research-text">
-                <h3>Next-Generation Electrochemical Cells</h3>
-                <p>Development and evaluation of reversible solid oxide cells (ReSOCs) for highly efficient energy conversion and water splitting. Current focus includes Protonic Ceramic Electrochemical Cells (PCEC) for low-temperature operation.</p>
+                <h3>Next-generation Electrochemical Cells (SOFC, SOEC, PCEC)</h3>
+                <p>Development and evaluation of Solid Oxide Fuel Cells (SOFC) and Electrolysis Cells (SOEC) for highly efficient energy conversion and water splitting. Current focus includes Protonic Ceramic Electrochemical Cells (PCEC) for low-temperature operation.</p>
             </div>
         </div>
 
@@ -480,18 +567,17 @@
     </section>
 
     <!-- ==============================================
-         3. Members 영역
+         3. Members 영역 (Research Interests, Education, Employment 추가)
     =============================================== -->
     <section id="members">
         <h2>Members</h2>
         
-        <!-- 교수님(PI) 섹션 -->
         <h3 class="member-category">Principal Investigator</h3>
         <div class="pi-profile">
-            <!-- PI 사진 (파일 올려서 이름 바꾸시면 됩니다) -->
             <div class="pi-img">
                 <img src="https://via.placeholder.com/220x280.png?text=PI+Photo" alt="Heyone Seo">
             </div>
+            
             <div class="pi-info">
                 <h4>Haewon Seo</h4>
                 <p class="role">Assistant Professor</p>
@@ -501,58 +587,114 @@
                     <a href="https://scholar.google.com/citations?user=cWeRVvMAAAAJ&hl=ko" target="_blank" class="profile-btn">Google Scholar</a>
                     <a href="https://orcid.org/my-orcid?orcid=0000-0003-0925-7921" target="_blank" class="profile-btn">ORCID</a>
                 </div>
+
+                <div class="pi-details">
+                    
+                    <h5>Research Interests</h5>
+                    <ul class="interest-list">
+                        <li>SOFC/SOEC/PCFC/PCEC</li>
+                        <li>Micro/Nanofabrication</li>
+                        <li>Structural/Interfacial Architecture</li>
+                        <li>Heat and Mass Transfer</li>
+                    </ul>
+
+                    <div class="cv-section">
+                        <h5>Education</h5>
+                        <div class="cv-item">
+                            <div class="period">2018.04–2021.03</div>
+                            <div class="desc">Ph.D in Department of Aeronautics and Astronautics, Kyoto University</div>
+                        </div>
+                        <div class="cv-item">
+                            <div class="period">2016.04–2018.03</div>
+                            <div class="desc">MS in Department of Aeronautics and Astronautics, Kyoto University</div>
+                        </div>
+                        <div class="cv-item">
+                            <div class="period">2012.04–2016.03</div>
+                            <div class="desc">BS in Department of Mechanical & Aerospace Engineering, Kyushu University</div>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h5>Employment</h5>
+                        <div class="cv-item">
+                            <div class="period">2026.09-Present</div>
+                            <div class="desc">Associate Professor, Division of Climate Change, Hankuk University of Foreign Studies (HUFS)</div>
+                        </div>
+                        <div class="cv-item">
+                            <div class="period">2024.08-2026.08</div>
+                            <div class="desc">Senior Researcher (CL3), Air Science Platform, Samsung Advanced Institute of Technology (SAIT)</div>
+                        </div>
+                        <div class="cv-item">
+                            <div class="period">2021.07-2024.07</div>
+                            <div class="desc">Postdoctoral Researcher (Alternative Military Service), Center for Hydrogen Energy Materials, Korea Institute of Science and Technology (KIST)</div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
 
-        <!-- 학생(Students) 섹션 -->
         <h3 class="member-category">Students</h3>
         <div class="members-grid">
-            
-            <!-- 학생 1 -->
             <div class="member-card">
                 <img src="https://via.placeholder.com/150.png?text=Student+1" alt="Student 1">
                 <h4>Student Name</h4>
                 <p>M.S. Student</p>
             </div>
-            
-            <!-- 학생 2 -->
             <div class="member-card">
                 <img src="https://via.placeholder.com/150.png?text=Student+2" alt="Student 2">
                 <h4>Student Name</h4>
                 <p>Undergraduate Researcher</p>
             </div>
-
-            <!-- 학생을 추가하고 싶다면 위의 <div class="member-card"> ... </div> 블록을 복사해서 밑에 계속 붙여넣으시면 됩니다. -->
         </div>
     </section>
 
     <!-- ==============================================
-         4. Publications 영역 (논문 서식, 링크 버튼 적용)
+         4. Publications 영역
     =============================================== -->
     <section id="publications">
         <h2>Selected Publications</h2>
         
         <ul class="pub-list">
-            <li>
-                <span class="title"><em>Catastrophic Degradation in Solid Oxide Fuel Cells Caused by Air Supply Interruption in Real‐World Operations: Fundamental Mechanisms and Mitigation Strategies (Inside Front Cover)</em></span>
+            
+            <li class="pub-item">
+                <div class="pub-number">2.</div>
                 
-                <span class="authors"><strong>Haewon Seo</strong>†, Ji‐eun Won†, Wooseok Lee†, Haneul Choi†, Sun‐Young Park, Younghun Shin, Insung Lee, Tae Jin Lim, Kyeounghak Kim, Jongsup Hong*, Hye Jung Chang*, Kyung Joong Yoon*</span>
+                <div class="pub-ga">
+                    <img src="https://via.placeholder.com/200x120.png?text=Graphical+Abstract" alt="Graphical Abstract">
+                </div>
                 
-                <span class="journal" style="font-style: normal;">
-                    Advanced Science, <strong>13</strong>(3) (2026) e16807 
-                    <a href="https://doi.org/10.1002/advs.202516807" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
-                </span>
+                <div class="pub-info">
+                    <span class="title"><em>Catastrophic Degradation in Solid Oxide Fuel Cells Caused by Air Supply Interruption in Real‐World Operations: Fundamental Mechanisms and Mitigation Strategies (Inside Front Cover)</em></span>
+                    
+                    <span class="authors"><strong>Haewon Seo</strong>†, Ji‐eun Won†, Wooseok Lee†, Haneul Choi†, Sun‐Young Park, Younghun Shin, Insung Lee, Tae Jin Lim, Kyeounghak Kim, Jongsup Hong*, Hye Jung Chang*, Kyung Joong Yoon*</span>
+                    
+                    <span class="journal" style="font-style: normal;">
+                        Advanced Science, <strong>13</strong>(3) (2026) e16807 
+                        <a href="https://doi.org/10.1002/advs.202516807" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
+                    </span>
+                </div>
             </li>
             
-            <!-- 두 번째 예시 논문 -->
-            <li>
-                <span class="title"><em>This is an example title of your next amazing publication</em></span>
-                <span class="authors">Co-author, & <strong>Seo, H.</strong></span>
-                <span class="journal" style="font-style: normal;">
-                    Journal of Materials Research, <strong>10</strong>(2) (2025) 100-110 
-                    <a href="#" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
-                </span>
+            <li class="pub-item">
+                <div class="pub-number">1.</div>
+                
+                <div class="pub-ga">
+                    <img src="https://via.placeholder.com/200x120.png?text=Graphical+Abstract" alt="Graphical Abstract">
+                </div>
+                
+                <div class="pub-info">
+                    <span class="title"><em>This is an example title of your next amazing publication</em></span>
+                    
+                    <span class="authors">Co-author, & <strong>Seo, H.</strong></span>
+                    
+                    <span class="journal" style="font-style: normal;">
+                        Journal of Materials Research, <strong>10</strong>(2) (2025) 100-110 
+                        <a href="#" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
+                    </span>
+                </div>
             </li>
+
         </ul>
     </section>
 
