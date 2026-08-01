@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
+        /* 기본 전체 디자인 설정 */
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -20,6 +21,7 @@
             text-decoration: underline;
         }
         
+        /* 상단 고정 메뉴바 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -67,21 +69,17 @@
             text-decoration: none;
         }
 
+        /* 각 섹션을 화면에서 숨기고 보여주는 설정 */
         section {
             display: none !important; 
             padding: 120px 20px 40px;
             max-width: 850px;
             margin: 0 auto;
-            min-height: 70vh;
+            min-height: 70vh; 
             animation: fadeIn 0.4s ease-in-out;
         }
-
         section.active {
             display: block !important;
-        }
-        
-        section#home.active {
-            display: flex !important;
         }
 
         @keyframes fadeIn {
@@ -99,9 +97,15 @@
             letter-spacing: 1px;
         }
 
-        #home {
+        /* ================================
+           1. Home 영역 상세 디자인
+        ================================ */
+        /* 상단: 프로필과 소개 영역 */
+        .profile-section {
+            display: flex;
             gap: 50px;
             align-items: flex-start;
+            margin-bottom: 60px; /* 아래 뉴스 영역과의 간격 */
         }
         .profile-img-container {
             flex: 1;
@@ -118,21 +122,88 @@
         .bio-container h3 {
             margin-top: 0;
             font-size: 32px;
-            margin-bottom: 5px;
+            margin-bottom: 15px; /* 타이틀 아래 간격 약간 확보 */
         }
-        .bio-container h4 {
-            margin: 0 0 20px 0;
-            color: #666;
-            font-weight: 400;
+        .bio-container p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.8;
         }
         .contact-info {
             background-color: #f8f9fa;
             padding: 15px;
             border-radius: 6px;
             font-size: 14px;
-            margin-top: 20px;
+            margin-top: 25px;
+            line-height: 1.7;
         }
 
+        /* 하단: News & Highlight 영역 */
+        .bottom-section {
+            display: flex;
+            gap: 40px;
+            border-top: 2px solid #f0f0f0;
+            padding-top: 40px;
+        }
+        
+        /* 뉴스 리스트 디자인 */
+        .news-box {
+            flex: 1.3;
+        }
+        .news-box h3, .highlight-box h3 {
+            font-size: 20px;
+            color: #222;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .news-list li {
+            margin-bottom: 15px;
+            font-size: 14.5px;
+            display: flex;
+            gap: 15px;
+            line-height: 1.4;
+        }
+        .news-date {
+            font-weight: 600;
+            color: #1a4f8b;
+            white-space: nowrap;
+        }
+        .news-content {
+            color: #444;
+        }
+
+        /* 하이라이트 카드 디자인 */
+        .highlight-box {
+            flex: 1;
+        }
+        .highlight-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .highlight-card img {
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .highlight-card p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* ================================
+           2, 3, 4번 메뉴 공통 디자인 
+        ================================ */
         .research-item {
             display: flex;
             gap: 25px;
@@ -219,14 +290,11 @@
             font-size: 13px;
         }
         
+        /* 모바일 화면 대응 */
         @media (max-width: 768px) {
-            section#home.active {
+            .profile-section, .bottom-section, .research-item {
                 flex-direction: column;
-                gap: 20px;
-            }
-            .research-item {
-                flex-direction: column;
-                gap: 20px;
+                gap: 25px;
             }
             .profile-img-container, .research-img {
                 max-width: 100%;
@@ -246,6 +314,7 @@
 </head>
 <body>
 
+    <!-- 상단 메뉴바 -->
     <header>
         <h1><a href="#home">HEYONE LAB</a></h1> 
         <nav>
@@ -258,24 +327,64 @@
         </nav>
     </header>
 
+    <!-- ==============================================
+         1. Home 영역 (프로필 + 뉴스 + 하이라이트)
+    =============================================== -->
     <section id="home">
-        <div class="profile-img-container">
-            <img src="https://via.placeholder.com/250x300.png?text=Profile+Photo" alt="Profile">
-        </div>
         
-        <div class="bio-container">
-            <h3>Welcome to HEYONE LAB!</h3>
-            <p>Welcome to HEYONE LAB!<br>Our group pioneers next-generation energy conversion devices for a sustainable future.<br>We design and optimize novel devices with multiscale structural engineering, transforming sustainable energy concepts into highly efficient, real-world solutions.</p>
-            
-            <div class="contact-info">
-                <strong>Email:</strong> your.email@domain.com<br>
-                <strong>Affiliation:</strong> Division of Climate Change, Hankuk University of Foreign Studies<br>
-                <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
+        <div class="profile-section">
+            <div class="profile-img-container">
+                <img src="https://via.placeholder.com/250x300.png?text=Profile+Photo" alt="Profile">
             </div>
+            
+            <div class="bio-container">
+                <h3>Welcome to HEYONE LAB!</h3>
+                <p>Our group pioneers next-generation energy conversion devices for a sustainable future.<br>We design and optimize novel devices with multiscale structural architecture, transforming sustainable energy concepts into highly efficient, real-world solutions.</p>
+                
+                <div class="contact-info">
+                    <strong>Email:</strong> your.email@domain.com<br>
+                    <strong>Affiliation:</strong> Division of Climate Change, Hankuk University of Foreign Studies<br>
+                    <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
+                </div>
+            </div>
+        </div>
+
+        <!-- 하단: News & Highlight 영역 -->
+        <div class="bottom-section">
+            
+            <!-- 왼쪽: News 리스트 -->
+            <div class="news-box">
+                <h3>News</h3>
+                <ul class="news-list">
+                    <li>
+                        <span class="news-date">2026.08</span>
+                        <span class="news-content">Co-authored research paper on advanced electrochemical systems published as a cover story in <em>Advanced Science</em>.</span>
+                    </li>
+                    <li>
+                        <span class="news-date">2026.07</span>
+                        <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
+                    </li>
+                    <li>
+                        <span class="news-date">2026.05</span>
+                        <span class="news-content">Successfully completed interviews for the faculty position at HUFS and KIT.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Recent Highlight</h3>
+                <div class="highlight-card">
+                    <img src="https://via.placeholder.com/350x200.png?text=Cover+Story" alt="Highlight">
+                    <p><strong>Advanced Science Cover</strong><br>Our recent work on degradation mechanisms in electrochemical systems has been featured on the front cover.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- 2. Research 영역 -->
+    <!-- ==============================================
+         2. Research 영역
+    =============================================== -->
     <section id="research">
         <h2>Research Topics</h2>
         
@@ -295,12 +404,14 @@
             </div>
             <div class="research-text">
                 <h3>Degradation Mechanisms & Material Characterization</h3>
-                <p>Investigating core degradation mechanisms in electrochemical systems, such as Strontium (Sr) segregation under operational stress (e.g., air supply interruption). Utilizing advanced characterization tools (TEM, SEM) and computational calculations (DFT) to modify electrodes for enhanced durability.</p>
+                <p>Investigating core degradation mechanisms in electrochemical systems, such as Strontium (Sr) segregation under operational stress. Utilizing advanced characterization tools (TEM, SEM) and computational calculations (DFT) to modify electrodes for enhanced durability.</p>
             </div>
         </div>
     </section>
 
-    <!-- 3. Members 영역 -->
+    <!-- ==============================================
+         3. Members 영역
+    =============================================== -->
     <section id="members">
         <h2>Members</h2>
         
@@ -313,7 +424,9 @@
         </div>
     </section>
 
-    <!-- 4. Publications 영역 -->
+    <!-- ==============================================
+         4. Publications 영역
+    =============================================== -->
     <section id="publications">
         <h2>Selected Publications</h2>
         
@@ -331,33 +444,26 @@
         </ul>
     </section>
 
-    <!-- 하단 카피라이트 -->
     <footer>
         <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
-    <!-- 🌟 페이지를 독립적으로 보여주기 위한 마법의 스크립트 🌟 -->
     <script>
         function updatePage() {
-            // 인터넷 주소창에서 클릭한 메뉴의 이름(#research 등)을 가져옵니다. 없으면 기본값 #home
             let hash = window.location.hash || "#home";
             
-            // 1. 먼저 모든 화면(section)을 숨깁니다.
             document.querySelectorAll('section').forEach(sec => {
                 sec.classList.remove('active');
             });
             
-            // 2. 내가 방금 누른 메뉴의 화면만 켭니다.
             const activeSection = document.querySelector(hash);
             if(activeSection) {
                 activeSection.classList.add('active');
             }
             
-            // 스크롤을 맨 위로 올려줍니다.
             window.scrollTo(0, 0);
         }
 
-        // 메뉴를 클릭하거나 주소가 바뀔 때마다 위 기능(updatePage)을 실행합니다.
         window.addEventListener('hashchange', updatePage);
         window.addEventListener('DOMContentLoaded', updatePage);
     </script>
