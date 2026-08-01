@@ -100,7 +100,6 @@
         /* ================================
            1. Home 영역 상세 디자인
         ================================ */
-        /* 상단: 프로필과 소개 영역 */
         .profile-section {
             display: flex;
             gap: 50px;
@@ -138,7 +137,6 @@
             line-height: 1.7;
         }
 
-        /* 중단: News 영역 */
         .news-section {
             border-top: 2px solid #f0f0f0;
             padding-top: 40px;
@@ -173,7 +171,6 @@
             color: #444;
         }
 
-        /* 하단: Highlight 영역 */
         .highlight-section {
             border-top: 2px solid #f0f0f0;
             padding-top: 40px;
@@ -184,8 +181,8 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            max-width: 600px; /* 이미지가 너무 넓어지지 않게 최대 너비 설정 */
-            margin: 0 auto; /* 가운데 정렬 */
+            max-width: 600px; 
+            margin: 0 auto; 
         }
         .highlight-card img {
             width: 100%;
@@ -200,7 +197,7 @@
         }
 
         /* ================================
-           2, 3, 4번 메뉴 공통 디자인 
+           2. Research 영역 디자인
         ================================ */
         .research-item {
             display: flex;
@@ -226,6 +223,75 @@
             font-size: 20px;
         }
 
+        /* ================================
+           3. Members 영역 디자인 (NEW)
+        ================================ */
+        .member-category {
+            font-size: 22px;
+            color: #1a4f8b;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        
+        /* PI 프로필 레이아웃 */
+        .pi-profile {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .pi-img {
+            flex-shrink: 0;
+            width: 220px;
+        }
+        .pi-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .pi-info h4 {
+            font-size: 26px;
+            margin: 0 0 8px 0;
+            color: #222;
+        }
+        .pi-info .role {
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+            margin: 0 0 8px 0;
+        }
+        .pi-info .affiliation {
+            font-size: 15px;
+            color: #666;
+            margin: 0 0 25px 0;
+            line-height: 1.6;
+        }
+        
+        /* 구글 스칼라, ORCID 버튼 디자인 */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+        }
+        .profile-btn {
+            display: inline-block;
+            padding: 8px 18px;
+            background-color: #f8f9fa;
+            color: #1a4f8b;
+            border: 1px solid #1a4f8b;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .profile-btn:hover {
+            background-color: #1a4f8b;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* 학생 그리드 레이아웃 */
         .members-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -250,15 +316,19 @@
             color: #777;
         }
 
+        /* ================================
+           4. Publications 영역
+        ================================ */
         .pub-list {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
         .pub-list li {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding-left: 20px;
             position: relative;
+            line-height: 1.6;
         }
         .pub-list li::before {
             content: "📄"; 
@@ -268,16 +338,18 @@
             font-size: 12px;
         }
         .pub-list .title {
-            font-weight: 600;
             color: #222;
             display: block;
+            margin-bottom: 4px;
         }
         .pub-list .authors {
-            color: #555;
+            color: #444;
+            display: block;
+            margin-bottom: 2px;
         }
         .pub-list .journal {
-            font-style: italic;
             color: #0056b3;
+            display: block;
         }
 
         footer {
@@ -290,16 +362,22 @@
         
         /* 모바일 화면 대응 */
         @media (max-width: 768px) {
-            .profile-section, .research-item {
+            .profile-section, .research-item, .pi-profile {
                 flex-direction: column;
                 gap: 25px;
             }
-            .profile-img-container, .research-img {
+            .profile-img-container, .research-img, .pi-img {
                 max-width: 100%;
                 text-align: center;
             }
-            .profile-img-container img {
+            .profile-img-container img, .pi-img img {
                 max-width: 250px;
+            }
+            .pi-info {
+                text-align: center;
+            }
+            .btn-group {
+                justify-content: center;
             }
             header {
                 padding: 15px 20px;
@@ -330,7 +408,7 @@
     </header>
 
     <!-- ==============================================
-         1. Home 영역 (프로필 + 뉴스 + 하이라이트 분리)
+         1. Home 영역
     =============================================== -->
     <section id="home">
         
@@ -356,11 +434,11 @@
             <ul class="news-list">
                 <li>
                     <span class="news-date">2026.08</span>
-                    <span class="news-content">:)</span>
+                    <span class="news-content">Co-authored research paper on advanced electrochemical systems published as a cover story in <em>Advanced Science</em>.</span>
                 </li>
                 <li>
-                    <span class="news-date">2026.08</span>
-                    <span class="news-content">Welcom! HEYONE LAB official website is now launched.</span>
+                    <span class="news-date">2026.07</span>
+                    <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
                 </li>                
             </ul>
         </div>
@@ -372,7 +450,6 @@
                 <p><strong>Advanced Science Cover</strong><br>Our recent work on degradation mechanisms in electrochemical systems has been featured on the front cover.</p>
             </div>
         </div>
-
     </section>
 
     <!-- ==============================================
@@ -386,8 +463,8 @@
                 <img src="https://via.placeholder.com/250x150.png?text=SOFC/SOEC" alt="Research 1">
             </div>
             <div class="research-text">
-                <h3>Next-generation Electrochemical Cells (SOFC, SOEC, PCEC)</h3>
-                <p>Development and evaluation of Solid Oxide Fuel Cells (SOFC) and Electrolysis Cells (SOEC) for highly efficient energy conversion and water splitting. Current focus includes Protonic Ceramic Electrochemical Cells (PCEC) for low-temperature operation.</p>
+                <h3>Next-Generation Electrochemical Cells</h3>
+                <p>Development and evaluation of reversible solid oxide cells (ReSOCs) for highly efficient energy conversion and water splitting. Current focus includes Protonic Ceramic Electrochemical Cells (PCEC) for low-temperature operation.</p>
             </div>
         </div>
 
@@ -408,35 +485,73 @@
     <section id="members">
         <h2>Members</h2>
         
-        <div class="members-grid">
-            <div class="member-card">
-                <img src="https://via.placeholder.com/150.png?text=Heyone+Seo" alt="Member 1">
-                <h4>Haewon Seo</h4>
-                <p>Principal Investigator</p>
-                
+        <!-- 교수님(PI) 섹션 -->
+        <h3 class="member-category">Principal Investigator</h3>
+        <div class="pi-profile">
+            <!-- PI 사진 (파일 올려서 이름 바꾸시면 됩니다) -->
+            <div class="pi-img">
+                <img src="https://via.placeholder.com/220x280.png?text=PI+Photo" alt="Heyone Seo">
             </div>
+            <div class="pi-info">
+                <h4>Haewon Seo</h4>
+                <p class="role">Assistant Professor</p>
+                <p class="affiliation">Division of Climate Change<br>Hankuk University of Foreign Studies (HUFS)</p>
+                
+                <div class="btn-group">
+                    <a href="https://scholar.google.com/citations?user=cWeRVvMAAAAJ&hl=ko" target="_blank" class="profile-btn">Google Scholar</a>
+                    <a href="https://orcid.org/my-orcid?orcid=0000-0003-0925-7921" target="_blank" class="profile-btn">ORCID</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 학생(Students) 섹션 -->
+        <h3 class="member-category">Students</h3>
+        <div class="members-grid">
+            
+            <!-- 학생 1 -->
+            <div class="member-card">
+                <img src="https://via.placeholder.com/150.png?text=Student+1" alt="Student 1">
+                <h4>Student Name</h4>
+                <p>M.S. Student</p>
+            </div>
+            
+            <!-- 학생 2 -->
+            <div class="member-card">
+                <img src="https://via.placeholder.com/150.png?text=Student+2" alt="Student 2">
+                <h4>Student Name</h4>
+                <p>Undergraduate Researcher</p>
+            </div>
+
+            <!-- 학생을 추가하고 싶다면 위의 <div class="member-card"> ... </div> 블록을 복사해서 밑에 계속 붙여넣으시면 됩니다. -->
         </div>
     </section>
 
     <!-- ==============================================
-         4. Publications 영역
+         4. Publications 영역 (논문 서식, 링크 버튼 적용)
     =============================================== -->
     <section id="publications">
-        <h2>Journals</h2>
+        <h2>Selected Publications</h2>
         
         <ul class="pub-list">
             <li>
                 <span class="title"><em>Catastrophic Degradation in Solid Oxide Fuel Cells Caused by Air Supply Interruption in Real‐World Operations: Fundamental Mechanisms and Mitigation Strategies (Inside Front Cover)</em></span>
+                
                 <span class="authors"><strong>Haewon Seo</strong>†, Ji‐eun Won†, Wooseok Lee†, Haneul Choi†, Sun‐Young Park, Younghun Shin, Insung Lee, Tae Jin Lim, Kyeounghak Kim, Jongsup Hong*, Hye Jung Chang*, Kyung Joong Yoon*</span>
+                
                 <span class="journal" style="font-style: normal;">
-                    Advanced Science, <strong>13</strong>(3) (2026) e16807
+                    Advanced Science, <strong>13</strong>(3) (2026) e16807 
                     <a href="https://doi.org/10.1002/advs.202516807" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
                 </span>
             </li>
+            
+            <!-- 두 번째 예시 논문 -->
             <li>
-                <span class="title">Title of another highly cited publication</span>
-                <span class="authors">Co-author, & <strong>Seo, H.</strong> (2025).</span>
-                <span class="journal">Journal of Materials Research.</span>
+                <span class="title"><em>This is an example title of your next amazing publication</em></span>
+                <span class="authors">Co-author, & <strong>Seo, H.</strong></span>
+                <span class="journal" style="font-style: normal;">
+                    Journal of Materials Research, <strong>10</strong>(2) (2025) 100-110 
+                    <a href="#" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
+                </span>
             </li>
         </ul>
     </section>
