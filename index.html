@@ -105,7 +105,7 @@
             display: flex;
             gap: 50px;
             align-items: flex-start;
-            margin-bottom: 60px; /* 아래 뉴스 영역과의 간격 */
+            margin-bottom: 50px;
         }
         .profile-img-container {
             flex: 1;
@@ -122,7 +122,7 @@
         .bio-container h3 {
             margin-top: 0;
             font-size: 32px;
-            margin-bottom: 15px; /* 타이틀 아래 간격 약간 확보 */
+            margin-bottom: 15px;
         }
         .bio-container p {
             font-size: 16px;
@@ -138,19 +138,13 @@
             line-height: 1.7;
         }
 
-        /* 하단: News & Highlight 영역 */
-        .bottom-section {
-            display: flex;
-            gap: 40px;
+        /* 중단: News 영역 */
+        .news-section {
             border-top: 2px solid #f0f0f0;
             padding-top: 40px;
+            margin-bottom: 50px;
         }
-        
-        /* 뉴스 리스트 디자인 */
-        .news-box {
-            flex: 1.3;
-        }
-        .news-box h3, .highlight-box h3 {
+        .news-section h3, .highlight-section h3 {
             font-size: 20px;
             color: #222;
             margin-top: 0;
@@ -165,10 +159,10 @@
         }
         .news-list li {
             margin-bottom: 15px;
-            font-size: 14.5px;
+            font-size: 15px;
             display: flex;
-            gap: 15px;
-            line-height: 1.4;
+            gap: 20px;
+            line-height: 1.5;
         }
         .news-date {
             font-weight: 600;
@@ -179,26 +173,30 @@
             color: #444;
         }
 
-        /* 하이라이트 카드 디자인 */
-        .highlight-box {
-            flex: 1;
+        /* 하단: Highlight 영역 */
+        .highlight-section {
+            border-top: 2px solid #f0f0f0;
+            padding-top: 40px;
         }
         .highlight-card {
             background: #f8f9fa;
-            padding: 15px;
+            padding: 25px;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            max-width: 600px; /* 이미지가 너무 넓어지지 않게 최대 너비 설정 */
+            margin: 0 auto; /* 가운데 정렬 */
         }
         .highlight-card img {
             width: 100%;
-            border-radius: 4px;
-            margin-bottom: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
         }
         .highlight-card p {
             margin: 0;
-            font-size: 14px;
+            font-size: 15px;
             color: #333;
+            line-height: 1.6;
         }
 
         /* ================================
@@ -292,7 +290,7 @@
         
         /* 모바일 화면 대응 */
         @media (max-width: 768px) {
-            .profile-section, .bottom-section, .research-item {
+            .profile-section, .research-item {
                 flex-direction: column;
                 gap: 25px;
             }
@@ -308,6 +306,10 @@
             }
             nav ul {
                 gap: 15px;
+            }
+            .news-list li {
+                flex-direction: column;
+                gap: 5px;
             }
         }
     </style>
@@ -328,7 +330,7 @@
     </header>
 
     <!-- ==============================================
-         1. Home 영역 (프로필 + 뉴스 + 하이라이트)
+         1. Home 영역 (프로필 + 뉴스 + 하이라이트 분리)
     =============================================== -->
     <section id="home">
         
@@ -349,37 +351,28 @@
             </div>
         </div>
 
-        <!-- 하단: News & Highlight 영역 -->
-        <div class="bottom-section">
-            
-            <!-- 왼쪽: News 리스트 -->
-            <div class="news-box">
-                <h3>News</h3>
-                <ul class="news-list">
-                    <li>
-                        <span class="news-date">2026.08</span>
-                        <span class="news-content">Co-authored research paper on advanced electrochemical systems published as a cover story in <em>Advanced Science</em>.</span>
-                    </li>
-                    <li>
-                        <span class="news-date">2026.07</span>
-                        <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
-                    </li>
-                    <li>
-                        <span class="news-date">2026.05</span>
-                        <span class="news-content">Successfully completed interviews for the faculty position at HUFS and KIT.</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="highlight-box">
-                <h3>Recent Highlight</h3>
-                <div class="highlight-card">
-                    <img src="https://via.placeholder.com/350x200.png?text=Cover+Story" alt="Highlight">
-                    <p><strong>Advanced Science Cover</strong><br>Our recent work on degradation mechanisms in electrochemical systems has been featured on the front cover.</p>
-                </div>
-            </div>
-
+        <div class="news-section">
+            <h3>News</h3>
+            <ul class="news-list">
+                <li>
+                    <span class="news-date">2026.08</span>
+                    <span class="news-content">Welcom! HEYONE LAB official website is now launched.</em>.</span>
+                </li>
+                <li>
+                    <span class="news-date">2026.07</span>
+                    <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
+                </li>                
+            </ul>
         </div>
+
+        <div class="highlight-section">
+            <h3>Recent Highlight</h3>
+            <div class="highlight-card">
+                <img src="https://via.placeholder.com/600x300.png?text=Cover+Story" alt="Highlight">
+                <p><strong>Advanced Science Cover</strong><br>Our recent work on degradation mechanisms in electrochemical systems has been featured on the front cover.</p>
+            </div>
+        </div>
+
     </section>
 
     <!-- ==============================================
@@ -444,10 +437,12 @@
         </ul>
     </section>
 
+    <!-- 하단 카피라이트 -->
     <footer>
         <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
+    <!-- 페이지를 독립적으로 보여주기 위한 마법의 스크립트 -->
     <script>
         function updatePage() {
             let hash = window.location.hash || "#home";
