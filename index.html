@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
-        /* 기본 전체 디자인 설정 */
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -21,7 +20,6 @@
             text-decoration: underline;
         }
         
-        /* 상단 고정 메뉴바 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -69,22 +67,19 @@
             text-decoration: none;
         }
 
-        /* 🌟 핵심: 모든 섹션을 기본적으로 화면에서 숨깁니다! 🌟 */
         section {
             display: none !important; 
             padding: 120px 20px 40px;
             max-width: 850px;
             margin: 0 auto;
-            min-height: 70vh; /* 화면이 너무 짧아보이지 않게 최소 높이 지정 */
-            animation: fadeIn 0.4s ease-in-out; /* 클릭 시 부드럽게 나타나는 효과 */
+            min-height: 70vh;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
-        /* 클릭한 메뉴(active)만 화면에 보여줍니다. */
         section.active {
             display: block !important;
         }
         
-        /* Home 영역은 좌우 배치(flex)를 사용하므로 따로 지정 */
         section#home.active {
             display: flex !important;
         }
@@ -104,7 +99,6 @@
             letter-spacing: 1px;
         }
 
-        /* 1. Home 영역 */
         #home {
             gap: 50px;
             align-items: flex-start;
@@ -139,7 +133,6 @@
             margin-top: 20px;
         }
 
-        /* 2. Research 영역 */
         .research-item {
             display: flex;
             gap: 25px;
@@ -164,7 +157,6 @@
             font-size: 20px;
         }
 
-        /* 3. Members 영역 */
         .members-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -189,7 +181,6 @@
             color: #777;
         }
 
-        /* 4. Publications 영역 */
         .pub-list {
             list-style-type: none;
             padding: 0;
@@ -220,7 +211,6 @@
             color: #0056b3;
         }
 
-        /* 하단 카피라이트 */
         footer {
             border-top: 1px solid #eaeaea;
             color: #888;
@@ -229,7 +219,6 @@
             font-size: 13px;
         }
         
-        /* 모바일 화면 대응 */
         @media (max-width: 768px) {
             section#home.active {
                 flex-direction: column;
@@ -257,7 +246,6 @@
 </head>
 <body>
 
-    <!-- 상단 메뉴바 -->
     <header>
         <h1><a href="#home">HEYONE LAB</a></h1> 
         <nav>
@@ -270,21 +258,19 @@
         </nav>
     </header>
 
-    <!-- 1. Home 영역 -->
     <section id="home">
         <div class="profile-img-container">
             <img src="https://via.placeholder.com/250x300.png?text=Profile+Photo" alt="Profile">
         </div>
         
         <div class="bio-container">
-            <h3>Heyone Seo</h3>
-            <h4>Researcher, Samsung Advanced Institute of Technology (SAIT)<br>Energy Solutions TU</h4>
-            <p>Welcome to HEYONE LAB. My research focuses on advanced energy solutions, specifically highly efficient energy conversion and storage. I aim to contribute to a sustainable energy future through continuous innovation.</p>
+            <h3>Welcome to HEYONE LAB!</h3>
+            <p>Welcome to HEYONE LAB!<br>Our group pioneers next-generation energy conversion devices for a sustainable future.<br>We design and optimize novel devices with multiscale structural engineering, transforming sustainable energy concepts into highly efficient, real-world solutions.</p>
             
             <div class="contact-info">
                 <strong>Email:</strong> your.email@domain.com<br>
-                <strong>Affiliation:</strong> Samsung Advanced Institute of Technology (SAIT)<br>
-                <strong>Location:</strong> Suwon, Republic of Korea
+                <strong>Affiliation:</strong> Division of Climate Change, Hankuk University of Foreign Studies<br>
+                <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
             </div>
         </div>
     </section>
