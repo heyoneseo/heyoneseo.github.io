@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
-        /* 기본 전체 디자인 설정 (더 깔끔하고 전문적인 폰트와 여백) */
+        /* 기본 전체 디자인 설정 */
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: #333;
             line-height: 1.6;
             background-color: #ffffff;
-            scroll-behavior: smooth;
         }
         a {
             text-decoration: none;
-            color: #0056b3; /* 링크 색상을 신뢰감 있는 파란색으로 */
+            color: #0056b3;
         }
         a:hover {
             text-decoration: underline;
         }
         
-        /* 상단 고정 메뉴바 (그림자를 줄이고 심플하게) */
+        /* 상단 고정 메뉴바 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -70,12 +69,31 @@
             text-decoration: none;
         }
 
-        /* 본문 영역 공통 설정 (최대 너비를 제한하여 읽기 좋게) */
+        /* 🌟 핵심: 모든 섹션을 기본적으로 화면에서 숨깁니다! 🌟 */
         section {
-            padding: 100px 20px 40px;
+            display: none !important; 
+            padding: 120px 20px 40px;
             max-width: 850px;
             margin: 0 auto;
+            min-height: 70vh; /* 화면이 너무 짧아보이지 않게 최소 높이 지정 */
+            animation: fadeIn 0.4s ease-in-out; /* 클릭 시 부드럽게 나타나는 효과 */
         }
+
+        /* 클릭한 메뉴(active)만 화면에 보여줍니다. */
+        section.active {
+            display: block !important;
+        }
+        
+        /* Home 영역은 좌우 배치(flex)를 사용하므로 따로 지정 */
+        section#home.active {
+            display: flex !important;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h2 {
             font-size: 24px;
             color: #222;
@@ -86,11 +104,9 @@
             letter-spacing: 1px;
         }
 
-        /* 1. Home 영역 (프로필 사진과 소개글이 양옆으로 나란히 배치) */
+        /* 1. Home 영역 */
         #home {
-            display: flex;
             gap: 50px;
-            padding-top: 130px; /* 헤더에 가리지 않게 간격 확보 */
             align-items: flex-start;
         }
         .profile-img-container {
@@ -99,7 +115,7 @@
         }
         .profile-img-container img {
             width: 100%;
-            border-radius: 8px; /* 모서리를 둥글게 */
+            border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .bio-container {
@@ -123,7 +139,7 @@
             margin-top: 20px;
         }
 
-        /* 2. Research 영역 (썸네일 이미지 + 요약글) */
+        /* 2. Research 영역 */
         .research-item {
             display: flex;
             gap: 25px;
@@ -148,7 +164,7 @@
             font-size: 20px;
         }
 
-        /* 3. Members 영역 (격자무늬로 사진 나열) */
+        /* 3. Members 영역 */
         .members-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -158,8 +174,8 @@
         .member-card img {
             width: 140px;
             height: 140px;
-            object-fit: cover; /* 사진 비율 유지 */
-            border-radius: 50%; /* 완전한 동그라미 */
+            object-fit: cover; 
+            border-radius: 50%; 
             margin-bottom: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
@@ -173,7 +189,7 @@
             color: #777;
         }
 
-        /* 4. Publications 영역 (깔끔한 논문 리스트) */
+        /* 4. Publications 영역 */
         .pub-list {
             list-style-type: none;
             padding: 0;
@@ -185,7 +201,7 @@
             position: relative;
         }
         .pub-list li::before {
-            content: "📄"; /* 논문 아이콘 */
+            content: "📄"; 
             position: absolute;
             left: 0;
             top: 2px;
@@ -210,13 +226,16 @@
             color: #888;
             text-align: center;
             padding: 30px 20px;
-            margin-top: 60px;
             font-size: 13px;
         }
         
-        /* 모바일 화면 대응 (화면이 좁아지면 가로배치를 세로배치로 변경) */
+        /* 모바일 화면 대응 */
         @media (max-width: 768px) {
-            #home, .research-item {
+            section#home.active {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .research-item {
                 flex-direction: column;
                 gap: 20px;
             }
@@ -253,22 +272,19 @@
 
     <!-- 1. Home 영역 -->
     <section id="home">
-        <!-- 왼쪽: 프로필 사진 -->
         <div class="profile-img-container">
-            <!-- src="주소" 안의 링크를 본인 사진 링크로 바꾸면 됩니다. -->
             <img src="https://via.placeholder.com/250x300.png?text=Profile+Photo" alt="Profile">
         </div>
         
-        <!-- 오른쪽: 프로필 텍스트 -->
         <div class="bio-container">
             <h3>Heyone Seo</h3>
-            <h4>Principal Investigator / Researcher</h4>
-            <p>환영합니다. 이 공간에 본인의 학위, 연구 관심사, 비전 등 간단한 자기소개를 작성해 보세요. 참조하신 사이트처럼 우측 상단에 큼직하게 텍스트가 들어가는 영역입니다.</p>
+            <h4>Researcher, Samsung Advanced Institute of Technology (SAIT)<br>Energy Solutions TU</h4>
+            <p>Welcome to HEYONE LAB. My research focuses on advanced energy solutions, specifically highly efficient energy conversion and storage. I aim to contribute to a sustainable energy future through continuous innovation.</p>
             
             <div class="contact-info">
                 <strong>Email:</strong> your.email@domain.com<br>
-                <strong>Affiliation:</strong> Department / Institute Name<br>
-                <strong>Location:</strong> City, Country
+                <strong>Affiliation:</strong> Samsung Advanced Institute of Technology (SAIT)<br>
+                <strong>Location:</strong> Suwon, Republic of Korea
             </div>
         </div>
     </section>
@@ -277,25 +293,23 @@
     <section id="research">
         <h2>Research Topics</h2>
         
-        <!-- 첫 번째 연구 주제 -->
         <div class="research-item">
             <div class="research-img">
-                <img src="https://via.placeholder.com/250x150.png?text=Research+Image+1" alt="Research 1">
+                <img src="https://via.placeholder.com/250x150.png?text=SOFC/SOEC" alt="Research 1">
             </div>
             <div class="research-text">
-                <h3>1. First Research Area</h3>
-                <p>여기에 첫 번째 연구 분야에 대한 설명을 적습니다. 어떤 시스템을 평가하는지, 어떤 메커니즘을 분석하는지 등 전문적인 내용을 채워 넣으시면 사진과 나란히 멋지게 출력됩니다.</p>
+                <h3>Next-generation Electrochemical Cells (SOFC, SOEC, PCEC)</h3>
+                <p>Development and evaluation of Solid Oxide Fuel Cells (SOFC) and Electrolysis Cells (SOEC) for highly efficient energy conversion and water splitting. Current focus includes Protonic Ceramic Electrochemical Cells (PCEC) for low-temperature operation.</p>
             </div>
         </div>
 
-        <!-- 두 번째 연구 주제 -->
         <div class="research-item">
             <div class="research-img">
-                <img src="https://via.placeholder.com/250x150.png?text=Research+Image+2" alt="Research 2">
+                <img src="https://via.placeholder.com/250x150.png?text=Characterization" alt="Research 2">
             </div>
             <div class="research-text">
-                <h3>2. Second Research Area</h3>
-                <p>두 번째 연구 분야에 대한 설명입니다. 필요하다면 이 블록 전체(research-item)를 복사해서 계속 추가하실 수 있습니다.</p>
+                <h3>Degradation Mechanisms & Material Characterization</h3>
+                <p>Investigating core degradation mechanisms in electrochemical systems, such as Strontium (Sr) segregation under operational stress (e.g., air supply interruption). Utilizing advanced characterization tools (TEM, SEM) and computational calculations (DFT) to modify electrodes for enhanced durability.</p>
             </div>
         </div>
     </section>
@@ -305,25 +319,10 @@
         <h2>Members</h2>
         
         <div class="members-grid">
-            <!-- 멤버 1 -->
             <div class="member-card">
-                <img src="https://via.placeholder.com/150.png?text=Photo" alt="Member 1">
+                <img src="https://via.placeholder.com/150.png?text=Heyone+Seo" alt="Member 1">
                 <h4>Heyone Seo</h4>
-                <p>PI</p>
-            </div>
-            
-            <!-- 멤버 2 -->
-            <div class="member-card">
-                <img src="https://via.placeholder.com/150.png?text=Photo" alt="Member 2">
-                <h4>John Doe</h4>
-                <p>Ph.D. Candidate</p>
-            </div>
-            
-            <!-- 멤버 3 -->
-            <div class="member-card">
-                <img src="https://via.placeholder.com/150.png?text=Photo" alt="Member 3">
-                <h4>Jane Smith</h4>
-                <p>M.S. Student</p>
+                <p>Principal Investigator</p>
             </div>
         </div>
     </section>
@@ -333,18 +332,15 @@
         <h2>Selected Publications</h2>
         
         <ul class="pub-list">
-            <!-- 논문 1 -->
             <li>
-                <span class="title">Title of your first amazing paper goes right here</span>
-                <span class="authors"><strong>Seo, H.</strong>, Doe, J., & Smith, J. (2026).</span>
-                <span class="journal">Journal of Excellent Research, 10(2), 100-110.</span>
+                <span class="title">Research on Advanced Electrochemical Systems (Cover Story)</span>
+                <span class="authors"><strong>Seo, H.</strong>, et al.</span>
+                <span class="journal">Advanced Science</span>
             </li>
-            
-            <!-- 논문 2 -->
             <li>
-                <span class="title">This is the title of the second highly cited publication</span>
-                <span class="authors">Doe, J., & <strong>Seo, H.</strong> (2025).</span>
-                <span class="journal">International Conference on Materials Science.</span>
+                <span class="title">Title of another highly cited publication</span>
+                <span class="authors">Co-author, & <strong>Seo, H.</strong> (2025).</span>
+                <span class="journal">Journal of Materials Research.</span>
             </li>
         </ul>
     </section>
@@ -354,5 +350,30 @@
         <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
+    <!-- 🌟 페이지를 독립적으로 보여주기 위한 마법의 스크립트 🌟 -->
+    <script>
+        function updatePage() {
+            // 인터넷 주소창에서 클릭한 메뉴의 이름(#research 등)을 가져옵니다. 없으면 기본값 #home
+            let hash = window.location.hash || "#home";
+            
+            // 1. 먼저 모든 화면(section)을 숨깁니다.
+            document.querySelectorAll('section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            
+            // 2. 내가 방금 누른 메뉴의 화면만 켭니다.
+            const activeSection = document.querySelector(hash);
+            if(activeSection) {
+                activeSection.classList.add('active');
+            }
+            
+            // 스크롤을 맨 위로 올려줍니다.
+            window.scrollTo(0, 0);
+        }
+
+        // 메뉴를 클릭하거나 주소가 바뀔 때마다 위 기능(updatePage)을 실행합니다.
+        window.addEventListener('hashchange', updatePage);
+        window.addEventListener('DOMContentLoaded', updatePage);
+    </script>
 </body>
 </html>
