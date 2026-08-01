@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>연구실 홈페이지</title>
+    <title>My Website</title>
     <style>
         /* 기본 전체 디자인 설정 */
         body {
@@ -12,6 +12,7 @@
             color: #333;
             line-height: 1.7;
             background-color: #f9f9f9;
+            scroll-behavior: smooth; /* 메뉴 클릭 시 부드럽게 스크롤 */
         }
         a {
             text-decoration: none;
@@ -35,7 +36,7 @@
         header h1 {
             margin: 0;
             font-size: 22px;
-            color: #1a4f8b; /* 참조하신 사이트와 비슷한 차분한 남색 */
+            color: #1a4f8b;
         }
         nav ul {
             list-style: none;
@@ -55,7 +56,7 @@
 
         /* 각 메뉴별 본문 영역 공통 설정 */
         section {
-            padding: 120px 20px 60px;
+            padding: 100px 20px 60px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -74,20 +75,26 @@
             margin-bottom: 20px;
         }
 
-        /* Home 영역 특화 디자인 */
+        /* 🌟 Home 영역 특화 디자인 (화면에 꽉 차게 설정) 🌟 */
         #home {
+            height: 100vh; /* 브라우저 높이에 100% 꽉 차게 맞춤 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 세로 중앙 정렬 */
+            align-items: center; /* 가로 중앙 정렬 */
             text-align: center;
-            padding-top: 180px;
-            min-height: 400px;
+            padding: 0; /* 기본 패딩 없앰 */
+            max-width: 100%;
+            background-color: #ffffff; /* 메인 화면만 하얀 배경 */
         }
         #home h2 {
             border-bottom: none;
-            font-size: 40px;
+            font-size: 45px;
             margin-bottom: 15px;
             color: #1a4f8b;
         }
         #home p {
-            font-size: 18px;
+            font-size: 20px;
             color: #555;
         }
 
@@ -98,14 +105,6 @@
             font-size: 20px;
         }
         
-        /* 출판물 리스트 간격 조정 */
-        .pub-list {
-            padding-left: 20px;
-        }
-        .pub-list li {
-            margin-bottom: 15px;
-        }
-
         /* 맨 아래 꼬리말 */
         footer {
             background-color: #333;
@@ -121,7 +120,7 @@
 
     <!-- 상단 메뉴바 -->
     <header>
-        <h1>My Lab Name</h1> <!-- 왼쪽 상단 로고 이름 -->
+        <h1>My Website</h1> 
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -132,65 +131,48 @@
         </nav>
     </header>
 
-    <!-- 1. Home 메뉴 본문 -->
+    <!-- 1. Home 영역 (화면에 꽉 차게 보임) -->
     <section id="home">
-        <h2>Welcome to Hydrogen EnergY ON Earth LAB </h2>
-        <p>우리 연구실은 최신 기술을 연구하고 혁신적인 솔루션을 개발합니다.</p>
-        <p>간단한 환영 인사나 연구실의 비전을 이곳에 자유롭게 적어주세요.</p>
+        <h2>Welcome to My Website</h2>
+        <p>환영합니다. 저의 개인 홈페이지입니다.</p>
     </section>
 
-    <!-- 2. Research 메뉴 본문 -->
+    <!-- 2. Research 영역 (직접 꾸미실 공간) -->
     <section id="research">
         <h2>Research</h2>
         <div class="content-box">
-            <h3>1. 주요 연구 분야 첫 번째</h3>
-            <p>이곳에 첫 번째 연구 분야에 대한 설명을 적어주세요. 복잡한 기술적 내용이나 현재 진행 중인 프로젝트를 소개하기 좋은 공간입니다.</p>
+            <h3>Research Topic 1</h3>
+            <p>이곳에 연구 내용을 자유롭게 작성해 보세요.</p>
         </div>
         <div class="content-box">
-            <h3>2. 주요 연구 분야 두 번째</h3>
-            <p>이곳에 두 번째 연구 분야에 대한 설명을 적어주세요. 관심 있는 연구 주제나 향후 계획 등을 자유롭게 서술하시면 됩니다.</p>
+            <h3>Research Topic 2</h3>
+            <p>필요에 따라 상자(content-box)를 추가하여 여러 내용을 넣으실 수 있습니다.</p>
         </div>
     </section>
 
-    <!-- 3. Members 메뉴 본문 -->
+    <!-- 3. Members 영역 (직접 꾸미실 공간) -->
     <section id="members">
         <h2>Members</h2>
         <div class="content-box">
-            <h3>Principal Investigator (지도교수 / 연구책임자)</h3>
-            <p><strong>홍길동 (Gildong Hong)</strong></p>
-            <p>Ph.D. in Computer Science<br>
-            Email: email@yourdomain.com</p>
-        </div>
-        <div class="content-box">
-            <h3>Researchers & Students (연구원 및 학생)</h3>
-            <ul>
-                <li>김철수 (Cheolsu Kim) - Ph.D. Student</li>
-                <li>이영희 (Younghee Lee) - M.S. Student</li>
-            </ul>
+            <h3>Profile</h3>
+            <p>이곳에 이름, 소속, 이메일 등 본인의 프로필을 채워보세요.</p>
         </div>
     </section>
 
-    <!-- 4. Publication 메뉴 본문 -->
+    <!-- 4. Publication 영역 (직접 꾸미실 공간) -->
     <section id="publication">
         <h2>Publication</h2>
         <div class="content-box">
-            <ul class="pub-list">
-                <li>
-                    <strong>Hong, G.</strong>, Kim, C., & Lee, Y. (2026). "A Novel Approach to Research." <em>Journal of Excellent Studies</em>, 45(2), 123-145.
-                </li>
-                <li>
-                    Kim, C., & <strong>Hong, G.</strong> (2025). "Deep Learning for Data Analysis." <em>International Conference on Machine Learning</em>.
-                </li>
-                <li>
-                    이곳에 논문, 학술지, 발표 자료 등의 목록을 연도순으로 계속 추가하시면 됩니다. 
-                </li>
+            <ul>
+                <li>논문, 학술지, 포트폴리오 등의 실적을 이곳에 리스트 형태로 정리해 보세요.</li>
+                <li>새로운 항목은 이 줄처럼 계속 아래로 추가하시면 됩니다.</li>
             </ul>
         </div>
     </section>
 
     <!-- 하단 카피라이트 -->
     <footer>
-        <p>&copy; 2026 My Lab Name. All rights reserved.</p>
+        <p>&copy; 2026 My Website. All rights reserved.</p>
     </footer>
 
 </body>
