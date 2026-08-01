@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연구실 홈페이지</title>
+    <style>
+        /* 기본 전체 디자인 설정 */
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.7;
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* 상단 고정 메뉴바 */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-sizing: border-box;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+            color: #1a4f8b; /* 참조하신 사이트와 비슷한 차분한 남색 */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+        nav ul li a {
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #1a4f8b;
+        }
+
+        /* 각 메뉴별 본문 영역 공통 설정 */
+        section {
+            padding: 120px 20px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h2 {
+            border-bottom: 2px solid #1a4f8b;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #222;
+        }
+        .content-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+        }
+
+        /* Home 영역 특화 디자인 */
+        #home {
+            text-align: center;
+            padding-top: 180px;
+            min-height: 400px;
+        }
+        #home h2 {
+            border-bottom: none;
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #1a4f8b;
+        }
+        #home p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* 세부 항목 제목 디자인 */
+        h3 {
+            color: #333;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        
+        /* 출판물 리스트 간격 조정 */
+        .pub-list {
+            padding-left: 20px;
+        }
+        .pub-list li {
+            margin-bottom: 15px;
+        }
+
+        /* 맨 아래 꼬리말 */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 상단 메뉴바 -->
+    <header>
+        <h1>My Lab Name</h1> <!-- 왼쪽 상단 로고 이름 -->
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#members">Members</a></li>
+                <li><a href="#publication">Publication</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 1. Home 메뉴 본문 -->
+    <section id="home">
+        <h2>Welcome to Our Research Lab</h2>
+        <p>우리 연구실은 최신 기술을 연구하고 혁신적인 솔루션을 개발합니다.</p>
+        <p>간단한 환영 인사나 연구실의 비전을 이곳에 자유롭게 적어주세요.</p>
+    </section>
+
+    <!-- 2. Research 메뉴 본문 -->
+    <section id="research">
+        <h2>Research</h2>
+        <div class="content-box">
+            <h3>1. 주요 연구 분야 첫 번째</h3>
+            <p>이곳에 첫 번째 연구 분야에 대한 설명을 적어주세요. 복잡한 기술적 내용이나 현재 진행 중인 프로젝트를 소개하기 좋은 공간입니다.</p>
+        </div>
+        <div class="content-box">
+            <h3>2. 주요 연구 분야 두 번째</h3>
+            <p>이곳에 두 번째 연구 분야에 대한 설명을 적어주세요. 관심 있는 연구 주제나 향후 계획 등을 자유롭게 서술하시면 됩니다.</p>
+        </div>
+    </section>
+
+    <!-- 3. Members 메뉴 본문 -->
+    <section id="members">
+        <h2>Members</h2>
+        <div class="content-box">
+            <h3>Principal Investigator (지도교수 / 연구책임자)</h3>
+            <p><strong>홍길동 (Gildong Hong)</strong></p>
+            <p>Ph.D. in Computer Science<br>
+            Email: email@yourdomain.com</p>
+        </div>
+        <div class="content-box">
+            <h3>Researchers & Students (연구원 및 학생)</h3>
+            <ul>
+                <li>김철수 (Cheolsu Kim) - Ph.D. Student</li>
+                <li>이영희 (Younghee Lee) - M.S. Student</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 4. Publication 메뉴 본문 -->
+    <section id="publication">
+        <h2>Publication</h2>
+        <div class="content-box">
+            <ul class="pub-list">
+                <li>
+                    <strong>Hong, G.</strong>, Kim, C., & Lee, Y. (2026). "A Novel Approach to Research." <em>Journal of Excellent Studies</em>, 45(2), 123-145.
+                </li>
+                <li>
+                    Kim, C., & <strong>Hong, G.</strong> (2025). "Deep Learning for Data Analysis." <em>International Conference on Machine Learning</em>.
+                </li>
+                <li>
+                    이곳에 논문, 학술지, 발표 자료 등의 목록을 연도순으로 계속 추가하시면 됩니다. 
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 하단 카피라이트 -->
+    <footer>
+        <p>&copy; 2026 My Lab Name. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
