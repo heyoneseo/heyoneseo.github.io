@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
-        /* 기본 전체 디자인 설정 */
+        /* 기본 전체 디자인 설정 (더 깔끔하고 전문적인 폰트와 여백) */
         body {
             margin: 0;
-            font-family: 'Helvetica Neue', Arial, 'Noto Sans KR', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: #333;
-            line-height: 1.7;
-            background-color: #f9f9f9;
-            scroll-behavior: smooth; /* 메뉴 클릭 시 부드럽게 스크롤 */
+            line-height: 1.6;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
         }
         a {
             text-decoration: none;
-            color: inherit;
+            color: #0056b3; /* 링크 색상을 신뢰감 있는 파란색으로 */
+        }
+        a:hover {
+            text-decoration: underline;
         }
         
-        /* 상단 고정 메뉴바 */
+        /* 상단 고정 메뉴바 (그림자를 줄이고 심플하게) */
         header {
-            background-color: white;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #eaeaea;
             position: fixed;
             width: 100%;
             top: 0;
@@ -32,94 +35,204 @@
             align-items: center;
             padding: 15px 50px;
             box-sizing: border-box;
+            backdrop-filter: blur(5px);
         }
         header h1 {
             margin: 0;
             font-size: 22px;
-            color: #1a4f8b;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
-        
-        /* 배너(로고)에 마우스 올렸을 때 클릭 가능하다는 표시(손가락 모양) */
+        header h1 a {
+            color: #222;
+            text-decoration: none;
+        }
         header h1 a:hover {
-            opacity: 0.8;
-            cursor: pointer;
+            opacity: 0.7;
+            text-decoration: none;
         }
-        
         nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 40px;
+            gap: 30px;
         }
         nav ul li a {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
-            transition: color 0.3s;
+            color: #555;
+            transition: color 0.2s;
+            text-decoration: none;
         }
         nav ul li a:hover {
-            color: #1a4f8b;
+            color: #0056b3;
+            text-decoration: none;
         }
 
-        /* 각 메뉴별 본문 영역 공통 설정 */
+        /* 본문 영역 공통 설정 (최대 너비를 제한하여 읽기 좋게) */
         section {
-            padding: 100px 20px 60px;
-            max-width: 900px;
+            padding: 100px 20px 40px;
+            max-width: 850px;
             margin: 0 auto;
         }
         h2 {
-            border-bottom: 2px solid #1a4f8b;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            font-size: 28px;
+            font-size: 24px;
             color: #222;
-        }
-        .content-box {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* 🌟 Home 영역 특화 디자인 (화면에 꽉 차게 설정) 🌟 */
+        /* 1. Home 영역 (프로필 사진과 소개글이 양옆으로 나란히 배치) */
         #home {
-            height: 100vh; /* 브라우저 높이에 100% 꽉 차게 맞춤 */
             display: flex;
-            flex-direction: column;
-            justify-content: center; /* 세로 중앙 정렬 */
-            align-items: center; /* 가로 중앙 정렬 */
-            text-align: center;
-            padding: 0; /* 기본 패딩 없앰 */
-            max-width: 100%;
-            background-color: #ffffff; /* 메인 화면만 하얀 배경 */
+            gap: 50px;
+            padding-top: 130px; /* 헤더에 가리지 않게 간격 확보 */
+            align-items: flex-start;
         }
-        #home h2 {
-            border-bottom: none;
-            font-size: 45px;
-            margin-bottom: 15px;
-            color: #1a4f8b;
+        .profile-img-container {
+            flex: 1;
+            max-width: 250px;
         }
-        #home p {
+        .profile-img-container img {
+            width: 100%;
+            border-radius: 8px; /* 모서리를 둥글게 */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .bio-container {
+            flex: 2;
+        }
+        .bio-container h3 {
+            margin-top: 0;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        .bio-container h4 {
+            margin: 0 0 20px 0;
+            color: #666;
+            font-weight: 400;
+        }
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* 2. Research 영역 (썸네일 이미지 + 요약글) */
+        .research-item {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+        .research-img {
+            flex: 1;
+            max-width: 250px;
+        }
+        .research-img img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #eaeaea;
+        }
+        .research-text {
+            flex: 2;
+        }
+        .research-text h3 {
+            margin: 0 0 10px 0;
+            color: #222;
             font-size: 20px;
+        }
+
+        /* 3. Members 영역 (격자무늬로 사진 나열) */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .member-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover; /* 사진 비율 유지 */
+            border-radius: 50%; /* 완전한 동그라미 */
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .member-card h4 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+        .member-card p {
+            margin: 0;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* 4. Publications 영역 (깔끔한 논문 리스트) */
+        .pub-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .pub-list li {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .pub-list li::before {
+            content: "📄"; /* 논문 아이콘 */
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 12px;
+        }
+        .pub-list .title {
+            font-weight: 600;
+            color: #222;
+            display: block;
+        }
+        .pub-list .authors {
             color: #555;
         }
+        .pub-list .journal {
+            font-style: italic;
+            color: #0056b3;
+        }
 
-        /* 세부 항목 제목 디자인 */
-        h3 {
-            color: #333;
-            margin-top: 0;
-            font-size: 20px;
+        /* 하단 카피라이트 */
+        footer {
+            border-top: 1px solid #eaeaea;
+            color: #888;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 13px;
         }
         
-        /* 맨 아래 꼬리말 */
-        footer {
-            background-color: #333;
-            color: #ccc;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            font-size: 14px;
+        /* 모바일 화면 대응 (화면이 좁아지면 가로배치를 세로배치로 변경) */
+        @media (max-width: 768px) {
+            #home, .research-item {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .profile-img-container, .research-img {
+                max-width: 100%;
+                text-align: center;
+            }
+            .profile-img-container img {
+                max-width: 250px;
+            }
+            header {
+                padding: 15px 20px;
+            }
+            nav ul {
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -127,37 +240,113 @@
 
     <!-- 상단 메뉴바 -->
     <header>
-        <!-- 로고(배너) 클릭 시 home으로 돌아가도록 a 태그(링크) 추가 -->
         <h1><a href="#home">HEYONE LAB</a></h1> 
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#members">Members</a></li>
-                <li><a href="#publications">Publications</a></li> <!-- 메뉴 이름도 s 붙여서 수정 -->
+                <li><a href="#publications">Publications</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 1. Home 영역 (화면에 꽉 차게 보임) -->
+    <!-- 1. Home 영역 -->
     <section id="home">
-        <h2>Welcome to HEYONE LAB</h2>
-        <p>환영합니다. 저의 개인 홈페이지입니다.</p>
+        <!-- 왼쪽: 프로필 사진 -->
+        <div class="profile-img-container">
+            <!-- src="주소" 안의 링크를 본인 사진 링크로 바꾸면 됩니다. -->
+            <img src="https://via.placeholder.com/250x300.png?text=Profile+Photo" alt="Profile">
+        </div>
+        
+        <!-- 오른쪽: 프로필 텍스트 -->
+        <div class="bio-container">
+            <h3>Heyone Seo</h3>
+            <h4>Principal Investigator / Researcher</h4>
+            <p>환영합니다. 이 공간에 본인의 학위, 연구 관심사, 비전 등 간단한 자기소개를 작성해 보세요. 참조하신 사이트처럼 우측 상단에 큼직하게 텍스트가 들어가는 영역입니다.</p>
+            
+            <div class="contact-info">
+                <strong>Email:</strong> your.email@domain.com<br>
+                <strong>Affiliation:</strong> Department / Institute Name<br>
+                <strong>Location:</strong> City, Country
+            </div>
+        </div>
     </section>
 
     <!-- 2. Research 영역 -->
     <section id="research">
-        <h2>Research</h2>
+        <h2>Research Topics</h2>
+        
+        <!-- 첫 번째 연구 주제 -->
+        <div class="research-item">
+            <div class="research-img">
+                <img src="https://via.placeholder.com/250x150.png?text=Research+Image+1" alt="Research 1">
+            </div>
+            <div class="research-text">
+                <h3>1. First Research Area</h3>
+                <p>여기에 첫 번째 연구 분야에 대한 설명을 적습니다. 어떤 시스템을 평가하는지, 어떤 메커니즘을 분석하는지 등 전문적인 내용을 채워 넣으시면 사진과 나란히 멋지게 출력됩니다.</p>
+            </div>
+        </div>
+
+        <!-- 두 번째 연구 주제 -->
+        <div class="research-item">
+            <div class="research-img">
+                <img src="https://via.placeholder.com/250x150.png?text=Research+Image+2" alt="Research 2">
+            </div>
+            <div class="research-text">
+                <h3>2. Second Research Area</h3>
+                <p>두 번째 연구 분야에 대한 설명입니다. 필요하다면 이 블록 전체(research-item)를 복사해서 계속 추가하실 수 있습니다.</p>
+            </div>
+        </div>
     </section>
 
     <!-- 3. Members 영역 -->
     <section id="members">
         <h2>Members</h2>
+        
+        <div class="members-grid">
+            <!-- 멤버 1 -->
+            <div class="member-card">
+                <img src="https://via.placeholder.com/150.png?text=Photo" alt="Member 1">
+                <h4>Heyone Seo</h4>
+                <p>PI</p>
+            </div>
+            
+            <!-- 멤버 2 -->
+            <div class="member-card">
+                <img src="https://via.placeholder.com/150.png?text=Photo" alt="Member 2">
+                <h4>John Doe</h4>
+                <p>Ph.D. Candidate</p>
+            </div>
+            
+            <!-- 멤버 3 -->
+            <div class="member-card">
+                <img src="https://via.placeholder.com/150.png?text=Photo" alt="Member 3">
+                <h4>Jane Smith</h4>
+                <p>M.S. Student</p>
+            </div>
+        </div>
     </section>
 
     <!-- 4. Publications 영역 -->
     <section id="publications">
-        <h2>Publications</h2>
+        <h2>Selected Publications</h2>
+        
+        <ul class="pub-list">
+            <!-- 논문 1 -->
+            <li>
+                <span class="title">Title of your first amazing paper goes right here</span>
+                <span class="authors"><strong>Seo, H.</strong>, Doe, J., & Smith, J. (2026).</span>
+                <span class="journal">Journal of Excellent Research, 10(2), 100-110.</span>
+            </li>
+            
+            <!-- 논문 2 -->
+            <li>
+                <span class="title">This is the title of the second highly cited publication</span>
+                <span class="authors">Doe, J., & <strong>Seo, H.</strong> (2025).</span>
+                <span class="journal">International Conference on Materials Science.</span>
+            </li>
+        </ul>
     </section>
 
     <!-- 하단 카피라이트 -->
