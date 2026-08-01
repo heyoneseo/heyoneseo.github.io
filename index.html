@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>HEYONE LAB</title>
     <style>
         /* 기본 전체 디자인 설정 */
         body {
@@ -38,6 +38,13 @@
             font-size: 22px;
             color: #1a4f8b;
         }
+        
+        /* 배너(로고)에 마우스 올렸을 때 클릭 가능하다는 표시(손가락 모양) */
+        header h1 a:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        
         nav ul {
             list-style: none;
             margin: 0;
@@ -120,59 +127,42 @@
 
     <!-- 상단 메뉴바 -->
     <header>
-        <h1>My Website</h1> 
+        <!-- 로고(배너) 클릭 시 home으로 돌아가도록 a 태그(링크) 추가 -->
+        <h1><a href="#home">HEYONE LAB</a></h1> 
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#members">Members</a></li>
-                <li><a href="#publication">Publication</a></li>
+                <li><a href="#publications">Publications</a></li> <!-- 메뉴 이름도 s 붙여서 수정 -->
             </ul>
         </nav>
     </header>
 
     <!-- 1. Home 영역 (화면에 꽉 차게 보임) -->
     <section id="home">
-        <h2>Welcome to My Website</h2>
+        <h2>Welcome to HEYONE LAB</h2>
         <p>환영합니다. 저의 개인 홈페이지입니다.</p>
     </section>
 
-    <!-- 2. Research 영역 (직접 꾸미실 공간) -->
+    <!-- 2. Research 영역 -->
     <section id="research">
         <h2>Research</h2>
-        <div class="content-box">
-            <h3>Research Topic 1</h3>
-            <p>이곳에 연구 내용을 자유롭게 작성해 보세요.</p>
-        </div>
-        <div class="content-box">
-            <h3>Research Topic 2</h3>
-            <p>필요에 따라 상자(content-box)를 추가하여 여러 내용을 넣으실 수 있습니다.</p>
-        </div>
     </section>
 
-    <!-- 3. Members 영역 (직접 꾸미실 공간) -->
+    <!-- 3. Members 영역 -->
     <section id="members">
         <h2>Members</h2>
-        <div class="content-box">
-            <h3>Profile</h3>
-            <p>이곳에 이름, 소속, 이메일 등 본인의 프로필을 채워보세요.</p>
-        </div>
     </section>
 
-    <!-- 4. Publication 영역 (직접 꾸미실 공간) -->
-    <section id="publication">
-        <h2>Publication</h2>
-        <div class="content-box">
-            <ul>
-                <li>논문, 학술지, 포트폴리오 등의 실적을 이곳에 리스트 형태로 정리해 보세요.</li>
-                <li>새로운 항목은 이 줄처럼 계속 아래로 추가하시면 됩니다.</li>
-            </ul>
-        </div>
+    <!-- 4. Publications 영역 -->
+    <section id="publications">
+        <h2>Publications</h2>
     </section>
 
     <!-- 하단 카피라이트 -->
     <footer>
-        <p>&copy; 2026 My Website. All rights reserved.</p>
+        <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
 </body>
