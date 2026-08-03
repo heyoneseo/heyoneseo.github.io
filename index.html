@@ -41,6 +41,7 @@
             font-size: 22px;
             font-weight: 700;
             letter-spacing: 1px;
+            white-space: nowrap; 
         }
         header h1 a {
             color: #222;
@@ -50,6 +51,16 @@
             opacity: 0.7;
             text-decoration: none;
         }
+        
+        /* 스크롤바 숨기기 (모바일 메뉴용) */
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+        nav {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         nav ul {
             list-style: none;
             margin: 0;
@@ -238,14 +249,14 @@
         .pi-profile {
             display: flex;
             gap: 35px;
-            align-items: flex-start; /* 상단 정렬로 변경하여 이력서 공간 확보 */
+            align-items: flex-start; 
             margin-bottom: 60px;
         }
         .pi-img {
             flex-shrink: 0;
             width: 220px;
             position: sticky;
-            top: 100px; /* 스크롤할 때 사진이 화면에 따라다니게 함 */
+            top: 100px; 
         }
         .pi-img img {
             width: 100%;
@@ -295,19 +306,18 @@
             text-decoration: none;
         }
 
-        /* PI 상세 이력 (Research Interests, Education, Employment) */
         .pi-details h5 {
             font-size: 17px;
             color: #1a4f8b;
-            margin: 0 0 15px 0;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #f0f0f0;
+            margin: 0;
         }
         
         .interest-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 35px 0;
+            margin: 15px 0 35px 0;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
         }
         .interest-list li {
             position: relative;
@@ -323,9 +333,36 @@
             color: #1a4f8b;
         }
 
-        .cv-section {
-            margin-bottom: 35px;
+        /* 숨김/펼침 기능 디자인 */
+        details.cv-section {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 10px;
         }
+        details.cv-section summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details.cv-section summary::-webkit-details-marker {
+            display: none; 
+        }
+        details.cv-section summary::after {
+            content: "▼";
+            font-size: 12px;
+            color: #1a4f8b;
+            transition: transform 0.3s ease;
+        }
+        details.cv-section[open] summary::after {
+            transform: rotate(180deg);
+        }
+        .cv-content {
+            padding-top: 15px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
         .cv-item {
             display: flex;
             gap: 20px;
@@ -371,12 +408,22 @@
         /* ================================
            4. Publications 영역
         ================================ */
+        /* 하위 카테고리 헤더 */
+        .pub-category {
+            font-size: 22px;
+            color: #1a4f8b;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+
+        /* Scientific Article 리스트 (Graphical Abstract 포함) */
         .pub-list {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 50px 0;
         }
-        
         .pub-item {
             display: flex;
             gap: 20px;
@@ -385,18 +432,15 @@
             padding-bottom: 25px;
             border-bottom: 1px dashed #ddd; 
         }
-        
         .pub-item:last-child {
             border-bottom: none;
         }
-
         .pub-number {
             font-size: 18px;
             font-weight: 700;
             color: #1a4f8b;
             min-width: 25px; 
         }
-
         .pub-ga {
             flex-shrink: 0;
             width: 180px; 
@@ -407,7 +451,6 @@
             border: 1px solid #eaeaea;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-
         .pub-info {
             flex: 1;
             line-height: 1.6;
@@ -427,6 +470,42 @@
             display: block;
         }
 
+        /* Conference 리스트 (텍스트 중심의 심플한 디자인) */
+        .conf-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 50px 0;
+        }
+        .conf-list li {
+            margin-bottom: 18px;
+            padding-left: 22px;
+            position: relative;
+            line-height: 1.6;
+            color: #444;
+        }
+        .conf-list li::before {
+            content: "🎤"; 
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 13px;
+        }
+        .conf-list .title {
+            color: #222;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .conf-list .authors {
+            display: block;
+            margin-bottom: 2px;
+            font-size: 14.5px;
+        }
+        .conf-list .conf-info {
+            color: #0056b3;
+            display: block;
+            font-size: 14.5px;
+        }
+
         footer {
             border-top: 1px solid #eaeaea;
             color: #888;
@@ -437,6 +516,23 @@
         
         /* 모바일 화면 대응 */
         @media (max-width: 768px) {
+            header {
+                flex-direction: column; 
+                align-items: flex-start;
+                padding: 12px 20px;
+            }
+            nav {
+                width: 100%;
+                overflow-x: auto; 
+                -webkit-overflow-scrolling: touch; 
+                margin-top: 10px;
+            }
+            nav ul {
+                gap: 20px;
+                min-width: max-content; 
+                padding-bottom: 5px; 
+            }
+            
             .profile-section, .research-item, .pi-profile {
                 flex-direction: column;
                 gap: 25px;
@@ -453,13 +549,7 @@
                 justify-content: center;
             }
             .pi-details {
-                text-align: left;
-            }
-            header {
-                padding: 15px 20px;
-            }
-            nav ul {
-                gap: 15px;
+                text-align: left; 
             }
             .news-list li {
                 flex-direction: column;
@@ -501,17 +591,17 @@
         
         <div class="profile-section">
             <div class="profile-img-container">
-                <img src="https://via.placeholder.com/250x300.png?text=Profile+Photo" alt="Profile">
+                <img src="profile.jpg" onerror="this.src='https://via.placeholder.com/250x300.png?text=Profile+Photo'" alt="Profile">
             </div>
             
             <div class="bio-container">
                 <h3>Welcome to HEYONE LAB!</h3>
-                <p>Our group pioneers next-generation energy conversion devices for a sustainable future.<br>We design and optimize novel devices with multiscale structural architecture, transforming sustainable energy concepts into highly efficient, real-world solutions.</p>
+                <p>HEYONE LAB is dedicated to advancing next-generation electrochemical energy devices.<br>By establishing advanced fabrication processes and multiscale structural engineering, we develop robust and highly efficient devices capable of stable operation even under harsh environmental conditions.</p>
                 
                 <div class="contact-info">
-                    <strong>Email:</strong> your.email@domain.com<br>
-                    <strong>Affiliation:</strong> Division of Climate Change, Hankuk University of Foreign Studies<br>
-                    <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
+                    <strong>Email:</strong> hhaewon.seo@samsung.com<br>
+                    <strong>Affiliation:</strong> Samsung Advanced Institute of Technology (SAIT)<br>
+                    <strong>Access:</strong> 130, Samsung-ro, Yeongtong-gu, Suwon-si, Gyeonggi-do, 16678, Korea
                 </div>
             </div>
         </div>
@@ -521,12 +611,12 @@
             <ul class="news-list">
                 <li>
                     <span class="news-date">2026.08</span>
-                    <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
+                    <span class="news-content">Co-authored research paper on advanced electrochemical systems published as a cover story in <em>Advanced Science</em>.</span>
                 </li>
-                <!---<li>
+                <li>
                     <span class="news-date">2026.07</span>
                     <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
-                </li>--->                
+                </li>                
             </ul>
         </div>
 
@@ -567,7 +657,7 @@
     </section>
 
     <!-- ==============================================
-         3. Members 영역 (Research Interests, Education, Employment 추가)
+         3. Members 영역 (PI / Students)
     =============================================== -->
     <section id="members">
         <h2>Members</h2>
@@ -575,13 +665,13 @@
         <h3 class="member-category">Principal Investigator</h3>
         <div class="pi-profile">
             <div class="pi-img">
-                <img src="https://via.placeholder.com/220x280.png?text=PI+Photo" alt="Heyone Seo">
+                <img src="profile.jpg" onerror="this.src='https://via.placeholder.com/220x280.png?text=PI+Photo'" alt="Haewon Seo">
             </div>
             
             <div class="pi-info">
-                <h4>Haewon Seo</h4>
-                <p class="role">Assistant Professor</p>
-                <p class="affiliation">Division of Climate Change<br>Hankuk University of Foreign Studies (HUFS)</p>
+                <h4>Haewon Seo, Ph. D.</h4>
+                <p class="role">Senior Researcher</p>
+                <p class="affiliation">Air Science Platform<br>Samsung Advanced Institute of Technology (SAIT)</p>
                 
                 <div class="btn-group">
                     <a href="https://scholar.google.com/citations?user=cWeRVvMAAAAJ&hl=ko" target="_blank" class="profile-btn">Google Scholar</a>
@@ -589,47 +679,54 @@
                 </div>
 
                 <div class="pi-details">
-                    
                     <h5>Research Interests</h5>
                     <ul class="interest-list">
-                        <li>SOC/PCC</li>
+                        <li>Electrochemical Energy Device</li>
                         <li>Micro/Nanofabrication</li>
-                        <li>Structural/Interfacial Architecture</li>
                         <li>Heat and Mass Transfer</li>
+                        <li>Interfacial/Structural Engineering</li>
+                        <li>3D Nanotomography</li>
                     </ul>
 
-                    <div class="cv-section">
-                        <h5>Education</h5>
-                        <div class="cv-item">
-                            <div class="period">2018.04–2021.03</div>
-                            <div class="desc">Ph.D in Department of Aeronautics and Astronautics<br>Kyoto University</div>
+                    <details class="cv-section">
+                        <summary><h5>Education</h5></summary>
+                        <div class="cv-content">
+                            <div class="cv-item">
+                                <div class="period">2018.04 – 2021.03</div>
+                                <div class="desc"><strong>Ph.D.</strong> in Aeronautics and Astronautics<br>Kyoto University, Japan</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2016.04 – 2018.03</div>
+                                <div class="desc"><strong>M.S.</strong> in Aeronautics and Astronautics<br>Kyoto University, Japan</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2012.04 – 2016.03</div>
+                                <div class="desc"><strong>B.S.</strong> in Mechanical & Aerospace Engineering<br>Kyushu University, Japan</div>
+                            </div>
                         </div>
-                        <div class="cv-item">
-                            <div class="period">2016.04–2018.03</div>
-                            <div class="desc">MS in Department of Aeronautics and Astronautics<br>Kyoto University</div>
-                        </div>
-                        <div class="cv-item">
-                            <div class="period">2012.04–2016.03</div>
-                            <div class="desc">BS in Department of Mechanical & Aerospace Engineering<br>Kyushu University</div>
-                        </div>
-                    </div>
+                    </details>
 
-                    <div class="cv-section">
-                        <h5>Employment</h5>
-                        <div class="cv-item">
-                            <div class="period">2026.09-Present</div>
-                            <div class="desc">Assistant Professor<br>Division of Climate Change<br>Hankuk University of Foreign Studies (HUFS)</div>
+                    <details class="cv-section">
+                        <summary><h5>Employment</h5></summary>
+                        <div class="cv-content">
+                            <div class="cv-item">
+                                <div class="period">2024.08 – Present</div>
+                                <div class="desc"><strong>Senior Researcher</strong>, Air Science Platform<br>Samsung Advanced Institute of Technology (SAIT), Korea</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2021.07 – 2024.07</div>
+                                <div class="desc"><strong>Postdoctoral Researcher</strong>, Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST), Korea</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2018.11 – 2018.12</div>
+                                <div class="desc"><strong>Researcher</strong>, Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2017.10 – 2017.11</div>
+                                <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
+                            </div>
                         </div>
-                        <div class="cv-item">
-                            <div class="period">2024.08-2026.08</div>
-                            <div class="desc">Senior Researcher<br>Air Science Platform<br>Samsung Advanced Institute of Technology (SAIT)</div>
-                        </div>
-                        <div class="cv-item">
-                            <div class="period">2021.07-2024.07</div>
-                            <div class="desc">Postdoctoral Researcher (Alternative Military Service)<br>Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
-                        </div>
-                    </div>
-                    
+                    </details>
                 </div>
             </div>
         </div>
@@ -650,65 +747,82 @@
     </section>
 
     <!-- ==============================================
-         4. Publications 영역
+         4. Publications 영역 (하위 카테고리 세분화)
     =============================================== -->
     <section id="publications">
-        <h2>Selected Publications</h2>
+        <h2>Publications</h2>
         
+        <!-- ==============================
+             4-1. Scientific Article
+        =============================== -->
+        <h3 class="pub-category">Scientific Article</h3>
         <ul class="pub-list">
             
             <li class="pub-item">
                 <div class="pub-number">2.</div>
-                
                 <div class="pub-ga">
                     <img src="https://via.placeholder.com/200x120.png?text=Graphical+Abstract" alt="Graphical Abstract">
                 </div>
-                
                 <div class="pub-info">
-                    <span class="title">Catastrophic Degradation in Solid Oxide Fuel Cells Caused by Air Supply Interruption in Real‐World Operations: Fundamental Mechanisms and Mitigation Strategies (Inside Front Cover)</span>
-                    <span class="authors"><strong>Haewon Seo</strong>†, Ji‐eun Won†, Wooseok Lee†, Haneul Choi†, Sun‐Young Park, Younghun Shin, Insung Lee, Tae Jin Lim, Kyeounghak Kim, Jongsup Hong*, Hye Jung Chang*, Kyung Joong Yoon*</span>
+                    <span class="title"><em>Catastrophic degradation in solid oxide fuel cells caused by air supply interruption in real-world operations: Fundamental mechanisms and mitigation strategies (Inside Front Cover)</em></span>
+                    <span class="authors"><strong>H. Seo</strong>†, J.-e. Won†, W. Lee†, H. Choi†, S.-Y. Park, Y. Shin, I. Lee, T.J. Lim, K. Kim, J. Hong*, H.J. Chang*, K.J. Yoon*</span>
                     <span class="journal" style="font-style: normal;">
-                        <em>Advanced Science</em>, <strong>13</strong>(3) (2026) e16807 
+                        Advanced Science, <strong>13</strong>(3) (2026) e16807 
                         <a href="https://doi.org/10.1002/advs.202516807" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
                     </span>
                 </div>
             </li>
             
             <li class="pub-item">
-                <div class="pub-number">2.</div>
-                
+                <div class="pub-number">1.</div>
                 <div class="pub-ga">
                     <img src="https://via.placeholder.com/200x120.png?text=Graphical+Abstract" alt="Graphical Abstract">
                 </div>
-                
                 <div class="pub-info">
-                    <span class="title">In-cell neuromorphic computing in solid oxide fuel cells for bifunctional electrochemical power generation and artificial intelligence (Featured Content)</span>
-                    <span class="authors"><strong>Haewon Seo</strong>†, Min-Kyu Song†, Hyun Woo Ko†, Ji-Hoon Kang†, Giho Lee, Sun-Young Park, Hyunwoo J Kim, Sungchul Mun, Min-Chul Park*, Kyung Joong Yoon*</span>
+                    <span class="title"><em>In-cell neuromorphic computing in solid oxide fuel cells for bifunctional electrochemical power generation and artificial intelligence (Featured Content)</em></span>
+                    <span class="authors"><strong>H. Seo</strong>†, M.-K. Song†, H.W. Ko†, J.-H. Kang†, G. Lee, S.-Y. Park, H. J. Kim, S. Mun, M.-C. Park*, K.J. Yoon*</span>
                     <span class="journal" style="font-style: normal;">
-                        <em>Cell Reports Physical Science</em>, <strong>6</strong>(12) (2025) 102966 
+                        Cell Reports Physical Science, <strong>6</strong>(12) (2025) 102966 
                         <a href="https://doi.org/10.1016/j.xcrp.2025.102966" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
                     </span>
                 </div>
             </li>
-
-            <li class="pub-item">
-                <div class="pub-number">2.</div>
-                
-                <div class="pub-ga">
-                    <img src="https://via.placeholder.com/200x120.png?text=Graphical+Abstract" alt="Graphical Abstract">
-                </div>
-                
-                <div class="pub-info">
-                    <span class="title">Medium-Entropy Alloy/Oxide Nano Composite for High-Performing High-Temperature CO2 Electrolysis with Remarkable Carbon Deposition Resistance (Back Cover)</span>
-                    <span class="authors">Jun Tong, <strong>Haewon Seo<strong>, Yunseo Choi, Ji‐eun Won, Jinhong Park, Keun Hwa Chae, Jongsup Hong, Hye Jung Chang, Baowen Zhou, Rongchang Cao, Na Ni*, Kyung Joong Yoon*, Lei Zhu*, Zhen Huang</span>
-                    <span class="journal" style="font-style: normal;">
-                        <em>Advanced Science</em>, <strong>12</strong>(39) (2025) e08800
-                        <a href="https://doi.org/10.1002/advs.202508800" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a>
-                    </span>
-                </div>
-            </li>
-
         </ul>
+
+        <!-- ==============================
+             4-2. International Conference
+        =============================== -->
+        <h3 class="pub-category">International Conference</h3>
+        <ul class="conf-list">
+            <li>
+                <span class="title"><em>Microextrusion-Based 3D Printing for Mesoscale Interfacial Structural Designing in Anode-Supported Solid Oxide Fuel Cells (Oral)</em></span>
+                <span class="authors"><strong>H. Seo</strong>*</span>
+                <span class="conf-info">2024 IEEE 19th International Conference on Nano/Micro Engineered and Molecular Systems (NEMS), Kyoto, Japan (2024.05)</span>
+            </li>
+            <li>
+                <span class="title"><em>Fabrication and electrochemical characterization of mesoscale-modified anode-supported solid oxide fuel cells (Oral)</em></span>
+                <span class="authors"><strong>H. Seo</strong>*, M. Kishimoto, H. Iwai, H. Yoshida</span>
+                <span class="conf-info">6th Asian SOFC Symposium and Exhibition, Jeju, Korea (2021.11)</span>
+            </li>
+        </ul>
+
+        <!-- ==============================
+             4-3. Domestic Conference
+        =============================== -->
+        <h3 class="pub-category">Domestic Conference</h3>
+        <ul class="conf-list">
+            <li>
+                <span class="title"><em>Chemical degradation of cathode in solid oxide fuel cells caused by interruption of air supply in real-world operation (Poster)</em></span>
+                <span class="authors"><strong>H. Seo</strong>*, H. Choi, J.-e. Won, Y. Shin, H.J. Chang, K.J. Yoon</span>
+                <span class="conf-info">2024 Spring Meeting of the Korean Ceramic Society, Busan, Korea (2024.04)</span>
+            </li>
+            <li>
+                <span class="title"><em>Microextrusion-Based 3D Printing for Mesoscale Engineering of the Electrode–Electrolyte Interface in Anode-Supported Solid Oxide Fuel Cells (Oral)</em></span>
+                <span class="authors">C. Ding, <strong>H. Seo</strong>*, M. Kishimoto, H. Iwai</span>
+                <span class="conf-info">2023 Fall Meeting of the Korean Ceramic Society, Seoul, Korea (2023.10)</span>
+            </li>
+        </ul>
+
     </section>
 
     <!-- 하단 카피라이트 -->
