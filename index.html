@@ -61,23 +61,88 @@
             scrollbar-width: none;
         }
 
-        nav ul {
+        /* 🌟 메인 메뉴 & 드롭다운 디자인 🌟 */
+        nav > ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
             gap: 30px;
         }
-        nav ul li a {
+        nav > ul > li {
+            position: relative; /* 드롭다운 기준점 */
+        }
+        nav > ul > li > a {
             font-size: 15px;
             font-weight: 500;
             color: #555;
             transition: color 0.2s;
             text-decoration: none;
+            display: block;
+            padding: 10px 0; /* 마우스 인식 영역 확장 */
         }
-        nav ul li a:hover {
-            color: #0056b3;
+        nav > ul > li > a:hover {
+            color: #1a4f8b;
             text-decoration: none;
+        }
+
+        /* 드롭다운 서브 메뉴 설정 */
+        .dropdown {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            min-width: 230px;
+            border-radius: 8px;
+            padding: 8px 0;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+            border: 1px solid #eaeaea;
+            list-style: none;
+        }
+        
+        /* 마우스가 메뉴 밖으로 살짝 나가도 닫히지 않게 투명 다리 놓기 */
+        .dropdown::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+        }
+        
+        /* 마우스 호버 시 드롭다운 나타남 */
+        nav > ul > li:hover .dropdown {
+            visibility: visible;
+            opacity: 1;
+            margin-top: -5px;
+        }
+        
+        .dropdown li {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .dropdown li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 14.5px;
+            font-weight: 500;
+            color: #555;
+            transition: background 0.2s, color 0.2s;
+        }
+        
+        .dropdown li a:hover {
+            background-color: #f8f9fa;
+            color: #1a4f8b;
         }
 
         /* 각 섹션을 화면에서 숨기고 보여주는 설정 */
@@ -244,6 +309,7 @@
             margin-bottom: 30px;
             border-bottom: 1px solid #eaeaea;
             padding-bottom: 10px;
+            scroll-margin-top: 100px;
         }
         
         .pi-profile {
@@ -408,7 +474,6 @@
         /* ================================
            4. Publications 영역
         ================================ */
-        /* 하위 카테고리 헤더 */
         .pub-category {
             font-size: 22px;
             color: #1a4f8b;
@@ -416,9 +481,9 @@
             margin-bottom: 25px;
             border-bottom: 1px solid #eaeaea;
             padding-bottom: 10px;
+            scroll-margin-top: 100px;
         }
 
-        /* Scientific Article 리스트 (Graphical Abstract 포함) */
         .pub-list {
             list-style: none;
             padding: 0;
@@ -470,7 +535,6 @@
             display: block;
         }
 
-        /* Conference 리스트 (텍스트 중심의 심플한 디자인) */
         .conf-list {
             list-style: none;
             padding: 0;
@@ -523,14 +587,17 @@
             }
             nav {
                 width: 100%;
-                overflow-x: auto; 
-                -webkit-overflow-scrolling: touch; 
                 margin-top: 10px;
             }
-            nav ul {
-                gap: 20px;
-                min-width: max-content; 
+            nav > ul {
+                gap: 15px;
+                flex-wrap: wrap; 
+                justify-content: center;
                 padding-bottom: 5px; 
+            }
+            
+            .dropdown {
+                display: none !important;
             }
             
             .profile-section, .research-item, .pi-profile {
@@ -571,15 +638,28 @@
 </head>
 <body>
 
-    <!-- 상단 메뉴바 -->
+    <!-- 🌟 상단 메뉴바 (드롭다운 적용) 🌟 -->
     <header>
         <h1><a href="#home">HEYONE LAB</a></h1> 
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#research">Research</a></li>
-                <li><a href="#members">Members</a></li>
-                <li><a href="#publications">Publications</a></li>
+                <li>
+                    <a href="#members">Members ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="#pi">Principal Investigator</a></li>
+                        <li><a href="#students">Students</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#publications">Publications ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="#journal">Journal</a></li>
+                        <li><a href="#intl-conf">International Conference</a></li>
+                        <li><a href="#dom-conf">Domestic Conference</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -596,7 +676,7 @@
             
             <div class="bio-container">
                 <h3>Welcome to HEYONE LAB!</h3>
-                <p>HEYONE LAB is dedicated to advancing next-generation electrochemical energy devices.<br>By establishing advanced fabrication processes and multiscale structural engineering, we develop robust and highly efficient devices capable of stable operation even under harsh environmental conditions.</p>
+                <p>HEYONE LAB is dedicated to advancing next-generation electrochemical energy devices.<br>By establishing advanced fabrication processes and multiscale structural architecture, we develop robust and highly efficient devices capable of stable operation even under thermodynamically harsh environmental conditions.</p>
                 
                 <div class="contact-info">
                     <strong>Email:</strong> To Be Updated <br>
@@ -657,12 +737,12 @@
     </section>
 
     <!-- ==============================================
-         3. Members 영역 (PI / Students)
+         3. Members 영역
     =============================================== -->
     <section id="members">
         <h2>Members</h2>
         
-        <h3 class="member-category">Principal Investigator</h3>
+        <h3 class="member-category" id="pi">Principal Investigator</h3>
         <div class="pi-profile">
             <div class="pi-img">
                 <img src="profile.jpg" onerror="this.src='https://via.placeholder.com/220x280.png?text=PI+Photo'" alt="Haewon Seo">
@@ -720,13 +800,21 @@
                                 <div class="period">2021.07 – 2024.07</div>
                                 <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong>, Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
                             </div>
+                            <div class="cv-item">
+                                <div class="period">2018.11 – 2018.12</div>
+                                <div class="desc"><strong>Researcher</strong>, Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2017.10 – 2017.11</div>
+                                <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
+                            </div>
                         </div>
                     </details>
                 </div>
             </div>
         </div>
 
-        <h3 class="member-category">Students</h3>
+        <h3 class="member-category" id="students">Students</h3>
         <div class="members-grid">
             <div class="member-card">
                 <img src="https://via.placeholder.com/150.png?text=Student+1" alt="Student 1">
@@ -742,15 +830,15 @@
     </section>
 
     <!-- ==============================================
-         4. Publications 영역 (하위 카테고리 세분화)
+         4. Publications 영역
     =============================================== -->
     <section id="publications">
         <h2>Publications</h2>
         
         <!-- ==============================
-             4-1. Scientific Article
+             4-1. Journal
         =============================== -->
-        <h3 class="pub-category">Scientific Article</h3>
+        <h3 class="pub-category" id="journal">Journal</h3>
         <ul class="pub-list">
             
             <li class="pub-item">
@@ -787,7 +875,7 @@
         <!-- ==============================
              4-2. International Conference
         =============================== -->
-        <h3 class="pub-category">International Conference</h3>
+        <h3 class="pub-category" id="intl-conf">International Conference</h3>
         <ul class="conf-list">
             <li>
                 <span class="title"><em>Microextrusion-Based 3D Printing for Mesoscale Interfacial Structural Designing in Anode-Supported Solid Oxide Fuel Cells (Oral)</em></span>
@@ -804,7 +892,7 @@
         <!-- ==============================
              4-3. Domestic Conference
         =============================== -->
-        <h3 class="pub-category">Domestic Conference</h3>
+        <h3 class="pub-category" id="dom-conf">Domestic Conference</h3>
         <ul class="conf-list">
             <li>
                 <span class="title"><em>Chemical degradation of cathode in solid oxide fuel cells caused by interruption of air supply in real-world operation (Poster)</em></span>
@@ -825,21 +913,54 @@
         <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
-    <!-- 페이지를 독립적으로 보여주기 위한 마법의 스크립트 -->
+    <!-- 🌟 페이지 및 서브메뉴 스크롤 연동을 위한 마법의 스크립트 🌟 -->
     <script>
         function updatePage() {
             let hash = window.location.hash || "#home";
+            let parentSection = hash;
             
+            // 드롭다운 메뉴 클릭 시, 어떤 큰 페이지(section)를 켜야 하는지 연결해주는 지도
+            const hashMapping = {
+                '#pi': '#members',
+                '#students': '#members',
+                '#journal': '#publications',
+                '#intl-conf': '#publications',
+                '#dom-conf': '#publications'
+            };
+
+            // 만약 드롭다운 메뉴(#pi 등)를 눌렀다면, 부모 페이지(#members 등)를 열도록 설정
+            if (hashMapping[hash]) {
+                parentSection = hashMapping[hash];
+            }
+            
+            // 1. 모든 화면 숨기기
             document.querySelectorAll('section').forEach(sec => {
                 sec.classList.remove('active');
             });
             
-            const activeSection = document.querySelector(hash);
+            // 2. 해당하는 큰 화면 켜기
+            const activeSection = document.querySelector(parentSection);
             if(activeSection) {
                 activeSection.classList.add('active');
             }
             
-            window.scrollTo(0, 0);
+            // 3. 서브 메뉴를 눌렀으면 그 위치로 스크롤, 메인 메뉴면 맨 위로 스크롤
+            if (hashMapping[hash]) {
+                setTimeout(() => {
+                    const targetEl = document.querySelector(hash);
+                    if (targetEl) {
+                        const headerOffset = 80; // 메뉴바가 글씨를 가리지 않게 간격 조절
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }, 50); // 화면이 켜진 후 살짝 기다렸다가 스크롤 (자연스러운 이동)
+            } else {
+                window.scrollTo(0, 0);
+            }
         }
 
         window.addEventListener('hashchange', updatePage);
