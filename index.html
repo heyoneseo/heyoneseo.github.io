@@ -302,16 +302,6 @@
         /* ================================
            3. Members 영역 디자인
         ================================ */
-        .member-category {
-            font-size: 22px;
-            color: #1a4f8b;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 10px;
-            scroll-margin-top: 100px;
-        }
-        
         .pi-profile {
             display: flex;
             gap: 35px;
@@ -474,16 +464,6 @@
         /* ================================
            4. Publications 영역
         ================================ */
-        .pub-category {
-            font-size: 22px;
-            color: #1a4f8b;
-            margin-top: 40px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 10px;
-            scroll-margin-top: 100px;
-        }
-
         .pub-list {
             list-style: none;
             padding: 0;
@@ -578,7 +558,7 @@
             font-size: 13px;
         }
         
-        /* 모바일 화면 대응 */
+        /* 모바일 화면 대응 (메뉴 가로 스크롤 및 자동 래핑) */
         @media (max-width: 768px) {
             header {
                 flex-direction: column; 
@@ -596,6 +576,7 @@
                 padding-bottom: 5px; 
             }
             
+            /* 모바일에서는 드롭다운 대신 본문 스크롤 활용 유도 */
             .dropdown {
                 display: none !important;
             }
@@ -638,7 +619,7 @@
 </head>
 <body>
 
-    <!-- 🌟 상단 메뉴바 (드롭다운 적용) 🌟 -->
+    <!-- 🌟 상단 메뉴바 (클릭 시 각각의 독립된 페이지로 이동) 🌟 -->
     <header>
         <h1><a href="#home">HEYONE LAB</a></h1> 
         <nav>
@@ -646,14 +627,14 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#research">Research</a></li>
                 <li>
-                    <a href="#members">Members ▾</a>
+                    <a href="#pi">Members ▾</a>
                     <ul class="dropdown">
                         <li><a href="#pi">Principal Investigator</a></li>
                         <li><a href="#students">Students</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#publications">Publications ▾</a>
+                    <a href="#journal">Publications ▾</a>
                     <ul class="dropdown">
                         <li><a href="#journal">Journal</a></li>
                         <li><a href="#intl-conf">International Conference</a></li>
@@ -737,12 +718,10 @@
     </section>
 
     <!-- ==============================================
-         3. Members 영역
+         3-1. Principal Investigator 영역 (독립된 페이지)
     =============================================== -->
-    <section id="members">
-        <h2>Members</h2>
-        
-        <h3 class="member-category" id="pi">Principal Investigator</h3>
+    <section id="pi">
+        <h2>Principal Investigator</h2>
         <div class="pi-profile">
             <div class="pi-img">
                 <img src="profile.jpg" onerror="this.src='https://via.placeholder.com/220x280.png?text=PI+Photo'" alt="Haewon Seo">
@@ -765,6 +744,7 @@
                         <li>Micro/Nanofabrication</li>
                         <li>Heat and Mass Transfer</li>
                         <li>Interfacial/Structural Architecture</li>
+                        <li>3D Nanotomography</li>
                     </ul>
 
                     <details class="cv-section">
@@ -813,8 +793,13 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <h3 class="member-category" id="students">Students</h3>
+    <!-- ==============================================
+         3-2. Students 영역 (독립된 페이지)
+    =============================================== -->
+    <section id="students">
+        <h2>Students</h2>
         <div class="members-grid">
             <div class="member-card">
                 <img src="https://via.placeholder.com/150.png?text=Student+1" alt="Student 1">
@@ -830,15 +815,10 @@
     </section>
 
     <!-- ==============================================
-         4. Publications 영역
+         4-1. Journal 영역 (독립된 페이지)
     =============================================== -->
-    <section id="publications">
-        <h2>Publications</h2>
-        
-        <!-- ==============================
-             4-1. Journal
-        =============================== -->
-        <h3 class="pub-category" id="journal">Journal</h3>
+    <section id="journal">
+        <h2>Journal</h2>
         <ul class="pub-list">
             
             <li class="pub-item">
@@ -871,11 +851,13 @@
                 </div>
             </li>
         </ul>
+    </section>
 
-        <!-- ==============================
-             4-2. International Conference
-        =============================== -->
-        <h3 class="pub-category" id="intl-conf">International Conference</h3>
+    <!-- ==============================================
+         4-2. International Conference 영역 (독립된 페이지)
+    =============================================== -->
+    <section id="intl-conf">
+        <h2>International Conference</h2>
         <ul class="conf-list">
             <li>
                 <span class="title"><em>Microextrusion-Based 3D Printing for Mesoscale Interfacial Structural Designing in Anode-Supported Solid Oxide Fuel Cells (Oral)</em></span>
@@ -888,11 +870,13 @@
                 <span class="conf-info">6th Asian SOFC Symposium and Exhibition, Jeju, Korea (2021.11)</span>
             </li>
         </ul>
+    </section>
 
-        <!-- ==============================
-             4-3. Domestic Conference
-        =============================== -->
-        <h3 class="pub-category" id="dom-conf">Domestic Conference</h3>
+    <!-- ==============================================
+         4-3. Domestic Conference 영역 (독립된 페이지)
+    =============================================== -->
+    <section id="dom-conf">
+        <h2>Domestic Conference</h2>
         <ul class="conf-list">
             <li>
                 <span class="title"><em>Chemical degradation of cathode in solid oxide fuel cells caused by interruption of air supply in real-world operation (Poster)</em></span>
@@ -905,7 +889,6 @@
                 <span class="conf-info">2023 Fall Meeting of the Korean Ceramic Society, Seoul, Korea (2023.10)</span>
             </li>
         </ul>
-
     </section>
 
     <!-- 하단 카피라이트 -->
@@ -913,54 +896,27 @@
         <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
-    <!-- 🌟 페이지 및 서브메뉴 스크롤 연동을 위한 마법의 스크립트 🌟 -->
+    <!-- 🌟 페이지를 독립적으로 보여주기 위한 가장 심플한 마법 스크립트 🌟 -->
     <script>
         function updatePage() {
             let hash = window.location.hash || "#home";
-            let parentSection = hash;
             
-            // 드롭다운 메뉴 클릭 시, 어떤 큰 페이지(section)를 켜야 하는지 연결해주는 지도
-            const hashMapping = {
-                '#pi': '#members',
-                '#students': '#members',
-                '#journal': '#publications',
-                '#intl-conf': '#publications',
-                '#dom-conf': '#publications'
-            };
-
-            // 만약 드롭다운 메뉴(#pi 등)를 눌렀다면, 부모 페이지(#members 등)를 열도록 설정
-            if (hashMapping[hash]) {
-                parentSection = hashMapping[hash];
-            }
-            
-            // 1. 모든 화면 숨기기
+            // 모든 섹션을 안 보이게 숨김
             document.querySelectorAll('section').forEach(sec => {
                 sec.classList.remove('active');
             });
             
-            // 2. 해당하는 큰 화면 켜기
-            const activeSection = document.querySelector(parentSection);
+            // 클릭한 링크의 해시값(#pi, #journal 등)과 일치하는 섹션만 켬
+            const activeSection = document.querySelector(hash);
             if(activeSection) {
                 activeSection.classList.add('active');
+            } else {
+                // 혹시 이상한 주소로 들어오면 홈으로
+                document.querySelector('#home').classList.add('active');
             }
             
-            // 3. 서브 메뉴를 눌렀으면 그 위치로 스크롤, 메인 메뉴면 맨 위로 스크롤
-            if (hashMapping[hash]) {
-                setTimeout(() => {
-                    const targetEl = document.querySelector(hash);
-                    if (targetEl) {
-                        const headerOffset = 80; // 메뉴바가 글씨를 가리지 않게 간격 조절
-                        const elementPosition = targetEl.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                    }
-                }, 50); // 화면이 켜진 후 살짝 기다렸다가 스크롤 (자연스러운 이동)
-            } else {
-                window.scrollTo(0, 0);
-            }
+            // 스크롤을 맨 위로 고정 (페이지 넘어가는 효과)
+            window.scrollTo(0, 0);
         }
 
         window.addEventListener('hashchange', updatePage);
