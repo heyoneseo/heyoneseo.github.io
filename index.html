@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
+        /* 🌟 가로 스크롤 방지 및 전체 박스 크기 기준 통일 🌟 */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -26,6 +27,7 @@
             opacity: 0.8;
         }
         
+        /* 🌟 상단 고정 메뉴바 🌟 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -40,6 +42,7 @@
             backdrop-filter: blur(5px);
         }
         
+        /* 헤더 좌측 로고 및 타이틀 가로 정렬 */
         .header-left {
             display: flex;
             flex-direction: row;
@@ -47,6 +50,7 @@
             gap: 15px; 
         }
         
+        /* 로고 이미지 스타일 */
         .hufs-logo {
             height: 50px; 
             width: auto;
@@ -70,6 +74,7 @@
             opacity: 0.7;
         }
         
+        /* 모바일용 햄버거 버튼 (기본 숨김) */
         .mobile-menu-btn {
             display: none;
             font-size: 26px;
@@ -86,6 +91,7 @@
             scrollbar-width: none;
         }
 
+        /* 🌟 메인 메뉴 & 드롭다운 디자인 🌟 */
         nav > ul {
             list-style: none;
             margin: 0;
@@ -108,6 +114,7 @@
             color: #1a4f8b;
         }
 
+        /* 드롭다운 서브 메뉴 설정 */
         .dropdown {
             visibility: hidden;
             opacity: 0;
@@ -420,14 +427,15 @@
             font-size: 17px;
             color: #1a4f8b;
             margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 15px;
         }
         
         .interest-list {
             list-style: none;
             padding: 0;
-            margin: 15px 0 35px 0;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 15px;
+            margin: 0 0 35px 0;
         }
         .interest-list li {
             position: relative;
@@ -443,34 +451,12 @@
             color: #1a4f8b;
         }
 
-        details.cv-section {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 10px;
-            width: 100%;
+        .cv-section {
+            margin-bottom: 35px;
         }
-        details.cv-section summary {
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        details.cv-section summary::-webkit-details-marker {
-            display: none; 
-        }
-        details.cv-section summary::after {
-            content: "▼";
-            font-size: 12px;
-            color: #1a4f8b;
-            transition: transform 0.3s ease;
-        }
-        details.cv-section[open] summary::after {
-            transform: rotate(180deg);
-        }
+
         .cv-content {
-            padding-top: 15px;
-            animation: fadeIn 0.3s ease-in-out;
+            /* padding-top: 15px; 삭제 (h5 마진으로 대체) */
         }
 
         .cv-item {
@@ -483,7 +469,7 @@
         }
         .cv-item .period {
             flex-shrink: 0;
-            width: 100px;
+            width: 120px; /* 기간이 두 줄이 되지 않도록 너비 확장 */
             font-weight: 600;
             color: #1a4f8b;
         }
@@ -622,7 +608,7 @@
             font-size: 13px;
         }
         
-        /* 🌟 모바일 화면 완벽 대응 (햄버거 메뉴 및 여백 수정) 🌟 */
+        /* 🌟 모바일 화면 완벽 대응 🌟 */
         @media (max-width: 768px) {
             header {
                 padding: 10px 20px;
@@ -749,7 +735,6 @@
 <body>
 
     <header>
-        <!-- 🌟 파일명 Logo.jpg 적용 완료 🌟 -->
         <div class="header-left">
             <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학 기후변화융합학부 홈페이지">
                 <img src="image/Logo.jpg" alt="HUFS Logo" class="hufs-logo">
@@ -891,6 +876,7 @@
                 </div>
 
                 <div class="pi-details">
+                    <!-- 접기/펼치기 제거 후 깔끔하게 나열된 형태 -->
                     <h5>Research Interests</h5>
                     <ul class="interest-list">
                         <li>Electrochemical Conversion</li>
@@ -899,8 +885,8 @@
                         <li>Interfacial/Structural Architecture</li>
                     </ul>
 
-                    <details class="cv-section">
-                        <summary><h5>Education</h5></summary>
+                    <div class="cv-section">
+                        <h5>Education</h5>
                         <div class="cv-content">
                             <div class="cv-item">
                                 <div class="period">2018.04 – 2021.03</div>
@@ -915,10 +901,10 @@
                                 <div class="desc"><strong>B.S.</strong> in Mechanical & Aerospace Engineering<br>Kyushu University, Japan</div>
                             </div>
                         </div>
-                    </details>
+                    </div>
 
-                    <details class="cv-section">
-                        <summary><h5>Employment</h5></summary>
+                    <div class="cv-section">
+                        <h5>Employment</h5>
                         <div class="cv-content">
                             <div class="cv-item">
                                 <div class="period">2026.09 – Present</div>
@@ -941,7 +927,7 @@
                                 <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
                             </div>
                         </div>
-                    </details>
+                    </div>
                 </div>
             </div>
         </div>
