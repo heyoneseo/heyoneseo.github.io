@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
-        /* 기본 전체 디자인 설정 */
+        /* 🌟 가로 스크롤 방지 및 전체 박스 크기 기준 통일 🌟 */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: #333;
             line-height: 1.6;
             background-color: #ffffff;
+            overflow-x: hidden; /* 모바일 우측 여백 잘림/가로 스크롤 방지 */
         }
         a {
             text-decoration: none !important;
@@ -34,7 +39,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 50px;
-            box-sizing: border-box;
             backdrop-filter: blur(5px);
         }
         header h1 {
@@ -60,7 +64,7 @@
             scrollbar-width: none;
         }
 
-        /* 메인 메뉴 & 드롭다운 디자인 */
+        /* 🌟 메인 메뉴 & 드롭다운 디자인 🌟 */
         nav > ul {
             list-style: none;
             margin: 0;
@@ -228,6 +232,7 @@
             line-height: 1.7;
             text-align: center;
             margin-bottom: 60px;
+            width: 100%;
         }
 
         .news-section {
@@ -262,6 +267,7 @@
         }
         .news-content {
             color: #444;
+            word-break: break-word;
         }
 
         .highlight-section {
@@ -285,6 +291,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            width: 100%;
         }
 
         /* ================================
@@ -332,6 +339,7 @@
             gap: 35px;
             align-items: flex-start; 
             margin-bottom: 60px;
+            width: 100%;
         }
         .pi-img {
             flex-shrink: 0;
@@ -346,6 +354,8 @@
         }
         .pi-info {
             flex: 1;
+            width: 100%;
+            word-break: break-word;
         }
         .pi-info h4 {
             font-size: 26px;
@@ -369,6 +379,7 @@
             display: flex;
             gap: 12px;
             margin-bottom: 30px;
+            flex-wrap: wrap; /* 버튼 넘침 방지 */
         }
         .profile-btn {
             display: inline-block;
@@ -417,6 +428,7 @@
             margin-bottom: 20px;
             border-bottom: 1px solid #f0f0f0;
             padding-bottom: 10px;
+            width: 100%;
         }
         details.cv-section summary {
             cursor: pointer;
@@ -591,6 +603,7 @@
             font-size: 13px;
         }
         
+        /* 🌟 모바일 화면 완벽 대응 (잘림, 겹침 방지) 🌟 */
         @media (max-width: 768px) {
             header {
                 flex-direction: column; 
@@ -621,6 +634,15 @@
                 margin-top: 5px;
             }
             
+            /* 상단 메뉴가 여러 줄이 되어 본문을 가리지 않도록 모바일 여백 대폭 확장 */
+            section {
+                padding-top: 180px !important;
+            }
+            
+            .member-category, .pub-category {
+                scroll-margin-top: 180px; 
+            }
+
             .profile-section, .research-item, .pi-profile {
                 flex-direction: column;
                 gap: 25px;
@@ -639,6 +661,16 @@
             .pi-details {
                 text-align: left; 
             }
+
+            /* 모바일에서 CV 이력 항목 가로 넘침 방지 */
+            .cv-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .cv-item .period {
+                width: 100%; 
+            }
+
             .news-list li {
                 flex-direction: column;
                 gap: 5px;
@@ -659,19 +691,13 @@
 </head>
 <body>
 
+    <!-- 🌟 상단 메뉴바 (News & Event 순서 6번째로 이동) 🌟 -->
     <header>
         <h1><a href="#home">HEYONE LAB</a></h1> 
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#research">Research</a></li>
-                <li>
-                    <a href="#news" class="nav-dropdown-btn">News & Gallery ▾</a>
-                    <ul class="dropdown">
-                        <li><a href="#news">News</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                    </ul>
-                </li>
                 <li>
                     <a href="#pi" class="nav-dropdown-btn">Members ▾</a>
                     <ul class="dropdown">
@@ -688,6 +714,13 @@
                     </ul>
                 </li>
                 <li><a href="#lecture">Lecture</a></li>
+                <li>
+                    <a href="#news" class="nav-dropdown-btn">News & Event ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#event">Event</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -707,10 +740,9 @@
         </div>
 
         <div class="contact-info">
-            <strong>Contact:</strong> To be updated <br>
+            <strong>Contact:</strong> hhaewon.seo@samsung.com <br>
             <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
             <div style="margin-top: 15px;">
-                <!-- 🌟 핀포인트 꽂히는 구글맵 임베드 URL로 변경 완료 🌟 -->
                 <iframe src="https://maps.google.com/maps?q=Hankuk%20University%20of%20Foreign%20Studies%20Global%20Campus&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -728,7 +760,7 @@
                 </li>                
             </ul>
             <div style="text-align: right;">
-                <a href="#news" class="action-btn">More News →</a>
+                <a href="#news" class="action-btn">More News & Event →</a>
             </div>
         </div>
 
@@ -770,40 +802,12 @@
     </section>
 
     <!-- ==============================================
-         3-1. News 영역
-    =============================================== -->
-    <section id="news">
-        <h2>News</h2>
-        <ul class="news-list" style="margin-top: 20px;">
-            <li>
-                <span class="news-date">2026.09</span>
-                <span class="news-content">To be updated</span>
-            </li>
-            <li>
-                <span class="news-date">2026.08</span>
-                <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
-            </li>
-        </ul>
-    </section>
-
-    <!-- ==============================================
-         3-2. Gallery 영역
-    =============================================== -->
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <div style="text-align: center; padding: 50px 0; color: #777;">
-            <p>Photos will be updated soon.</p>
-        </div>
-    </section>
-
-    <!-- ==============================================
-         4-1. Principal Investigator 영역
+         3-1. Principal Investigator 영역
     =============================================== -->
     <section id="pi">
         <h2>Principal Investigator</h2>
         <div class="pi-profile">
             <div class="pi-img">
-                <!-- 🌟 Profile.png -> Profile.jpg 로 확장자 수정 완료 🌟 -->
                 <img src="image/Profile.jpg" onerror="this.src='https://via.placeholder.com/220x280.png?text=PI+Photo'" alt="Haewon Seo">
             </div>
             
@@ -867,7 +871,7 @@
     </section>
 
     <!-- ==============================================
-         4-2. Students 영역
+         3-2. Students 영역
     =============================================== -->
     <section id="students">
         <h2>Students</h2>
@@ -886,12 +890,11 @@
     </section>
 
     <!-- ==============================================
-         5-1. Journal
+         4-1. Journal
     =============================================== -->
     <section id="journal">
         <h2>Journal</h2>
         <ul class="pub-list">
-            
             <li class="pub-item">
                 <div class="pub-number">13.</div>
                 <div class="pub-ga">
@@ -903,7 +906,6 @@
                     <span class="journal" style="font-style: normal;">Advanced Science, <strong>13</strong>(3) (2026) e16807 <a href="https://doi.org/10.1002/advs.202516807" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">12.</div>
                 <div class="pub-ga">
@@ -915,7 +917,6 @@
                     <span class="journal" style="font-style: normal;">Cell Reports Physical Science, <strong>6</strong>(12) (2025) 102966 <a href="https://doi.org/10.1016/j.xcrp.2025.102966" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">11.</div>
                 <div class="pub-ga">
@@ -927,7 +928,6 @@
                     <span class="journal" style="font-style: normal;">Advanced Science, <strong>12</strong>(39) (2025) e08800 <a href="https://doi.org/10.1002/advs.202508800" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">10.</div>
                 <div class="pub-ga">
@@ -939,7 +939,6 @@
                     <span class="journal" style="font-style: normal;">Journal of Materials Chemistry A, <strong>12</strong> (2024) 28002–28011 <a href="https://doi.org/10.1039/D4TA03979C" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">9.</div>
                 <div class="pub-ga">
@@ -951,7 +950,6 @@
                     <span class="journal" style="font-style: normal;">Chemical Engineering Journal, <strong>481</strong> (2024) 148532 <a href="https://doi.org/10.1016/j.cej.2024.148532" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">8.</div>
                 <div class="pub-ga">
@@ -963,7 +961,6 @@
                     <span class="journal" style="font-style: normal;">Journal of Materials Chemistry A, <strong>11</strong> (2023) 25298–25307 <a href="https://doi.org/10.1039/D3TA05534E" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">7.</div>
                 <div class="pub-ga">
@@ -975,7 +972,6 @@
                     <span class="journal" style="font-style: normal;">Fuel Cells, <strong>23</strong>(3) (2023) 264–272 <a href="https://doi.org/10.1002/fuce.202200170" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">6.</div>
                 <div class="pub-ga">
@@ -987,7 +983,6 @@
                     <span class="journal" style="font-style: normal;">International Journal of Hydrogen Energy, <strong>48</strong>(31) (2023) 11790–11805 <a href="https://doi.org/10.1016/j.ijhydene.2021.07.093" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">5.</div>
                 <div class="pub-ga">
@@ -999,7 +994,6 @@
                     <span class="journal" style="font-style: normal;">Journal of Materials Chemistry A, <strong>10</strong> (2022) 11917–11925 <a href="https://doi.org/10.1039/D2TA02468C" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">4.</div>
                 <div class="pub-ga">
@@ -1011,7 +1005,6 @@
                     <span class="journal" style="font-style: normal;">Journal of Power Sources, <strong>506</strong> (2021) 230107 <a href="https://doi.org/10.1016/j.jpowsour.2021.230107" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">3.</div>
                 <div class="pub-ga">
@@ -1023,7 +1016,6 @@
                     <span class="journal" style="font-style: normal;">Applied Energy, <strong>283</strong> (2021) 116305 <a href="https://doi.org/10.1016/j.apenergy.2020.116305" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">2.</div>
                 <div class="pub-ga">
@@ -1035,7 +1027,6 @@
                     <span class="journal" style="font-style: normal;">Fuel Cells, <strong>20</strong>(5) (2020) 570–579 <a href="https://doi.org/10.1002/fuce.202000079" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
             <li class="pub-item">
                 <div class="pub-number">1.</div>
                 <div class="pub-ga">
@@ -1047,7 +1038,6 @@
                     <span class="journal" style="font-style: normal;">Journal of Power Sources, <strong>450</strong> (2020) 227682 <a href="https://doi.org/10.1016/j.jpowsour.2019.227682" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
-
         </ul>
     </section>
 
@@ -1184,14 +1174,39 @@
         </div>
     </section>
 
+    <!-- ==============================================
+         7. News & Event 영역
+    =============================================== -->
+    <section id="news">
+        <h2>News</h2>
+        <ul class="news-list" style="margin-top: 20px;">
+            <li>
+                <span class="news-date">2026.09</span>
+                <span class="news-content">To be updated</span>
+            </li>
+            <li>
+                <span class="news-date">2026.08</span>
+                <span class="news-content">HEYONE LAB official website is now launched. Welcome!</span>
+            </li>
+        </ul>
+    </section>
+
+    <section id="event">
+        <h2>Event</h2>
+        <div style="text-align: center; padding: 50px 0; color: #777;">
+            <p>Photos and event records will be updated soon.</p>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
     <!-- 🌟 페이지 이동 및 하이라이트 자동화 스크립트 🌟 -->
     <script>
+        /* 하이라이트 PDF 파일명(8자리 숫자) 목록 */
         const highlightPdfs = [
-            "20260114", "20251217", "20251020"
+            "20260114"
         ];
 
         function loadHighlights() {
@@ -1225,7 +1240,7 @@
             
             const hashMapping = {
                 '#news': '#news',
-                '#gallery': '#gallery',
+                '#event': '#event',
                 '#pi': '#pi',
                 '#students': '#students',
                 '#journal': '#journal',
@@ -1258,6 +1273,7 @@
             loadHighlights();
         });
 
+        // 모바일 화면 드롭다운 제어
         document.querySelectorAll('.nav-dropdown-btn').forEach(trigger => {
             trigger.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
