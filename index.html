@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
+        /* 기본 전체 디자인 설정 */
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -21,6 +22,7 @@
             opacity: 0.8;
         }
         
+        /* 상단 고정 메뉴바 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -49,6 +51,7 @@
             opacity: 0.7;
         }
         
+        /* 스크롤바 숨기기 */
         nav::-webkit-scrollbar {
             display: none;
         }
@@ -57,6 +60,7 @@
             scrollbar-width: none;
         }
 
+        /* 메인 메뉴 & 드롭다운 디자인 */
         nav > ul {
             list-style: none;
             margin: 0;
@@ -79,6 +83,7 @@
             color: #1a4f8b;
         }
 
+        /* 드롭다운 서브 메뉴 설정 */
         .dropdown {
             visibility: hidden;
             opacity: 0;
@@ -137,6 +142,7 @@
             color: #1a4f8b;
         }
 
+        /* 버튼(바로가기) 디자인 */
         .action-btn {
             display: inline-block;
             margin-top: 15px;
@@ -154,6 +160,7 @@
             opacity: 1;
         }
 
+        /* 각 섹션 숨김/표시 설정 */
         section {
             display: none !important; 
             padding: 120px 20px 40px;
@@ -182,7 +189,7 @@
         }
 
         /* ================================
-           1. Home
+           1. Home 영역 상세 디자인
         ================================ */
         .home-header {
             text-align: center;
@@ -281,7 +288,7 @@
         }
 
         /* ================================
-           2. Research
+           2. Research 영역 디자인
         ================================ */
         .research-item {
             display: flex;
@@ -308,7 +315,7 @@
         }
 
         /* ================================
-           3. Members
+           3. Members 영역 디자인
         ================================ */
         .member-category {
             font-size: 22px;
@@ -478,7 +485,7 @@
         }
 
         /* ================================
-           4. Publications
+           4. Publications 영역
         ================================ */
         .pub-category {
             font-size: 22px;
@@ -703,7 +710,8 @@
             <strong>Contact:</strong> To be updated <br>
             <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
             <div style="margin-top: 15px;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.748119028952!2d127.26084047648356!3d37.3484210366107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b560a92d2427f%3A0xc4b9b9c9f0c2f8f0!2sHankuk%20University%20of%20Foreign%20Studies%20Global%20Campus!5e0!3m2!1sen!2skr!4v1700000000000!5m2!1sen!2skr" width="100%" height="250" style="border:0; border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- 🌟 핀포인트 꽂히는 구글맵 임베드 URL로 변경 완료 🌟 -->
+                <iframe src="https://maps.google.com/maps?q=Hankuk%20University%20of%20Foreign%20Studies%20Global%20Campus&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
 
@@ -795,7 +803,8 @@
         <h2>Principal Investigator</h2>
         <div class="pi-profile">
             <div class="pi-img">
-                <img src="image/Profile.png" onerror="this.src='https://via.placeholder.com/220x280.png?text=PI+Photo'" alt="Haewon Seo">
+                <!-- 🌟 Profile.png -> Profile.jpg 로 확장자 수정 완료 🌟 -->
+                <img src="image/Profile.jpg" onerror="this.src='https://via.placeholder.com/220x280.png?text=PI+Photo'" alt="Haewon Seo">
             </div>
             
             <div class="pi-info">
@@ -849,14 +858,6 @@
                             <div class="cv-item">
                                 <div class="period">2021.07 – 2024.07</div>
                                 <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong>, Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
-                            </div>
-                            <div class="cv-item">
-                                <div class="period">2018.11 – 2018.12</div>
-                                <div class="desc"><strong>Researcher</strong>, Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
-                            </div>
-                            <div class="cv-item">
-                                <div class="period">2017.10 – 2017.11</div>
-                                <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
                             </div>
                         </div>
                     </details>
