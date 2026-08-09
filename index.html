@@ -42,26 +42,22 @@
             backdrop-filter: blur(5px);
         }
         
+        /* 헤더 좌측 로고 및 타이틀 가로 정렬 */
         .header-left {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px; 
         }
-        .hufs-banner {
-            display: inline-block;
-            background-color: #1a4f8b;
-            color: #ffffff !important;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 4px;
-            width: fit-content;
-            letter-spacing: 0.5px;
-            transition: background-color 0.2s;
+        
+        /* 로고 이미지 스타일 */
+        .hufs-logo {
+            height: 50px; 
+            width: auto;
+            transition: opacity 0.2s;
         }
-        .hufs-banner:hover {
-            background-color: #123863;
-            opacity: 1;
+        .hufs-logo:hover {
+            opacity: 0.7;
         }
 
         header h1 {
@@ -95,6 +91,7 @@
             scrollbar-width: none;
         }
 
+        /* 🌟 메인 메뉴 & 드롭다운 디자인 🌟 */
         nav > ul {
             list-style: none;
             margin: 0;
@@ -193,6 +190,7 @@
             opacity: 1;
         }
 
+        /* 각 섹션 숨김/표시 설정 */
         section {
             display: none !important; 
             padding: 120px 20px 40px;
@@ -221,7 +219,7 @@
         }
 
         /* ================================
-           1. Home
+           1. Home 영역 상세 디자인
         ================================ */
         .home-header {
             text-align: center;
@@ -261,43 +259,6 @@
             text-align: center;
             margin-bottom: 60px;
             width: 100%;
-        }
-
-        /* 🌟 세련되게 다듬어진 네이버 지도 박스 🌟 */
-        .naver-map-box {
-            margin-top: 20px; 
-            padding: 20px 15px;
-            background-color: #f8fcf9; 
-            border-radius: 8px; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            border: 1px solid #03c75a; 
-            transition: all 0.2s ease-in-out;
-            cursor: pointer;
-            text-align: center;
-        }
-        .naver-map-box:hover {
-            background-color: #eaf8ef;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(3, 199, 90, 0.15);
-        }
-        .naver-map-box .icon {
-            font-size: 26px; 
-            margin-bottom: 5px;
-        }
-        .naver-map-box .title {
-            color: #03c75a; 
-            font-size: 16px; 
-            font-weight: 800; 
-            margin-bottom: 4px;
-        }
-        .naver-map-box .desc {
-            color: #555; 
-            font-size: 13px; 
-            font-weight: 500; 
-            word-break: keep-all;
         }
 
         .news-section {
@@ -360,7 +321,7 @@
         }
 
         /* ================================
-           2. Research
+           2. Research 영역 디자인
         ================================ */
         .research-item {
             display: flex;
@@ -387,7 +348,7 @@
         }
 
         /* ================================
-           3. Members
+           3. Members 영역 디자인
         ================================ */
         .member-category {
             font-size: 22px;
@@ -668,28 +629,25 @@
             font-size: 13px;
         }
         
-        /* 🌟 모바일 화면 완벽 대응 (햄버거 메뉴 추가 및 여백 수정) 🌟 */
+        /* 🌟 모바일 화면 완벽 대응 (햄버거 메뉴 및 여백 수정) 🌟 */
         @media (max-width: 768px) {
             header {
                 padding: 10px 20px;
             }
             .header-left {
-                gap: 2px;
+                gap: 10px; 
             }
-            .hufs-banner {
-                font-size: 10px;
-                padding: 2px 6px;
+            .hufs-logo {
+                height: 35px; 
             }
             header h1 {
                 font-size: 18px;
             }
             
-            /* 햄버거 메뉴 버튼 표시 */
             .mobile-menu-btn {
                 display: block;
             }
             
-            /* 네비게이션 숨김 후, 클릭 시 열리도록 변경 */
             nav {
                 display: none;
                 position: absolute;
@@ -716,7 +674,6 @@
                 justify-content: space-between;
             }
             
-            /* 드롭다운 모바일 최적화 */
             .dropdown {
                 position: static;
                 visibility: visible;
@@ -724,7 +681,7 @@
                 box-shadow: none;
                 border: none;
                 background: #f8f9fa;
-                display: none; /* 서브메뉴 기본 숨김 */
+                display: none; 
                 padding: 0;
                 margin: 0;
                 transform: none;
@@ -742,7 +699,6 @@
                 border-bottom: none;
             }
             
-            /* 💡 상단 메뉴가 짧아졌으므로 본문 여백 축소 */
             section {
                 padding-top: 100px !important;
             }
@@ -799,11 +755,12 @@
 
     <header>
         <div class="header-left">
-            <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" class="hufs-banner" title="한국외국어대학 기후변화융합학부 홈페이지">한국외국어대학 기후변화융합학부</a>
+            <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학 기후변화융합학부 홈페이지">
+                <img src="image/logo.png" alt="HUFS Logo" class="hufs-logo">
+            </a>
             <h1><a href="#home">HEYONE LAB</a></h1> 
         </div>
         
-        <!-- 🌟 모바일용 햄버거 버튼 🌟 -->
         <div class="mobile-menu-btn" id="mobile-menu-btn">☰</div>
         
         <nav id="main-nav">
@@ -854,13 +811,15 @@
             <strong>Contact:</strong> hhaewon.seo@samsung.com <br>
             <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
             
-            <a href="https://map.naver.com/p/search/한국외국어대학교%20글로벌캠퍼스" target="_blank" style="text-decoration: none; display: block;">
-                <div class="naver-map-box">
-                    <div class="icon">📍</div>
-                    <div class="title">네이버 지도로 정확한 위치 확인하기</div>
-                    <div class="desc">클릭하시면 핀포인트가 찍힌 지도로 곧바로 이동합니다.</div>
-                </div>
-            </a>
+            <!-- 🌟 빨간 핀포인트가 무조건 뜨도록 주소 좌표로 고정시킨 구글맵 🌟 -->
+            <div style="margin-top: 20px;">
+                <iframe width="100%" height="300" frameborder="0" src="https://maps.google.com/maps?q=81,%20Oedae-ro,%20Mohyeon-eup,%20Cheoin-gu,%20Yongin-si&t=&z=15&ie=UTF8&iwloc=B&output=embed" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+            
+            <!-- 🌟 전달해주신 구글맵 단축 링크 바로가기 버튼 🌟 -->
+            <div style="text-align: right; margin-top: 10px;">
+                <a href="https://maps.app.goo.gl/JTvKx2fwdF95mEoYA" target="_blank" style="font-size: 14.5px; font-weight: 700; color: #1a4f8b; text-decoration: underline !important;">📍 Open in Google Maps Apps</a>
+            </div>
         </div>
 
         <div class="news-section">
@@ -1323,10 +1282,6 @@
 
     <!-- 🌟 스크립트: 페이지 라우팅, 모바일 햄버거 메뉴, PDF 자동화 🌟 -->
     <script>
-        /* =========================================
-           여기에 하이라이트 PDF 파일명(8자리 숫자)을 쉼표로 입력하세요. 
-           (주의: 반드시 .pdf 파일만 동작합니다!)
-        ========================================= */
         const highlightPdfs = [
             "20260114"
         ];
@@ -1356,7 +1311,6 @@
             });
         }
 
-        // 페이지 전환 로직
         function updatePage() {
             let hash = window.location.hash || "#home";
             let parentSection = hash;
