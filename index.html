@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
-        /* 🌟 가로 스크롤 방지 및 전체 박스 크기 기준 통일 🌟 */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -16,7 +15,7 @@
             color: #333;
             line-height: 1.6;
             background-color: #ffffff;
-            overflow-x: hidden; /* 모바일 우측 여백 잘림/가로 스크롤 방지 */
+            overflow-x: hidden; 
         }
         a {
             text-decoration: none !important;
@@ -27,7 +26,6 @@
             opacity: 0.8;
         }
         
-        /* 상단 고정 메뉴바 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -41,6 +39,30 @@
             padding: 15px 50px;
             backdrop-filter: blur(5px);
         }
+        
+        /* 추가된 왼쪽 상단 헤더 컨테이너 및 배너 스타일 */
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hufs-banner {
+            display: inline-block;
+            background-color: #1a4f8b;
+            color: #ffffff !important;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            width: fit-content;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s;
+        }
+        .hufs-banner:hover {
+            background-color: #123863;
+            opacity: 1;
+        }
+
         header h1 {
             margin: 0;
             font-size: 22px;
@@ -55,7 +77,6 @@
             opacity: 0.7;
         }
         
-        /* 스크롤바 숨기기 */
         nav::-webkit-scrollbar {
             display: none;
         }
@@ -64,7 +85,6 @@
             scrollbar-width: none;
         }
 
-        /* 🌟 메인 메뉴 & 드롭다운 디자인 🌟 */
         nav > ul {
             list-style: none;
             margin: 0;
@@ -87,7 +107,6 @@
             color: #1a4f8b;
         }
 
-        /* 드롭다운 서브 메뉴 설정 */
         .dropdown {
             visibility: hidden;
             opacity: 0;
@@ -146,7 +165,6 @@
             color: #1a4f8b;
         }
 
-        /* 버튼(바로가기) 디자인 */
         .action-btn {
             display: inline-block;
             margin-top: 15px;
@@ -164,7 +182,6 @@
             opacity: 1;
         }
 
-        /* 각 섹션 숨김/표시 설정 */
         section {
             display: none !important; 
             padding: 120px 20px 40px;
@@ -193,7 +210,7 @@
         }
 
         /* ================================
-           1. Home 영역 상세 디자인
+           1. Home
         ================================ */
         .home-header {
             text-align: center;
@@ -233,6 +250,26 @@
             text-align: center;
             margin-bottom: 60px;
             width: 100%;
+        }
+
+        .naver-map-box {
+            margin-top: 20px; 
+            width: 100%; 
+            height: 200px; 
+            background-color: #ffffff; 
+            border-radius: 8px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            border: 2px solid #03c75a; 
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .naver-map-box:hover {
+            background-color: #f0fff4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(3, 199, 90, 0.15);
         }
 
         .news-section {
@@ -295,7 +332,7 @@
         }
 
         /* ================================
-           2. Research 영역 디자인
+           2. Research
         ================================ */
         .research-item {
             display: flex;
@@ -322,7 +359,7 @@
         }
 
         /* ================================
-           3. Members 영역 디자인
+           3. Members
         ================================ */
         .member-category {
             font-size: 22px;
@@ -379,7 +416,7 @@
             display: flex;
             gap: 12px;
             margin-bottom: 30px;
-            flex-wrap: wrap; /* 버튼 넘침 방지 */
+            flex-wrap: wrap; 
         }
         .profile-btn {
             display: inline-block;
@@ -603,12 +640,14 @@
             font-size: 13px;
         }
         
-        /* 🌟 모바일 화면 완벽 대응 (잘림, 겹침 방지) 🌟 */
         @media (max-width: 768px) {
             header {
                 flex-direction: column; 
                 align-items: flex-start;
                 padding: 12px 20px;
+            }
+            .header-left {
+                margin-bottom: 10px;
             }
             nav {
                 width: 100%;
@@ -634,7 +673,6 @@
                 margin-top: 5px;
             }
             
-            /* 상단 메뉴가 여러 줄이 되어 본문을 가리지 않도록 모바일 여백 대폭 확장 */
             section {
                 padding-top: 180px !important;
             }
@@ -662,7 +700,6 @@
                 text-align: left; 
             }
 
-            /* 모바일에서 CV 이력 항목 가로 넘침 방지 */
             .cv-item {
                 flex-direction: column;
                 gap: 5px;
@@ -691,9 +728,13 @@
 </head>
 <body>
 
-    <!-- 🌟 상단 메뉴바 (News & Event 순서 6번째로 이동) 🌟 -->
     <header>
-        <h1><a href="#home">HEYONE LAB</a></h1> 
+        <!-- HEYONE LAB 로고 좌측에 기후변화융합학부 배너 추가 -->
+        <div class="header-left">
+            <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" class="hufs-banner" title="한국외국어대학 기후변화융합학부 홈페이지">한국외국어대학 기후변화융합학부</a>
+            <h1><a href="#home">HEYONE LAB</a></h1> 
+        </div>
+        
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -729,7 +770,6 @@
          1. Home
     =============================================== -->
     <section id="home">
-        
         <div class="home-header">
             <h3>Welcome to HEYONE LAB!</h3>
             <p>HEYONE Lab aims to realize carbon neutrality by developing highly efficient and robust electrochemical energy devices. We always welcome creative, passionate researchers to join us in demonstrating innovative designs from material to device level using advanced fabrication technology.<br></p>
@@ -742,9 +782,14 @@
         <div class="contact-info">
             <strong>Contact:</strong> hhaewon.seo@samsung.com <br>
             <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
-            <div style="margin-top: 15px;">
-                <iframe src="https://maps.google.com/maps?q=Hankuk%20University%20of%20Foreign%20Studies%20Global%20Campus&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            
+            <a href="https://map.naver.com/p/search/한국외국어대학교%20글로벌캠퍼스" target="_blank">
+                <div class="naver-map-box">
+                    <div style="font-size: 36px; margin-bottom: 8px;">📍</div>
+                    <div style="color: #03c75a; font-size: 18px; font-weight: 800;">네이버 지도로 정확한 위치 확인하기</div>
+                    <div style="color: #555; font-size: 14px; margin-top: 5px; font-weight: 500;">클릭하시면 핀포인트가 찍힌 지도로 곧바로 이동합니다.</div>
+                </div>
+            </a>
         </div>
 
         <div class="news-section">
@@ -775,7 +820,7 @@
     </section>
 
     <!-- ==============================================
-         2. Research 영역
+         2. Research
     =============================================== -->
     <section id="research">
         <h2>Research Topics</h2>
@@ -802,7 +847,7 @@
     </section>
 
     <!-- ==============================================
-         3-1. Principal Investigator 영역
+         3-1. Principal Investigator
     =============================================== -->
     <section id="pi">
         <h2>Principal Investigator</h2>
@@ -824,7 +869,7 @@
                 <div class="pi-details">
                     <h5>Research Interests</h5>
                     <ul class="interest-list">
-                        <li>Electrochemical Energy Device</li>
+                        <li>Electrochemical Conversion</li>
                         <li>Micro/Nanofabrication</li>
                         <li>Heat and Mass Transfer</li>
                         <li>Interfacial/Structural Architecture</li>
@@ -863,6 +908,14 @@
                                 <div class="period">2021.07 – 2024.07</div>
                                 <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong>, Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
                             </div>
+                            <div class="cv-item">
+                                <div class="period">2018.11 – 2018.12</div>
+                                <div class="desc"><strong>Researcher</strong>, Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2017.10 – 2017.11</div>
+                                <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
+                            </div>
                         </div>
                     </details>
                 </div>
@@ -871,7 +924,7 @@
     </section>
 
     <!-- ==============================================
-         3-2. Students 영역
+         3-2. Students
     =============================================== -->
     <section id="students">
         <h2>Students</h2>
@@ -1149,7 +1202,7 @@
             <li>
                 <span class="title"><em>Study of microextrusion printing for realizing solid oxide fuel cells with thin corrugated electrolyte film (Oral)</em></span>
                 <span class="authors">T. Nishi*, <strong>H. Seo</strong>, M. Kishimoto, H. Iwai, M. Saito, H. Yoshida</span>
-                <span class="conf-info">Graduation Research Conference 2018 of the Japan Society of Mechanical Engineers Kansai Brach, Shiga (2019.03)</span>
+                <span class="conf-info">Graduation Research Conference 2018 of the Japan Society of Mechanical Engineers Kansai Branch, Shiga (2019.03)</span>
             </li>
             <li>
                 <span class="title"><em>Fundamental study on micro-extrusion printing for enlarging anode–electrolyte interface in anode-supported solid oxide fuel cells (Oral)</em></span>
@@ -1175,7 +1228,7 @@
     </section>
 
     <!-- ==============================================
-         7. News & Event 영역
+         7-1. News
     =============================================== -->
     <section id="news">
         <h2>News</h2>
@@ -1191,6 +1244,9 @@
         </ul>
     </section>
 
+    <!-- ==============================================
+         7-2. Event
+    =============================================== -->
     <section id="event">
         <h2>Event</h2>
         <div style="text-align: center; padding: 50px 0; color: #777;">
@@ -1202,11 +1258,9 @@
         <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
-    <!-- 🌟 페이지 이동 및 하이라이트 자동화 스크립트 🌟 -->
     <script>
-        /* 하이라이트 PDF 파일명(8자리 숫자) 목록 */
         const highlightPdfs = [
-            "20260114"
+            "20260114", "20251217", "20251020"
         ];
 
         function loadHighlights() {
@@ -1273,7 +1327,6 @@
             loadHighlights();
         });
 
-        // 모바일 화면 드롭다운 제어
         document.querySelectorAll('.nav-dropdown-btn').forEach(trigger => {
             trigger.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
