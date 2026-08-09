@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
+        /* 🌟 가로 스크롤 방지 및 전체 박스 크기 기준 통일 🌟 */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -26,6 +27,7 @@
             opacity: 0.8;
         }
         
+        /* 🌟 상단 고정 메뉴바 🌟 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -40,7 +42,6 @@
             backdrop-filter: blur(5px);
         }
         
-        /* 추가된 왼쪽 상단 헤더 컨테이너 및 배너 스타일 */
         .header-left {
             display: flex;
             flex-direction: column;
@@ -77,6 +78,15 @@
             opacity: 0.7;
         }
         
+        /* 모바일용 햄버거 버튼 (기본 숨김) */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #333;
+            padding: 5px;
+        }
+        
         nav::-webkit-scrollbar {
             display: none;
         }
@@ -107,6 +117,7 @@
             color: #1a4f8b;
         }
 
+        /* 드롭다운 서브 메뉴 설정 */
         .dropdown {
             visibility: hidden;
             opacity: 0;
@@ -252,24 +263,41 @@
             width: 100%;
         }
 
+        /* 🌟 세련되게 다듬어진 네이버 지도 박스 🌟 */
         .naver-map-box {
             margin-top: 20px; 
-            width: 100%; 
-            height: 200px; 
-            background-color: #ffffff; 
+            padding: 20px 15px;
+            background-color: #f8fcf9; 
             border-radius: 8px; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
-            border: 2px solid #03c75a; 
+            border: 1px solid #03c75a; 
             transition: all 0.2s ease-in-out;
             cursor: pointer;
+            text-align: center;
         }
         .naver-map-box:hover {
-            background-color: #f0fff4;
+            background-color: #eaf8ef;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(3, 199, 90, 0.15);
+        }
+        .naver-map-box .icon {
+            font-size: 26px; 
+            margin-bottom: 5px;
+        }
+        .naver-map-box .title {
+            color: #03c75a; 
+            font-size: 16px; 
+            font-weight: 800; 
+            margin-bottom: 4px;
+        }
+        .naver-map-box .desc {
+            color: #555; 
+            font-size: 13px; 
+            font-weight: 500; 
+            word-break: keep-all;
         }
 
         .news-section {
@@ -640,45 +668,86 @@
             font-size: 13px;
         }
         
+        /* 🌟 모바일 화면 완벽 대응 (햄버거 메뉴 추가 및 여백 수정) 🌟 */
         @media (max-width: 768px) {
             header {
-                flex-direction: column; 
-                align-items: flex-start;
-                padding: 12px 20px;
+                padding: 10px 20px;
             }
             .header-left {
-                margin-bottom: 10px;
+                gap: 2px;
             }
+            .hufs-banner {
+                font-size: 10px;
+                padding: 2px 6px;
+            }
+            header h1 {
+                font-size: 18px;
+            }
+            
+            /* 햄버거 메뉴 버튼 표시 */
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* 네비게이션 숨김 후, 클릭 시 열리도록 변경 */
             nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
-                margin-top: 10px;
-                overflow: visible; 
+                background: rgba(255, 255, 255, 0.98);
+                border-bottom: 1px solid #eaeaea;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                padding: 0 20px 10px;
+            }
+            nav.active {
+                display: block;
             }
             nav > ul {
-                gap: 15px;
-                flex-wrap: wrap; 
-                justify-content: flex-start;
-                padding-bottom: 5px; 
+                flex-direction: column;
+                gap: 0;
+            }
+            nav > ul > li > a {
+                padding: 15px 0;
+                border-bottom: 1px solid #f0f0f0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
             }
             
+            /* 드롭다운 모바일 최적화 */
             .dropdown {
-                left: 0;
-                transform: none; 
-                min-width: 200px;
-            }
-            
-            nav > ul > li.mobile-open .dropdown {
+                position: static;
                 visibility: visible;
                 opacity: 1;
-                margin-top: 5px;
+                box-shadow: none;
+                border: none;
+                background: #f8f9fa;
+                display: none; /* 서브메뉴 기본 숨김 */
+                padding: 0;
+                margin: 0;
+                transform: none;
+            }
+            nav > ul > li.mobile-open .dropdown {
+                display: flex;
+            }
+            .dropdown li a {
+                padding: 12px 20px;
+                font-size: 14px;
+                text-align: left;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            .dropdown li:last-child a {
+                border-bottom: none;
             }
             
+            /* 💡 상단 메뉴가 짧아졌으므로 본문 여백 축소 */
             section {
-                padding-top: 180px !important;
+                padding-top: 100px !important;
             }
-            
             .member-category, .pub-category {
-                scroll-margin-top: 180px; 
+                scroll-margin-top: 100px; 
             }
 
             .profile-section, .research-item, .pi-profile {
@@ -729,13 +798,15 @@
 <body>
 
     <header>
-        <!-- HEYONE LAB 로고 좌측에 기후변화융합학부 배너 추가 -->
         <div class="header-left">
             <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" class="hufs-banner" title="한국외국어대학 기후변화융합학부 홈페이지">한국외국어대학 기후변화융합학부</a>
             <h1><a href="#home">HEYONE LAB</a></h1> 
         </div>
         
-        <nav>
+        <!-- 🌟 모바일용 햄버거 버튼 🌟 -->
+        <div class="mobile-menu-btn" id="mobile-menu-btn">☰</div>
+        
+        <nav id="main-nav">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#research">Research</a></li>
@@ -783,11 +854,11 @@
             <strong>Contact:</strong> hhaewon.seo@samsung.com <br>
             <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
             
-            <a href="https://map.naver.com/p/search/한국외국어대학교%20글로벌캠퍼스" target="_blank">
+            <a href="https://map.naver.com/p/search/한국외국어대학교%20글로벌캠퍼스" target="_blank" style="text-decoration: none; display: block;">
                 <div class="naver-map-box">
-                    <div style="font-size: 36px; margin-bottom: 8px;">📍</div>
-                    <div style="color: #03c75a; font-size: 18px; font-weight: 800;">네이버 지도로 정확한 위치 확인하기</div>
-                    <div style="color: #555; font-size: 14px; margin-top: 5px; font-weight: 500;">클릭하시면 핀포인트가 찍힌 지도로 곧바로 이동합니다.</div>
+                    <div class="icon">📍</div>
+                    <div class="title">네이버 지도로 정확한 위치 확인하기</div>
+                    <div class="desc">클릭하시면 핀포인트가 찍힌 지도로 곧바로 이동합니다.</div>
                 </div>
             </a>
         </div>
@@ -907,14 +978,6 @@
                             <div class="cv-item">
                                 <div class="period">2021.07 – 2024.07</div>
                                 <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong>, Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
-                            </div>
-                            <div class="cv-item">
-                                <div class="period">2018.11 – 2018.12</div>
-                                <div class="desc"><strong>Researcher</strong>, Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
-                            </div>
-                            <div class="cv-item">
-                                <div class="period">2017.10 – 2017.11</div>
-                                <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
                             </div>
                         </div>
                     </details>
@@ -1095,7 +1158,7 @@
     </section>
 
     <!-- ==============================================
-         5-2. International Conference
+         4-2. International Conference
     =============================================== -->
     <section id="intl-conf">
         <h2>International Conference</h2>
@@ -1144,7 +1207,7 @@
     </section>
 
     <!-- ==============================================
-         5-3. Domestic Conference
+         4-3. Domestic Conference
     =============================================== -->
     <section id="dom-conf">
         <h2>Domestic Conference</h2>
@@ -1218,7 +1281,7 @@
     </section>
 
     <!-- ==============================================
-         6. Lecture
+         5. Lecture
     =============================================== -->
     <section id="lecture">
         <h2>Lecture</h2>
@@ -1228,7 +1291,7 @@
     </section>
 
     <!-- ==============================================
-         7-1. News
+         6-1. News
     =============================================== -->
     <section id="news">
         <h2>News</h2>
@@ -1245,7 +1308,7 @@
     </section>
 
     <!-- ==============================================
-         7-2. Event
+         6-2. Event
     =============================================== -->
     <section id="event">
         <h2>Event</h2>
@@ -1258,9 +1321,14 @@
         <p>&copy; 2026 HEYONE LAB. All rights reserved.</p>
     </footer>
 
+    <!-- 🌟 스크립트: 페이지 라우팅, 모바일 햄버거 메뉴, PDF 자동화 🌟 -->
     <script>
+        /* =========================================
+           여기에 하이라이트 PDF 파일명(8자리 숫자)을 쉼표로 입력하세요. 
+           (주의: 반드시 .pdf 파일만 동작합니다!)
+        ========================================= */
         const highlightPdfs = [
-            "20260114", "20251217", "20251020"
+            "20260114"
         ];
 
         function loadHighlights() {
@@ -1279,8 +1347,8 @@
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
                 card.innerHTML = `
-                    <object data="image/${num}.pdf" type="application/pdf" width="100%" height="250px" style="border-radius:4px; border:1px solid #eaeaea;">
-                        <p style="font-size:13px; color:#666;">PDF Preview not supported. <br>Please click the link below.</p>
+                    <object data="image/${num}.pdf" type="application/pdf" width="100%" height="250px" style="border-radius:4px; border:1px solid #eaeaea; overflow:hidden;">
+                        <p style="font-size:13px; color:#666; padding: 20px;">PDF Preview not supported on this device. <br>Please click the link below.</p>
                     </object>
                     <a href="image/${num}.pdf" target="_blank" style="display:inline-block; margin-top:12px; font-size:14px; font-weight:bold;">📄 Open PDF in new tab</a>
                 `;
@@ -1288,6 +1356,7 @@
             });
         }
 
+        // 페이지 전환 로직
         function updatePage() {
             let hash = window.location.hash || "#home";
             let parentSection = hash;
@@ -1327,6 +1396,13 @@
             loadHighlights();
         });
 
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
         document.querySelectorAll('.nav-dropdown-btn').forEach(trigger => {
             trigger.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
@@ -1338,14 +1414,18 @@
                     if (!wasOpen) {
                         e.preventDefault(); 
                         parent.classList.add('mobile-open');
+                    } else {
+                        mainNav.classList.remove('active');
                     }
                 }
             });
         });
 
-        document.querySelectorAll('.dropdown a').forEach(subLink => {
+        document.querySelectorAll('nav > ul > li > a:not(.nav-dropdown-btn), .dropdown a').forEach(subLink => {
             subLink.addEventListener('click', () => {
-                document.querySelectorAll('nav > ul > li').forEach(li => li.classList.remove('mobile-open'));
+                if (window.innerWidth <= 768) {
+                    mainNav.classList.remove('active');
+                }
             });
         });
     </script>
