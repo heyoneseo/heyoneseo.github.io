@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
-        /* 🌟 가로 스크롤 방지 및 전체 박스 크기 기준 통일 🌟 */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -27,7 +26,6 @@
             opacity: 0.8;
         }
         
-        /* 🌟 상단 고정 메뉴바 🌟 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -42,7 +40,6 @@
             backdrop-filter: blur(5px);
         }
         
-        /* 헤더 좌측 로고 및 타이틀 가로 정렬 */
         .header-left {
             display: flex;
             flex-direction: row;
@@ -50,7 +47,6 @@
             gap: 15px; 
         }
         
-        /* 로고 이미지 스타일 */
         .hufs-logo {
             height: 50px; 
             width: auto;
@@ -74,7 +70,6 @@
             opacity: 0.7;
         }
         
-        /* 모바일용 햄버거 버튼 (기본 숨김) */
         .mobile-menu-btn {
             display: none;
             font-size: 26px;
@@ -91,7 +86,6 @@
             scrollbar-width: none;
         }
 
-        /* 🌟 메인 메뉴 & 드롭다운 디자인 🌟 */
         nav > ul {
             list-style: none;
             margin: 0;
@@ -114,7 +108,6 @@
             color: #1a4f8b;
         }
 
-        /* 드롭다운 서브 메뉴 설정 */
         .dropdown {
             visibility: hidden;
             opacity: 0;
@@ -644,6 +637,7 @@
                 font-size: 18px;
             }
             
+            /* 햄버거 메뉴 버튼 표시 */
             .mobile-menu-btn {
                 display: block;
             }
@@ -674,6 +668,7 @@
                 justify-content: space-between;
             }
             
+            /* 드롭다운 모바일 최적화 */
             .dropdown {
                 position: static;
                 visibility: visible;
@@ -754,9 +749,10 @@
 <body>
 
     <header>
+        <!-- 🌟 파일명 Logo.jpg 적용 완료 🌟 -->
         <div class="header-left">
             <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학 기후변화융합학부 홈페이지">
-                <img src="image/logo.png" alt="HUFS Logo" class="hufs-logo">
+                <img src="image/Logo.jpg" alt="HUFS Logo" class="hufs-logo">
             </a>
             <h1><a href="#home">HEYONE LAB</a></h1> 
         </div>
@@ -811,12 +807,10 @@
             <strong>Contact:</strong> hhaewon.seo@samsung.com <br>
             <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
             
-            <!-- 🌟 빨간 핀포인트가 무조건 뜨도록 주소 좌표로 고정시킨 구글맵 🌟 -->
             <div style="margin-top: 20px;">
-                <iframe width="100%" height="300" frameborder="0" src="https://maps.google.com/maps?q=81,%20Oedae-ro,%20Mohyeon-eup,%20Cheoin-gu,%20Yongin-si&t=&z=15&ie=UTF8&iwloc=B&output=embed" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                <iframe width="100%" height="300" frameborder="0" src="https://maps.google.com/maps?q=한국외국어대학교%20글로벌캠퍼스&t=&z=15&ie=UTF8&iwloc=&output=embed" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>
             
-            <!-- 🌟 전달해주신 구글맵 단축 링크 바로가기 버튼 🌟 -->
             <div style="text-align: right; margin-top: 10px;">
                 <a href="https://maps.app.goo.gl/JTvKx2fwdF95mEoYA" target="_blank" style="font-size: 14.5px; font-weight: 700; color: #1a4f8b; text-decoration: underline !important;">📍 Open in Google Maps Apps</a>
             </div>
@@ -937,6 +931,14 @@
                             <div class="cv-item">
                                 <div class="period">2021.07 – 2024.07</div>
                                 <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong>, Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2018.11 – 2018.12</div>
+                                <div class="desc"><strong>Researcher</strong>, Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2017.10 – 2017.11</div>
+                                <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
                             </div>
                         </div>
                     </details>
