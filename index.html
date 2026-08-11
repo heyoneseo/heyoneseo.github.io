@@ -631,7 +631,7 @@
             font-size: 13px;
         }
         
-        /* 🌟 모바일 화면 완벽 대응 🌟 */
+        /* 🌟 모바일 화면 완벽 대응 (햄버거 메뉴 및 여백 수정) 🌟 */
         @media (max-width: 768px) {
             header {
                 padding: 10px 20px;
@@ -756,9 +756,10 @@
 <body>
 
     <header>
+        <!-- 🌟 파일명 Logo.jpg 완벽 적용 🌟 -->
         <div class="header-left">
             <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학 기후변화융합학부 홈페이지">
-                <img src="image/image_eca0d0.png" alt="HUFS Logo" class="hufs-logo">
+                <img src="image/Logo.jpg" onerror="this.src='https://via.placeholder.com/50x50.png?text=Logo'" alt="HUFS Logo" class="hufs-logo">
             </a>
             <h1><a href="#home">HEYONE LAB</a></h1> 
         </div>
@@ -813,8 +814,9 @@
             <strong>Contact:</strong> hhaewon.seo@samsung.com <br>
             <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
             
+            <!-- 🌟 구글맵 핀포인트 강제 고정 코드 🌟 -->
             <div style="margin-top: 20px;">
-                <iframe width="100%" height="300" frameborder="0" src="https://maps.google.com/maps?q=한국외국어대학교%20글로벌캠퍼스&t=&z=15&ie=UTF8&iwloc=&output=embed" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                <iframe width="100%" height="300" frameborder="0" src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=ko&amp;q=Hankuk%20University%20of%20Foreign%20Studies%20Global%20Campus+(HEYONE%20LAB)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>
             
             <div style="text-align: right; margin-top: 10px;">
@@ -850,12 +852,11 @@
     </section>
 
     <!-- ==============================================
-         2. Research 영역 (신규 개편)
+         2. Research 영역
     =============================================== -->
     <section id="research">
         <h2>Research Topics</h2>
         
-        <!-- 🌟 대주제 (메인) 🌟 -->
         <div class="research-main">
             <h3>Solid Oxide Electrochemical Cell</h3>
             <p>
@@ -863,7 +864,6 @@
             </p>
         </div>
 
-        <!-- 🌟 서브 주제 1: Advanced Design 🌟 -->
         <div class="research-item">
             <div class="research-img">
                 <img src="image/Research (1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
@@ -874,7 +874,6 @@
             </div>
         </div>
 
-        <!-- 🌟 서브 주제 2: 3D Nanotomography 🌟 -->
         <div class="research-item">
             <div class="research-img">
                 <img src="image/Research (2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
@@ -885,7 +884,6 @@
             </div>
         </div>
 
-        <!-- 🌟 서브 주제 3: Multiphysics Simulation 🌟 -->
         <div class="research-item">
             <div class="research-img">
                 <img src="image/Research (3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
