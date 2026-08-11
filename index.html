@@ -323,11 +323,33 @@
         /* ================================
            2. Research 영역 디자인
         ================================ */
+        .research-main {
+            margin-bottom: 50px;
+        }
+        .research-main h3 {
+            font-size: 26px;
+            color: #1a4f8b;
+            margin-top: 0;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .research-main p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.8;
+        }
+
         .research-item {
             display: flex;
             gap: 25px;
             margin-bottom: 40px;
             align-items: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border: 1px solid #f5f5f5;
         }
         .research-img {
             flex: 1;
@@ -345,6 +367,11 @@
             margin: 0 0 10px 0;
             color: #222;
             font-size: 20px;
+        }
+        .research-text p {
+            margin: 0;
+            color: #555;
+            font-size: 15px;
         }
 
         /* ================================
@@ -455,10 +482,6 @@
             margin-bottom: 35px;
         }
 
-        .cv-content {
-            /* padding-top: 15px; 삭제 (h5 마진으로 대체) */
-        }
-
         .cv-item {
             display: flex;
             gap: 20px;
@@ -469,7 +492,7 @@
         }
         .cv-item .period {
             flex-shrink: 0;
-            width: 120px; /* 기간이 두 줄이 되지 않도록 너비 확장 */
+            width: 120px; 
             font-weight: 600;
             color: #1a4f8b;
         }
@@ -623,7 +646,6 @@
                 font-size: 18px;
             }
             
-            /* 햄버거 메뉴 버튼 표시 */
             .mobile-menu-btn {
                 display: block;
             }
@@ -654,7 +676,6 @@
                 justify-content: space-between;
             }
             
-            /* 드롭다운 모바일 최적화 */
             .dropdown {
                 position: static;
                 visibility: visible;
@@ -737,7 +758,7 @@
     <header>
         <div class="header-left">
             <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학 기후변화융합학부 홈페이지">
-                <img src="image/Logo.jpg" alt="HUFS Logo" class="hufs-logo">
+                <img src="image/image_eca0d0.png" alt="HUFS Logo" class="hufs-logo">
             </a>
             <h1><a href="#home">HEYONE LAB</a></h1> 
         </div>
@@ -829,28 +850,49 @@
     </section>
 
     <!-- ==============================================
-         2. Research
+         2. Research 영역 (신규 개편)
     =============================================== -->
     <section id="research">
         <h2>Research Topics</h2>
         
+        <!-- 🌟 대주제 (메인) 🌟 -->
+        <div class="research-main">
+            <h3>Solid Oxide Electrochemical Cell</h3>
+            <p>
+                Development and evaluation of Solid Oxide Fuel Cells (SOFC) and Electrolysis Cells (SOEC) for highly efficient energy conversion and water splitting. Current focus includes Protonic Ceramic Electrochemical Cells (PCEC) for low-temperature operation. By establishing advanced fabrication processes and multiscale structural architecture, we aim to realize robust and highly efficient devices capable of stable operation.
+            </p>
+        </div>
+
+        <!-- 🌟 서브 주제 1: Advanced Design 🌟 -->
         <div class="research-item">
             <div class="research-img">
-                <img src="https://via.placeholder.com/250x150.png?text=SOFC/SOEC" alt="Research 1">
+                <img src="image/Research (1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
             </div>
             <div class="research-text">
-                <h3>Solid Oxide Electrochemical Cells</h3>
-                <p>Development and evaluation of Solid Oxide Fuel Cells (SOFC) and Electrolysis Cells (SOEC) for highly efficient energy conversion and water splitting. Current focus includes Protonic Ceramic Electrochemical Cells (PCEC) for low-temperature operation.</p>
+                <h3>Advanced Design</h3>
+                <p>Innovating multiscale structural architectures and establishing advanced micro/nanofabrication processes to optimize the electrode-electrolyte interfaces for enhanced performance and durability.</p>
             </div>
         </div>
 
+        <!-- 🌟 서브 주제 2: 3D Nanotomography 🌟 -->
         <div class="research-item">
             <div class="research-img">
-                <img src="https://via.placeholder.com/250x150.png?text=Characterization" alt="Research 2">
+                <img src="image/Research (2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
             </div>
             <div class="research-text">
-                <h3>Degradation Mechanisms & Material Characterization</h3>
-                <p>Investigating core degradation mechanisms in electrochemical systems, such as Strontium (Sr) segregation under operational stress. Utilizing advanced characterization tools (TEM, SEM) and computational calculations (DFT) to modify electrodes for enhanced durability.</p>
+                <h3>3D Nanotomography</h3>
+                <p>Investigating core degradation mechanisms and characterizing complex porous microstructures in three dimensions to deeply understand the relationship between structural morphology and electrochemical properties.</p>
+            </div>
+        </div>
+
+        <!-- 🌟 서브 주제 3: Multiphysics Simulation 🌟 -->
+        <div class="research-item">
+            <div class="research-img">
+                <img src="image/Research (3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
+            </div>
+            <div class="research-text">
+                <h3>Multiphysics Simulation</h3>
+                <p>Analyzing coupled heat and mass transfer, fluid dynamics, and electrochemical reactions within energy devices through comprehensive simulations to predict and optimize real-world operational behaviors.</p>
             </div>
         </div>
     </section>
@@ -876,7 +918,6 @@
                 </div>
 
                 <div class="pi-details">
-                    <!-- 접기/펼치기 제거 후 깔끔하게 나열된 형태 -->
                     <h5>Research Interests</h5>
                     <ul class="interest-list">
                         <li>Electrochemical Conversion</li>
@@ -917,14 +958,6 @@
                             <div class="cv-item">
                                 <div class="period">2021.07 – 2024.07</div>
                                 <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong>, Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
-                            </div>
-                            <div class="cv-item">
-                                <div class="period">2018.11 – 2018.12</div>
-                                <div class="desc"><strong>Researcher</strong>, Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
-                            </div>
-                            <div class="cv-item">
-                                <div class="period">2017.10 – 2017.11</div>
-                                <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
                             </div>
                         </div>
                     </div>
