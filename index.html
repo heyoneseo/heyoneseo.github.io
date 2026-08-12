@@ -239,6 +239,27 @@
             margin: 0 auto;
         }
 
+        /* 🌟 SDG 아이콘 컨테이너 스타일 🌟 */
+        .sdg-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .sdg-container img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+        .sdg-container img:hover {
+            transform: translateY(-3px);
+        }
+
         .home-main-image {
             text-align: center;
             margin-bottom: 35px;
@@ -750,6 +771,12 @@
             .pub-number {
                 margin-bottom: -5px;
             }
+            
+            /* 모바일 SDG 아이콘 크기 조정 */
+            .sdg-container img {
+                width: 55px;
+                height: 55px;
+            }
         }
     </style>
 </head>
@@ -803,6 +830,12 @@
         <div class="home-header">
             <h3>Welcome to HEYONE LAB!</h3>
             <p>HEYONE Lab aims to realize carbon neutrality by developing highly efficient and robust electrochemical energy devices. We always welcome creative, passionate researchers to join us in demonstrating innovative designs from material to device level using advanced fabrication technology.<br></p>
+            
+            <div class="sdg-container">
+                <img src="image/SDG_7.png" onerror="this.src='https://via.placeholder.com/75x75.png?text=SDG+7'" alt="SDG 7 - Affordable and Clean Energy">
+                <img src="image/SDG_9.png" onerror="this.src='https://via.placeholder.com/75x75.png?text=SDG+9'" alt="SDG 9 - Industry, Innovation and Infrastructure">
+                <img src="image/SDG_13.png" onerror="this.src='https://via.placeholder.com/75x75.png?text=SDG+13'" alt="SDG 13 - Climate Action">
+            </div>
         </div>
         
         <div class="home-main-image">
@@ -810,10 +843,9 @@
         </div>
 
         <div class="contact-info">
-            <strong>Contact:</strong> hhaewon.seo@samsung.com <br>
+            <strong>Contact:</strong> heyone@hufs.ac.kr <br>
             <strong>Access:</strong> 81, Oedae-ro, Mohyeon-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, 17035, Republic of Korea
             
-            <!-- 🌟 빨간 핀포인트가 무조건 뜨도록 한글명(한국외국어대학교 글로벌캠퍼스)으로 검색 지정 복구 🌟 -->
             <div style="margin-top: 20px;">
                 <iframe width="100%" height="300" frameborder="0" src="https://maps.google.com/maps?q=한국외국어대학교%20글로벌캠퍼스&t=&z=15&ie=UTF8&iwloc=&output=embed" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>
@@ -851,7 +883,7 @@
     </section>
 
     <!-- ==============================================
-         2. Research 영역
+         2. Research
     =============================================== -->
     <section id="research">
         <h2>Research Topics</h2>
@@ -942,7 +974,7 @@
                     </div>
 
                     <div class="cv-section">
-                        <h5>Employment</h5>
+                        <h5>Professional Experience</h5>
                         <div class="cv-content">
                             <div class="cv-item">
                                 <div class="period">2026.09 – Present</div>
@@ -955,6 +987,14 @@
                             <div class="cv-item">
                                 <div class="period">2021.07 – 2024.07</div>
                                 <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong><br>Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2018.11 – 2018.12</div>
+                                <div class="desc"><strong>Researcher</strong><br>Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="period">2017.10 – 2017.11</div>
+                                <div class="desc"><strong>Researcher</strong><br>Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
                             </div>
                         </div>
                     </div>
