@@ -364,7 +364,7 @@
             display: flex;
             gap: 25px;
             margin-bottom: 40px;
-            align-items: center;
+            align-items: flex-start; 
             background: #ffffff;
             padding: 20px;
             border-radius: 8px;
@@ -816,7 +816,6 @@
 <body>
 
     <header>
-        <!-- 🌟 로고 파일 경로: image/Logo.jpg 적용 복구 🌟 -->
         <div class="header-left">
             <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학 기후변화융합학부 홈페이지">
                 <img src="image/Logo.jpg" onerror="this.src='https://via.placeholder.com/50x50.png?text=Logo'" alt="HUFS Logo" class="hufs-logo">
@@ -920,18 +919,18 @@
          2. Research
     =============================================== -->
     <section id="research">
-        <h2>Research Topics</h2>
+        <h2>Research Theme</h2>
         
         <div class="research-main">
             <h3>Solid Oxide Electrochemical Cell</h3>
             <p>
-                Development and evaluation of Solid Oxide Fuel Cells (SOFC) and Electrolysis Cells (SOEC) for highly efficient energy conversion and water splitting. Current focus includes Protonic Ceramic Electrochemical Cells (PCEC) for low-temperature operation. By establishing advanced fabrication processes and multiscale structural architecture, we aim to realize robust and highly efficient devices capable of stable operation.
+                Amid growing concerns over global warming, high-temperature electrochemical devices, including reversible solid oxide cells (ReSOCs) and proton-conducting cells (RePCCs), have emerged as a cornerstone of future decarbonized energy systems. Our group designs innovative architectures from the material to the cell level for highly efficient power generation and value-added chemical production (e.g., H<sub>2</sub>, CO, NH<sub>3</sub>). Through advanced fabrication technology across a wide range of length scales, we aim to realize robust, high-performance, and stable devices.
             </p>
         </div>
 
         <div class="research-item">
             <div class="research-img">
-                <img src="image/Research (1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
+                <img src="research/Research%20(1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
             </div>
             <div class="research-text">
                 <h3>Advanced Design</h3>
@@ -941,7 +940,7 @@
 
         <div class="research-item">
             <div class="research-img">
-                <img src="image/Research (2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
+                <img src="research/Research%20(2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
             </div>
             <div class="research-text">
                 <h3>3D Nanotomography</h3>
@@ -951,7 +950,7 @@
 
         <div class="research-item">
             <div class="research-img">
-                <img src="image/Research (3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
+                <img src="research/Research%20(3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
             </div>
             <div class="research-text">
                 <h3>Multiphysics Simulation</h3>
@@ -986,7 +985,7 @@
                         <li>Electrochemical Conversion</li>
                         <li>Micro/Nanofabrication</li>
                         <li>Heat and Mass Transfer</li>
-                        <li>Interfacial/Structural Architecture</li>
+                        <li>Interfacial/Structural Design</li>
                     </ul>
 
                     <div class="cv-section">
@@ -1012,23 +1011,23 @@
                         <div class="cv-content">
                             <div class="cv-item">
                                 <div class="period">2026.09 – Present</div>
-                                <div class="desc"><strong>Associate Professor</strong>, Division of Climate Change<br>Hankuk Univeristy of Foreign Studies (HUFS)</div>
+                                <div class="desc"><strong>Associate Professor</strong><br>Division of Climate Change<br>Hankuk Univeristy of Foreign Studies (HUFS)</div>
                             </div>
                             <div class="cv-item">
                                 <div class="period">2024.08 – 2026.08</div>
-                                <div class="desc"><strong>Senior Researcher</strong>, Air Science Platform<br>Samsung Advanced Institute of Technology (SAIT)</div>
+                                <div class="desc"><strong>Senior Researcher</strong><br>Air Science Platform<br>Samsung Advanced Institute of Technology (SAIT)</div>
                             </div>
                             <div class="cv-item">
                                 <div class="period">2021.07 – 2024.07</div>
-                                <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong>, Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
+                                <div class="desc"><strong>Postdoctoral Researcher (Alternative Military Service)</strong><br>Center for Hydrogen Energy Materials<br>Korea Institute of Science and Technology (KIST)</div>
                             </div>
                             <div class="cv-item">
                                 <div class="period">2018.11 – 2018.12</div>
-                                <div class="desc"><strong>Researcher</strong>, Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
+                                <div class="desc"><strong>Researcher</strong><br>Instituto de Ciencia de Materiales de Aragon (ICMA)<br>University of Zaragoza, Spain</div>
                             </div>
                             <div class="cv-item">
                                 <div class="period">2017.10 – 2017.11</div>
-                                <div class="desc"><strong>Researcher</strong>, Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
+                                <div class="desc"><strong>Researcher</strong><br>Department of Fundamental Research in Energy Engineering<br>AGH University of Science and Technology, Poland</div>
                             </div>
                         </div>
                     </div>
@@ -1045,13 +1044,8 @@
         <div class="members-grid">
             <div class="member-card">
                 <img src="https://via.placeholder.com/150.png?text=Student+1" alt="Student 1">
-                <h4>Student Name</h4>
-                <p>M.S. Student</p>
-            </div>
-            <div class="member-card">
-                <img src="https://via.placeholder.com/150.png?text=Student+2" alt="Student 2">
-                <h4>Student Name</h4>
-                <p>Undergraduate Researcher</p>
+                <h4>Name</h4>
+                <p>To be updated</p>
             </div>
         </div>
     </section>
@@ -1065,7 +1059,6 @@
             <li class="pub-item">
                 <div class="pub-number">13.</div>
                 <div class="pub-ga">
-                    <!-- 논문 이미지는 research 폴더 유지 -->
                     <img src="research/13.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
@@ -1342,19 +1335,17 @@
             <p style="font-size: 20px; margin-bottom: 5px;"><strong>2026</strong></p>
             <p style="font-size: 16px; margin-top: 0; margin-bottom: 20px;"><em>Fall Semester</em></p>
 
-            <!-- 과목 1 -->
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Renewable Energy Technologies and Applications (L01211101)</span></summary>
                 <div class="lecture-content">
-                    <a href="research/Renewable_Energy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">📄 Download (PDF)</a>
+                    <a href="research/Renewable_Energy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">📄 Download</a>
                 </div>
             </details>
 
-            <!-- 과목 2 -->
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Hydrogen Economy and Energy Storage Systems (L01212101)</span></summary>
                 <div class="lecture-content">
-                    <a href="research/Hydrogen_Economy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">📄 Download (PDF)</a>
+                    <a href="research/Hydrogen_Economy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">📄 Download</a>
                 </div>
             </details>
         </div>
@@ -1383,7 +1374,7 @@
     <section id="event">
         <h2>Event</h2>
         <div style="text-align: center; padding: 50px 0; color: #777;">
-            <p>Photos and event records will be updated soon.</p>
+            <p>To be updated</p>
         </div>
     </section>
 
@@ -1393,7 +1384,7 @@
 
     <script>
         const highlightPdfs = [
-            "20260114", "20251217", "20251020", "20241117", "20231214"
+            "20260114", "20251217", "20251020", "20241107", "20231214", "20220614"
         ];
 
         function loadHighlights() {
@@ -1412,10 +1403,10 @@
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
                 card.innerHTML = `
-                    <object data="image/${num}.pdf" type="application/pdf" width="100%" height="250px" style="border-radius:4px; border:1px solid #eaeaea; overflow:hidden;">
+                    <object data="research/${num}.pdf" type="application/pdf" width="100%" height="250px" style="border-radius:4px; border:1px solid #eaeaea; overflow:hidden;">
                         <p style="font-size:13px; color:#666; padding: 20px;">PDF Preview not supported on this device. <br>Please click the link below.</p>
                     </object>
-                    <a href="image/${num}.pdf" target="_blank" style="display:inline-block; margin-top:12px; font-size:14px; font-weight:bold;">📄 Open PDF in new tab</a>
+                    <a href="research/${num}.pdf" target="_blank" style="display:inline-block; margin-top:12px; font-size:14px; font-weight:bold;">📄 Open PDF in new tab</a>
                 `;
                 container.appendChild(card);
             });
