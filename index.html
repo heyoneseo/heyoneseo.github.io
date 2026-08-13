@@ -210,9 +210,6 @@
             letter-spacing: 1px;
         }
 
-        /* ================================
-           1. Home 영역 상세 디자인
-        ================================ */
         .home-header {
             text-align: center;
             margin-bottom: 35px;
@@ -341,9 +338,6 @@
             display: none;
         }
 
-        /* ================================
-           2. Research 영역 디자인
-        ================================ */
         .research-main {
             margin-bottom: 50px;
         }
@@ -397,9 +391,6 @@
             text-align: left;
         }
 
-        /* ================================
-           3. Members 영역 디자인
-        ================================ */
         .member-category {
             font-size: 22px;
             color: #1a4f8b;
@@ -547,9 +538,6 @@
             color: #777;
         }
 
-        /* ================================
-           4. Publications 영역
-        ================================ */
         .pub-category {
             font-size: 22px;
             color: #1a4f8b;
@@ -811,6 +799,10 @@
                 width: 55px;
                 height: 55px;
             }
+            
+            .home-header p, .research-main p, .research-text p {
+                text-align: left;
+            }
         }
     </style>
 </head>
@@ -857,13 +849,10 @@
         </nav>
     </header>
 
-    <!-- ==============================================
-         1. Home
-    =============================================== -->
     <section id="home">
         <div class="home-header">
             <h3>Welcome to HEYONE LAB!</h3>
-            <p>HEYONE Lab aims to realize carbon neutrality by developing highly efficient and robust electrochemical energy devices. We always welcome creative, passionate researchers to join us in demonstrating innovative designs from material to device level using advanced fabrication technology.<br></p>
+            <p></strong>HEYONE Lab</strong> aims to realize carbon neutrality by developing highly efficient and robust electrochemical energy devices. We always welcome creative, passionate researchers to join us in demonstrating innovative designs from material to device level using advanced fabrication technology.<br></p>
             
             <div class="sdg-container">
                 <img src="image/SDG_7.png" onerror="this.src='https://via.placeholder.com/75x75.png?text=SDG+7'" alt="SDG 7 - Affordable and Clean Energy">
@@ -878,14 +867,14 @@
 
         <div class="contact-info">
             <strong>Contact:</strong> heyone@hufs.ac.kr <br>
-            <strong>Access:</strong> Rm 202, Prof Res Bldg
+            <strong>Access:</strong> Rm #202, Prof Res Bldg
             
             <div style="margin-top: 20px;">
                 <iframe width="100%" height="300" frameborder="0" src="https://maps.google.com/maps?q=한국외국어대학교%20글로벌캠퍼스%20어문학관&t=&z=16&ie=UTF8&iwloc=&output=embed" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>
             
             <div style="text-align: right; margin-top: 10px;">
-                <a href="https://maps.app.goo.gl/JTvKx2fwdF95mEoYA" target="_blank" style="font-size: 14.5px; font-weight: 700; color: #1a4f8b; text-decoration: underline !important;">Open in Google Maps</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=한국외국어대학교+글로벌캠퍼스+어문학관" target="_blank" style="font-size: 14.5px; font-weight: 700; color: #1a4f8b; text-decoration: underline !important;">📍 Open in Google Maps</a>
             </div>
         </div>
 
@@ -916,9 +905,6 @@
         </div>
     </section>
 
-    <!-- ==============================================
-         2. Research
-    =============================================== -->
     <section id="research">
         <h2>Research Topics</h2>
         
@@ -960,9 +946,6 @@
         </div>
     </section>
 
-    <!-- ==============================================
-         3-1. Principal Investigator
-    =============================================== -->
     <section id="pi">
         <h2>Principal Investigator</h2>
         <div class="pi-profile">
@@ -1037,9 +1020,6 @@
         </div>
     </section>
 
-    <!-- ==============================================
-         3-2. Students
-    =============================================== -->
     <section id="students">
         <h2>Students</h2>
         <div class="members-grid">
@@ -1051,13 +1031,9 @@
         </div>
     </section>
 
-    <!-- ==============================================
-         4-1. Journal
-    =============================================== -->
     <section id="journal">
         <h2>Journal</h2>
         <ul class="pub-list">
-            <!-- 🌟 번호순 파일명 (01 ~ 13.jpg) 수정 완료 🌟 -->
             <li class="pub-item">
                 <div class="pub-number">13.</div>
                 <div class="pub-ga">
@@ -1204,9 +1180,6 @@
         </ul>
     </section>
 
-    <!-- ==============================================
-         4-2. International Conference
-    =============================================== -->
     <section id="intl-conf">
         <h2>International Conference</h2>
         <ul class="conf-list">
@@ -1253,9 +1226,6 @@
         </ul>
     </section>
 
-    <!-- ==============================================
-         4-3. Domestic Conference
-    =============================================== -->
     <section id="dom-conf">
         <h2>Domestic Conference</h2>
         <ul class="conf-list">
@@ -1327,9 +1297,6 @@
         </ul>
     </section>
 
-    <!-- ==============================================
-         5. Lecture
-    =============================================== -->
     <section id="lecture">
         <h2>Lecture</h2>
         
@@ -1340,22 +1307,19 @@
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Renewable Energy Technologies and Applications (L01211101)</span></summary>
                 <div class="lecture-content">
-                    <a href="research/Renewable_Energy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
+                    <a href="research/Renewable_Energy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">📄 Download Syllabus (PDF)</a>
                 </div>
             </details>
 
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Hydrogen Economy and Energy Storage Systems (L01212101)</span></summary>
                 <div class="lecture-content">
-                    <a href="research/Hydrogen_Economy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
+                    <a href="research/Hydrogen_Economy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">📄 Download Syllabus (PDF)</a>
                 </div>
             </details>
         </div>
     </section>
 
-    <!-- ==============================================
-         6-1. News
-    =============================================== -->
     <section id="news">
         <h2>News</h2>
         <ul class="news-list" style="margin-top: 20px;">
@@ -1370,9 +1334,6 @@
         </ul>
     </section>
 
-    <!-- ==============================================
-         6-2. Event
-    =============================================== -->
     <section id="event">
         <h2>Event</h2>
         <div style="text-align: center; padding: 50px 0; color: #777;">
@@ -1405,8 +1366,9 @@
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
                 card.innerHTML = `
-                    <iframe src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" width="100%" height="300px" style="border-radius:4px; border:1px solid #eaeaea; overflow:hidden; pointer-events: none;" scrolling="no" frameborder="0"></iframe>
-                    <a href="research/${num}.pdf" target="_blank" style="display:inline-block; margin-top:12px; font-size:14px; font-weight:bold;"></a>
+                    <a href="research/${num}.pdf" target="_blank" style="display:block; text-decoration:none;" title="Open PDF">
+                        <iframe src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" width="100%" height="285px" style="border-radius:4px; border:1px solid #eaeaea; overflow:hidden; pointer-events: none;" scrolling="no" frameborder="0"></iframe>
+                    </a>
                 `;
                 container.appendChild(card);
             });
