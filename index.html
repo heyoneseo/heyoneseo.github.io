@@ -339,6 +339,15 @@
             align-items: center;
             width: 100%;
         }
+        
+        /* 🌟 PDF 미리보기 스크롤 완벽 차단 🌟 */
+        .highlight-card iframe {
+            pointer-events: none; /* 내부 마우스 휠 방지 */
+            scrollbar-width: none; /* Firefox 스크롤바 숨김 */
+        }
+        .highlight-card iframe::-webkit-scrollbar {
+            display: none; /* Chrome/Safari 스크롤바 숨김 */
+        }
 
         /* ================================
            2. Research 영역 디자인
@@ -884,7 +893,7 @@
             </div>
             
             <div style="text-align: right; margin-top: 10px;">
-                <a href="https://maps.app.goo.gl/JTvKx2fwdF95mEoYA" target="_blank" style="font-size: 14.5px; font-weight: 700; color: #1a4f8b; text-decoration: underline !important;">📍 Click Here</a>
+                <a href="https://maps.app.goo.gl/JTvKx2fwdF95mEoYA" target="_blank" style="font-size: 14.5px; font-weight: 700; color: #1a4f8b; text-decoration: underline !important;">Open in Google Maps</a>
             </div>
         </div>
 
@@ -919,7 +928,7 @@
          2. Research
     =============================================== -->
     <section id="research">
-        <h2>Research Theme</h2>
+        <h2>Research Topics</h2>
         
         <div class="research-main">
             <h3>Solid Oxide Electrochemical Cell</h3>
@@ -930,7 +939,7 @@
 
         <div class="research-item">
             <div class="research-img">
-                <img src="research/Research%20(1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
+                <img src="image/Research%20(1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
             </div>
             <div class="research-text">
                 <h3>Advanced Design</h3>
@@ -940,7 +949,7 @@
 
         <div class="research-item">
             <div class="research-img">
-                <img src="research/Research%20(2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
+                <img src="image/Research%20(2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
             </div>
             <div class="research-text">
                 <h3>3D Nanotomography</h3>
@@ -950,7 +959,7 @@
 
         <div class="research-item">
             <div class="research-img">
-                <img src="research/Research%20(3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
+                <img src="image/Research%20(3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
             </div>
             <div class="research-text">
                 <h3>Multiphysics Simulation</h3>
@@ -971,7 +980,7 @@
             
             <div class="pi-info">
                 <h4>Haewon Seo, Ph. D.</h4>
-                <p class="role">Associate Professor</p>
+                <p class="role">Assistant Professor</p>
                 <p class="affiliation">Division of Climate Change<br>Hankuk University of Foreign Studies (HUFS)</p>
                 
                 <div class="btn-group">
@@ -985,7 +994,7 @@
                         <li>Electrochemical Conversion</li>
                         <li>Micro/Nanofabrication</li>
                         <li>Heat and Mass Transfer</li>
-                        <li>Interfacial/Structural Design</li>
+                        <li>Interfacial/Structural Architecture</li>
                     </ul>
 
                     <div class="cv-section">
@@ -1045,7 +1054,7 @@
             <div class="member-card">
                 <img src="https://via.placeholder.com/150.png?text=Student+1" alt="Student 1">
                 <h4>Name</h4>
-                <p>To be updated</p>
+                <p>Undergraduate</p>
             </div>
         </div>
     </section>
@@ -1056,6 +1065,7 @@
     <section id="journal">
         <h2>Journal</h2>
         <ul class="pub-list">
+            <!-- 🌟 번호순 파일명 (01 ~ 13.jpg) 수정 완료 🌟 -->
             <li class="pub-item">
                 <div class="pub-number">13.</div>
                 <div class="pub-ga">
@@ -1103,7 +1113,7 @@
             <li class="pub-item">
                 <div class="pub-number">9.</div>
                 <div class="pub-ga">
-                    <img src="research/9.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/09.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Highly efficient, coke-free electrolysis of dry CO2 in solid oxide electrolysis cells</em></span>
@@ -1114,7 +1124,7 @@
             <li class="pub-item">
                 <div class="pub-number">8.</div>
                 <div class="pub-ga">
-                    <img src="research/8.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/08.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Atomically dispersed platinum electrocatalysts supported on gadolinia-doped ceria nanoparticles for practical high-temperature solid oxide cells (Inside Back Cover)</em></span>
@@ -1125,7 +1135,7 @@
             <li class="pub-item">
                 <div class="pub-number">7.</div>
                 <div class="pub-ga">
-                    <img src="research/7.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/07.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Temperature‐controlled microextrusion printing for mesoscale interfacial designing in solid oxide fuel cells</em></span>
@@ -1136,7 +1146,7 @@
             <li class="pub-item">
                 <div class="pub-number">6.</div>
                 <div class="pub-ga">
-                    <img src="research/6.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/06.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Asymmetric behavior of solid oxide cells between fuel cell and electrolyzer operations</em></span>
@@ -1147,7 +1157,7 @@
             <li class="pub-item">
                 <div class="pub-number">5.</div>
                 <div class="pub-ga">
-                    <img src="research/5.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/05.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Construction of high-temperature electronic conduction paths for the scale-up of solid oxide fuel cell technology</em></span>
@@ -1158,7 +1168,7 @@
             <li class="pub-item">
                 <div class="pub-number">4.</div>
                 <div class="pub-ga">
-                    <img src="research/4.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/04.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Mechanism of improved electrochemical performance of anode-supported solid oxide fuel cells by mesostructural modification of electrode–electrolyte interface</em></span>
@@ -1169,7 +1179,7 @@
             <li class="pub-item">
                 <div class="pub-number">3.</div>
                 <div class="pub-ga">
-                    <img src="research/3.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/03.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Prediction of electrochemical characteristics of practical-size solid oxide fuel cells based on database of unit cell performance</em></span>
@@ -1180,7 +1190,7 @@
             <li class="pub-item">
                 <div class="pub-number">2.</div>
                 <div class="pub-ga">
-                    <img src="research/2.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/02.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Improvement in the Electrochemical Performance of Anode-supported Solid Oxide Fuel Cells by Meso- and Nanoscale Structural Modifications</em></span>
@@ -1191,7 +1201,7 @@
             <li class="pub-item">
                 <div class="pub-number">1.</div>
                 <div class="pub-ga">
-                    <img src="research/1.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
+                    <img src="research/01.jpg" onerror="this.src='https://via.placeholder.com/200x120.png?text=Graphical+Abstract'" alt="Graphical Abstract">
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Microextrusion printing for increasing electrode–electrolyte interface in anode-supported solid oxide fuel cells</em></span>
@@ -1338,14 +1348,14 @@
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Renewable Energy Technologies and Applications (L01211101)</span></summary>
                 <div class="lecture-content">
-                    <a href="research/Renewable_Energy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">📄 Download</a>
+                    <a href="research/Renewable_Energy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
                 </div>
             </details>
 
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Hydrogen Economy and Energy Storage Systems (L01212101)</span></summary>
                 <div class="lecture-content">
-                    <a href="research/Hydrogen_Economy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">📄 Download</a>
+                    <a href="research/Hydrogen_Economy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
                 </div>
             </details>
         </div>
@@ -1374,7 +1384,7 @@
     <section id="event">
         <h2>Event</h2>
         <div style="text-align: center; padding: 50px 0; color: #777;">
-            <p>To be updated</p>
+            <p>Photos and event records will be updated soon.</p>
         </div>
     </section>
 
@@ -1391,21 +1401,19 @@
             const container = document.getElementById('highlight-container');
             if(!container) return;
 
-            const top5 = highlightPdfs
+            const top6 = highlightPdfs
                 .map(Number)
                 .filter(n => !isNaN(n))
                 .sort((a, b) => b - a)
-                .slice(0, 5);
+                .slice(0, 6);
 
             container.innerHTML = ''; 
 
-            top5.forEach(num => {
+            top6.forEach(num => {
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
                 card.innerHTML = `
-                    <object data="research/${num}.pdf" type="application/pdf" width="100%" height="250px" style="border-radius:4px; border:1px solid #eaeaea; overflow:hidden;">
-                        <p style="font-size:13px; color:#666; padding: 20px;">PDF Preview not supported on this device. <br>Please click the link below.</p>
-                    </object>
+                    <iframe src="research/${num}.pdf#scrollbar=0&toolbar=0&navpanes=0" width="100%" height="250px" style="border-radius:4px; border:1px solid #eaeaea; overflow:hidden;" scrolling="no" frameborder="0"></iframe>
                     <a href="research/${num}.pdf" target="_blank" style="display:inline-block; margin-top:12px; font-size:14px; font-weight:bold;"></a>
                 `;
                 container.appendChild(card);
