@@ -330,11 +330,11 @@
             width: 100%;
         }
         
-        .highlight-iframe {
+        .highlight-card iframe {
             pointer-events: none;
             scrollbar-width: none;
         }
-        .highlight-iframe::-webkit-scrollbar {
+        .highlight-card iframe::-webkit-scrollbar {
             display: none;
         }
 
@@ -805,14 +805,14 @@
             }
 
             #highlight-container {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 10px;
+                grid-template-columns: 1fr !important;
+                gap: 20px;
             }
             .highlight-card {
-                padding: 10px;
+                padding: 15px;
             }
             .highlight-iframe {
-                height: 150px !important;
+                height: 400px !important;
             }
         }
     </style>
@@ -863,7 +863,7 @@
     <section id="home">
         <div class="home-header">
             <h3>Welcome to HEYONE LAB!</h3>
-            <p><strong>HEYONE Lab</strong> aims to realize carbon neutrality by developing highly efficient and robust electrochemical energy devices. We always welcome creative, passionate researchers to join us in demonstrating innovative designs from material to device level using advanced fabrication technology.<br></p>
+            <p>HEYONE Lab aims to realize carbon neutrality by developing highly efficient and robust electrochemical energy devices. We always welcome creative, passionate researchers to join us in demonstrating innovative designs from material to device level using advanced fabrication technology.<br></p>
             
             <div class="sdg-container">
                 <img src="image/SDG_7.png" onerror="this.src='https://via.placeholder.com/75x75.png?text=SDG+7'" alt="SDG 7 - Affordable and Clean Energy">
@@ -1318,14 +1318,14 @@
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Renewable Energy Technologies and Applications (L01211101)</span></summary>
                 <div class="lecture-content">
-                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'research/Renewable_Energy_Syllabus.pdf')" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
+                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'lecture/(L01211101)%20Lecture%2001.pdf')" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
                 </div>
             </details>
 
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Hydrogen Economy and Energy Storage Systems (L01212101)</span></summary>
                 <div class="lecture-content">
-                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'research/Hydrogen_Economy_Syllabus.pdf')" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
+                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'lecture/(L01212101)%20Lecture%2001.pdf')" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
                 </div>
             </details>
         </div>
@@ -1376,18 +1376,11 @@
             top6.forEach(num => {
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
-                
-                const wrapper = document.createElement('a');
-                wrapper.className = 'pdf-wrapper';
-                wrapper.href = `research/${num}.pdf`;
-                wrapper.target = "_blank";
-                wrapper.title = "Open PDF";
-                
-                wrapper.innerHTML = `
-                    <iframe class="highlight-iframe" src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
+                card.innerHTML = `
+                    <a href="research/${num}.pdf" target="_blank" style="display:block; text-decoration:none;" title="Open PDF">
+                        <iframe class="highlight-iframe" src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
+                    </a>
                 `;
-                
-                card.appendChild(wrapper);
                 container.appendChild(card);
             });
         }
