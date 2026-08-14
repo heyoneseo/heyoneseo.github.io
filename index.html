@@ -311,7 +311,6 @@
             padding-top: 40px;
         }
 
-        /* 🌟 PC: 1열에 4개(4열), 모바일: 1열에 1개(1열) 설정 🌟 */
         #highlight-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -815,7 +814,7 @@
 
     <header>
         <div class="header-left">
-            <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학 기후변화융합학부 홈페이지">
+            <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학교 기후변화융합학부 홈페이지">
                 <img src="image/Logo.jpg" onerror="this.src='https://via.placeholder.com/50x50.png?text=Logo'" alt="HUFS Logo" class="hufs-logo">
             </a>
             <h1><a href="#home">HEYONE LAB</a></h1> 
@@ -1174,7 +1173,7 @@
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Microextrusion printing for increasing electrode–electrolyte interface in anode-supported solid oxide fuel cells</em></span>
-                    <span class="authors"><strong>H. Seo</strong>*, H. Iwai, M. Kishimoto, C. Ding, M. Saito, H. Yoshida</span>
+                    <span class="authors"><strong>H. Seo</strong>*, H. Iwai, M. Kishimoto, C.Ding, M. Saito, H. Yoshida</span>
                     <span class="journal" style="font-style: normal;">Journal of Power Sources, <strong>450</strong> (2020) 227682 <a href="https://doi.org/10.1016/j.jpowsour.2019.227682" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
@@ -1347,28 +1346,29 @@
     </footer>
 
     <script>
-        const highlightPdfs = [
-            "20260114", "20251217", "20251020", "20241107"
+        const highlightItems = [
+            { id: "20260114", url: "https://doi.org/10.1002/advs.202516807" },
+            { id: "20251217", url: "https://doi.org/10.1016/j.xcrp.2025.102966" },
+            { id: "20251020", url: "https://doi.org/10.1002/advs.202508800" },
+            { id: "20241107", url: "https://doi.org/10.1039/d4ta03979c" },
         ];
 
         function loadHighlights() {
             const container = document.getElementById('highlight-container');
             if(!container) return;
 
-            const top6 = highlightPdfs
-                .map(Number)
-                .filter(n => !isNaN(n))
-                .sort((a, b) => b - a)
-                .slice(0, 6);
-
             container.innerHTML = ''; 
 
-            top6.forEach(num => {
+            highlightItems.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
+                
+                // url이 입력되어 있으면 해당 주소로, 없으면 pdf 파일로 연결
+                const targetUrl = item.url ? item.url : `research/${item.id}.pdf`;
+
                 card.innerHTML = `
-                    <a href="research/${num}.pdf" target="_blank" title="Open PDF">
-                        <img src="research/${num}.jpg" style="width:100%; border-radius:4px; border:1px solid #eaeaea;" onerror="this.src='https://via.placeholder.com/300x400.png?text=Cover'" alt="Cover">
+                    <a href="${targetUrl}" target="_blank" style="display:block; width:100%;">
+                        <img src="research/${item.id}.jpg" style="width:100%; border-radius:4px; border:1px solid #eaeaea;" onerror="this.src='https://via.placeholder.com/300x400.png?text=Cover'" alt="Cover">
                     </a>
                 `;
                 container.appendChild(card);
@@ -1423,10 +1423,10 @@
             loadHighlights();
         });
 
-        const mobile = document.getElementById('mobile-menu-btn');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mainNav = document.getElementById('main-nav');
         
-        mobile.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
         });
 
@@ -1451,7 +1451,8 @@
         document.querySelectorAll('nav > ul > li > a:not(.nav-dropdown-btn), .dropdown a').forEach(subLink => {
             subLink.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
-                    mainNav.classList.remove('nav-active');
+                    mainNav.classList.remove('active');
+                    document.querySelectorAll('nav > ul > li').forEach(li => li.classList.remove('mobile-open'));
                 }
             });
         });
