@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
-        /* 🌟 가로 스크롤 방지 및 전체 박스 크기 기준 통일 🌟 */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -27,7 +26,6 @@
             opacity: 0.8;
         }
         
-        /* 🌟 상단 고정 메뉴바 🌟 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -42,7 +40,6 @@
             backdrop-filter: blur(5px);
         }
         
-        /* 헤더 좌측 로고 및 타이틀 가로 정렬 */
         .header-left {
             display: flex;
             flex-direction: row;
@@ -50,7 +47,6 @@
             gap: 15px; 
         }
         
-        /* 로고 이미지 스타일 */
         .hufs-logo {
             height: 50px; 
             width: auto;
@@ -74,7 +70,6 @@
             opacity: 0.7;
         }
         
-        /* 모바일용 햄버거 버튼 (기본 숨김) */
         .mobile-menu-btn {
             display: none;
             font-size: 26px;
@@ -91,7 +86,6 @@
             scrollbar-width: none;
         }
 
-        /* 🌟 메인 메뉴 & 드롭다운 디자인 🌟 */
         nav > ul {
             list-style: none;
             margin: 0;
@@ -114,7 +108,6 @@
             color: #1a4f8b;
         }
 
-        /* 드롭다운 서브 메뉴 설정 */
         .dropdown {
             visibility: hidden;
             opacity: 0;
@@ -190,7 +183,6 @@
             opacity: 1;
         }
 
-        /* 각 섹션 숨김/표시 설정 */
         section {
             display: none !important; 
             padding: 120px 20px 40px;
@@ -218,9 +210,6 @@
             letter-spacing: 1px;
         }
 
-        /* ================================
-           1. Home 영역 상세 디자인
-        ================================ */
         .home-header {
             text-align: center;
             margin-bottom: 35px;
@@ -237,6 +226,7 @@
             line-height: 1.8;
             max-width: 800px;
             margin: 0 auto;
+            text-align: left;
         }
 
         .sdg-container {
@@ -340,36 +330,14 @@
             width: 100%;
         }
         
-        .highlight-card iframe {
+        .highlight-iframe {
             pointer-events: none;
             scrollbar-width: none;
         }
-        .highlight-card iframe::-webkit-scrollbar {
+        .highlight-iframe::-webkit-scrollbar {
             display: none;
         }
 
-        /* 🌟 표지를 꽉 차게 가두는 강력한 박스 🌟 */
-        .pdf-frame-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 133%; /* 3:4 비율로 빈 공간 및 짤림 완벽 제어 */
-            overflow: hidden;
-            border-radius: 4px;
-            background: #fff;
-        }
-        .pdf-frame-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            pointer-events: none;
-        }
-
-        /* ================================
-           2. Research 영역 디자인
-        ================================ */
         .research-main {
             margin-bottom: 50px;
         }
@@ -385,13 +353,14 @@
             font-size: 16px;
             color: #444;
             line-height: 1.8;
+            text-align: left;
         }
 
         .research-item {
             display: flex;
             gap: 25px;
             margin-bottom: 40px;
-            align-items: center;
+            align-items: flex-start; 
             background: #ffffff;
             padding: 20px;
             border-radius: 8px;
@@ -419,11 +388,9 @@
             margin: 0;
             color: #555;
             font-size: 15px;
+            text-align: left;
         }
 
-        /* ================================
-           3. Members 영역 디자인
-        ================================ */
         .member-category {
             font-size: 22px;
             color: #1a4f8b;
@@ -571,9 +538,6 @@
             color: #777;
         }
 
-        /* ================================
-           4. Publications 영역
-        ================================ */
         .pub-category {
             font-size: 22px;
             color: #1a4f8b;
@@ -835,13 +799,32 @@
                 width: 55px;
                 height: 55px;
             }
+            
+            .home-header p, .research-main p, .research-text p {
+                text-align: left;
+            }
 
             #highlight-container {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 10px;
             }
             .highlight-card {
-                padding: 5px; /* 공간 확보를 위해 약간 타이트하게 */
+                padding: 5px;
+            }
+
+            .highlight-card a {
+                display: block;
+                position: relative;
+                width: 100%;
+                padding-top: 133%;
+                overflow: hidden;
+            }
+            .highlight-iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
             }
         }
     </style>
