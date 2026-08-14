@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYONE LAB</title>
     <style>
+        /* 🌟 가로 스크롤 방지 및 전체 박스 크기 기준 통일 🌟 */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -26,6 +27,7 @@
             opacity: 0.8;
         }
         
+        /* 🌟 상단 고정 메뉴바 🌟 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eaeaea;
@@ -40,6 +42,7 @@
             backdrop-filter: blur(5px);
         }
         
+        /* 헤더 좌측 로고 및 타이틀 가로 정렬 */
         .header-left {
             display: flex;
             flex-direction: row;
@@ -47,6 +50,7 @@
             gap: 15px; 
         }
         
+        /* 로고 이미지 스타일 */
         .hufs-logo {
             height: 50px; 
             width: auto;
@@ -70,6 +74,7 @@
             opacity: 0.7;
         }
         
+        /* 모바일용 햄버거 버튼 (기본 숨김) */
         .mobile-menu-btn {
             display: none;
             font-size: 26px;
@@ -86,6 +91,7 @@
             scrollbar-width: none;
         }
 
+        /* 🌟 메인 메뉴 & 드롭다운 디자인 🌟 */
         nav > ul {
             list-style: none;
             margin: 0;
@@ -108,6 +114,7 @@
             color: #1a4f8b;
         }
 
+        /* 드롭다운 서브 메뉴 설정 */
         .dropdown {
             visibility: hidden;
             opacity: 0;
@@ -183,6 +190,7 @@
             opacity: 1;
         }
 
+        /* 각 섹션 숨김/표시 설정 */
         section {
             display: none !important; 
             padding: 120px 20px 40px;
@@ -210,6 +218,9 @@
             letter-spacing: 1px;
         }
 
+        /* ================================
+           1. Home 영역 상세 디자인
+        ================================ */
         .home-header {
             text-align: center;
             margin-bottom: 35px;
@@ -338,6 +349,9 @@
             display: none;
         }
 
+        /* ================================
+           2. Research 영역 디자인
+        ================================ */
         .research-main {
             margin-bottom: 50px;
         }
@@ -391,6 +405,9 @@
             text-align: left;
         }
 
+        /* ================================
+           3. Members 영역 디자인
+        ================================ */
         .member-category {
             font-size: 22px;
             color: #1a4f8b;
@@ -538,6 +555,9 @@
             color: #777;
         }
 
+        /* ================================
+           4. Publications 영역
+        ================================ */
         .pub-category {
             font-size: 22px;
             color: #1a4f8b;
@@ -1024,7 +1044,6 @@
         <h2>Students</h2>
         <div class="members-grid">
             <div class="member-card">
-                <!-- 🌟 학생 사진 경로 student 폴더로 업데이트 🌟 -->
                 <img src="student/Student(1).jpg" onerror="this.src='https://via.placeholder.com/150.png?text=Student+1'" alt="Student 1">
                 <h4>Name</h4>
                 <p>Undergraduate</p>
@@ -1298,7 +1317,6 @@
         </ul>
     </section>
 
-    <!-- 🌟 강의 파트 비밀번호 다운로드 기능 추가 🌟 -->
     <section id="lecture">
         <h2>Lecture</h2>
         
@@ -1309,20 +1327,16 @@
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Renewable Energy Technologies and Applications (L01211101)</span></summary>
                 <div class="lecture-content">
-                    <a href="research/Renewable_Energy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
-                    <br>
-                    <!-- 강의자료 업데이트 시 아래 줄을 복사해서 작은따옴표 안의 번호, 비밀번호, 파일명만 수정하세요 -->
-                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'lecture/(L01211101)%20Lecture%2001.pdf')" style="display:inline-block; margin-top:8px; font-size:14px; font-weight:bold; color:#d9534f;">Lecture 01</a>
+                    <!-- 차후 Lecture 02 업로드 시 아래 줄을 그대로 복사하여 비밀번호와 파일명, 텍스트만 수정하시면 됩니다 -->
+                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'lecture/(L01211101)%20Lecture%2001.pdf')" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
                 </div>
             </details>
 
             <details class="lecture-section">
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Hydrogen Economy and Energy Storage Systems (L01212101)</span></summary>
                 <div class="lecture-content">
-                    <a href="research/Hydrogen_Economy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
-                    <br>
-                    <!-- 강의자료 업데이트 시 아래 줄을 복사해서 작은따옴표 안의 번호, 비밀번호, 파일명만 수정하세요 -->
-                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'lecture/(L01212101)%20Lecture%2001.pdf')" style="display:inline-block; margin-top:8px; font-size:14px; font-weight:bold; color:#d9534f;">Lecture 01</a>
+                    <!-- 차후 Lecture 02 업로드 시 아래 줄을 그대로 복사하여 비밀번호와 파일명, 텍스트만 수정하시면 됩니다 -->
+                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'lecture/(L01212101)%20Lecture%2001.pdf')" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
                 </div>
             </details>
         </div>
@@ -1375,16 +1389,16 @@
                 card.className = 'highlight-card';
                 card.innerHTML = `
                     <a href="research/${num}.pdf" target="_blank" style="display:block; text-decoration:none;" title="Open PDF">
-                        <iframe class="highlight-iframe" src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
+                        <iframe src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" width="100%" height="285px" style="border-radius:4px; border:1px solid #eaeaea; overflow:hidden; pointer-events: none;" scrolling="no" frameborder="0"></iframe>
                     </a>
                 `;
                 container.appendChild(card);
             });
         }
 
-        // 🌟 강의자료 비밀번호 체크 함수 🌟
+        // 🌟 비밀번호 간소화 패치 🌟
         function downloadLecture(password, fileUrl) {
-            var input = prompt("해당 자료를 다운로드하려면 강의 날짜(비밀번호)를 입력하세요.\\n(예: 20260901)");
+            var input = prompt("비밀번호를 입력하세요.");
             if (input === password) {
                 window.open(fileUrl, '_blank');
             } else if (input !== null) {
