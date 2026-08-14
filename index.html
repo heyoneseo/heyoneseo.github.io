@@ -330,18 +330,19 @@
             width: 100%;
         }
 
-        /* 🌟 PDF 표지 렌더링을 위한 안전 박스 (데스크톱 기본 설정) 🌟 */
-        .highlight-card a {
+        /* 🌟 빈 공간 없이 꽉 차게 렌더링하는 완벽한 PDF 박스 🌟 */
+        .pdf-wrapper {
             display: block;
-            text-decoration: none;
             width: 100%;
-            height: 300px;
+            aspect-ratio: 1 / 1.35; /* PDF 표지가 예쁘게 들어가는 표준 비율 */
+            position: relative;
+            overflow: hidden;
             border-radius: 4px;
             border: 1px solid #eaeaea;
-            overflow: hidden;
-            position: relative;
             background-color: #fff;
+            text-decoration: none;
         }
+        
         .highlight-iframe {
             position: absolute;
             top: 0;
@@ -349,7 +350,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            pointer-events: none;
+            pointer-events: none; /* 내부 스크롤 완벽 차단 */
         }
 
         .research-main {
@@ -818,23 +819,13 @@
                 text-align: left;
             }
 
-            /* 🌟 모바일 PDF 가로 스크롤 및 잘림 완벽 방지 세팅 (1열 배열 + 줌 해킹) 🌟 */
+            /* 🌟 모바일 나란히 2개 배열 & 꽉 찬 박스 레이아웃 🌟 */
             #highlight-container {
-                grid-template-columns: 1fr !important;
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px;
             }
             .highlight-card {
-                padding: 15px;
-            }
-            .highlight-card a {
-                height: 0;
-                padding-bottom: 130%; /* PDF 표지 기본 비율 보장 */
-            }
-            .highlight-iframe {
-                width: 300%;
-                height: 300%;
-                transform: scale(0.3333);
-                transform-origin: top left;
+                padding: 8px; /* 카드 여백 최소화 */
             }
         }
     </style>
@@ -1398,11 +1389,19 @@
             top6.forEach(num => {
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
-                card.innerHTML = `
-                    <a href="research/${num}.pdf" target="_blank" title="Open PDF">
-                        <iframe class="highlight-iframe" src="research/${num}.pdf#view=FitH&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
-                    </a>
+                
+                const wrapper = document.createElement('a');
+                wrapper.className = 'pdf-wrapper';
+                wrapper.href = `research/${num}.pdf`;
+                wrapper.target = "_blank";
+                wrapper.title = "Open PDF";
+                
+                // 🌟 빈 공간 없이 꽉 차게 렌더링 (view=Fit 활용) 🌟
+                wrapper.innerHTML = `
+                    <iframe class="highlight-iframe" src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
                 `;
+                
+                card.appendChild(wrapper);
                 container.appendChild(card);
             });
         }
