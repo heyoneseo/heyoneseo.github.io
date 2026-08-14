@@ -328,28 +328,14 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            overflow: hidden;
         }
-
-        /* 🌟 PDF iframe 강력 제어 박스 🌟 */
-        .pdf-wrapper {
-            display: block;
-            width: 100%;
-            height: 285px; /* PC 기본 높이 */
-            border-radius: 4px;
-            border: 1px solid #eaeaea;
-            overflow: hidden;
-            position: relative;
-            background-color: #fff;
+        
+        .highlight-card iframe {
+            pointer-events: none;
+            scrollbar-width: none;
         }
-        .pdf-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            pointer-events: none; /* 내부 스크롤 완벽 차단 */
+        .highlight-card iframe::-webkit-scrollbar {
+            display: none;
         }
 
         .research-main {
@@ -817,17 +803,6 @@
             .home-header p, .research-main p, .research-text p {
                 text-align: left;
             }
-
-            #highlight-container {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 10px;
-            }
-            .highlight-card {
-                padding: 10px;
-            }
-            .pdf-wrapper {
-                height: 160px !important;
-            }
         }
     </style>
 </head>
@@ -1049,7 +1024,8 @@
         <h2>Students</h2>
         <div class="members-grid">
             <div class="member-card">
-                <img src="https://via.placeholder.com/150.png?text=Student+1" alt="Student 1">
+                <!-- 🌟 학생 사진 경로 student 폴더로 업데이트 🌟 -->
+                <img src="student/Student(1).jpg" onerror="this.src='https://via.placeholder.com/150.png?text=Student+1'" alt="Student 1">
                 <h4>Name</h4>
                 <p>Undergraduate</p>
             </div>
@@ -1322,6 +1298,7 @@
         </ul>
     </section>
 
+    <!-- 🌟 강의 파트 비밀번호 다운로드 기능 추가 🌟 -->
     <section id="lecture">
         <h2>Lecture</h2>
         
@@ -1333,6 +1310,9 @@
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Renewable Energy Technologies and Applications (L01211101)</span></summary>
                 <div class="lecture-content">
                     <a href="research/Renewable_Energy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
+                    <br>
+                    <!-- 강의자료 업데이트 시 아래 줄을 복사해서 작은따옴표 안의 번호, 비밀번호, 파일명만 수정하세요 -->
+                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'lecture/(L01211101)%20Lecture%2001.pdf')" style="display:inline-block; margin-top:8px; font-size:14px; font-weight:bold; color:#d9534f;">Lecture 01</a>
                 </div>
             </details>
 
@@ -1340,6 +1320,9 @@
                 <summary><span style="font-weight: 500; font-size: 15px; color: #333;">– Hydrogen Economy and Energy Storage Systems (L01212101)</span></summary>
                 <div class="lecture-content">
                     <a href="research/Hydrogen_Economy_Syllabus.pdf" target="_blank" style="display:inline-block; margin-top:5px; font-size:14px; font-weight:bold; color:#1a4f8b;">Download</a>
+                    <br>
+                    <!-- 강의자료 업데이트 시 아래 줄을 복사해서 작은따옴표 안의 번호, 비밀번호, 파일명만 수정하세요 -->
+                    <a href="javascript:void(0);" onclick="downloadLecture('20260901', 'lecture/(L01212101)%20Lecture%2001.pdf')" style="display:inline-block; margin-top:8px; font-size:14px; font-weight:bold; color:#d9534f;">Lecture 01</a>
                 </div>
             </details>
         </div>
@@ -1390,20 +1373,23 @@
             top6.forEach(num => {
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
-                
-                const wrapper = document.createElement('a');
-                wrapper.className = 'pdf-wrapper';
-                wrapper.href = `research/${num}.pdf`;
-                wrapper.target = "_blank";
-                wrapper.title = "Open PDF";
-                
-                wrapper.innerHTML = `
-                    <iframe src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
+                card.innerHTML = `
+                    <a href="research/${num}.pdf" target="_blank" style="display:block; text-decoration:none;" title="Open PDF">
+                        <iframe class="highlight-iframe" src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
+                    </a>
                 `;
-                
-                card.appendChild(wrapper);
                 container.appendChild(card);
             });
+        }
+
+        // 🌟 강의자료 비밀번호 체크 함수 🌟
+        function downloadLecture(password, fileUrl) {
+            var input = prompt("해당 자료를 다운로드하려면 강의 날짜(비밀번호)를 입력하세요.\\n(예: 20260901)");
+            if (input === password) {
+                window.open(fileUrl, '_blank');
+            } else if (input !== null) {
+                alert("비밀번호가 일치하지 않습니다.");
+            }
         }
 
         function updatePage() {
