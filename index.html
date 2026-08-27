@@ -356,11 +356,12 @@
             text-align: left;
         }
 
+        /* 🌟 Research 항목 스타일 (제목-그림-설명 순서 레이아웃 대응) 🌟 */
         .research-item {
             display: flex;
-            gap: 25px;
+            flex-direction: column;
+            gap: 15px;
             margin-bottom: 40px;
-            align-items: flex-start; 
             background: #ffffff;
             padding: 20px;
             border-radius: 8px;
@@ -368,8 +369,8 @@
             border: 1px solid #f5f5f5;
         }
         .research-img {
-            flex: 1;
-            max-width: 250px;
+            width: 100%;
+            max-width: 100%;
         }
         .research-img img {
             width: 100%;
@@ -377,7 +378,7 @@
             border: 1px solid #eaeaea;
         }
         .research-text {
-            flex: 2;
+            width: 100%;
         }
         .research-text h3 {
             margin: 0 0 10px 0;
@@ -804,6 +805,7 @@
                 text-align: left;
             }
 
+            /* 🌟 모바일 환경에서는 1열(1개씩) 배치 🌟 */
             #highlight-container {
                 grid-template-columns: 1fr !important;
             }
@@ -814,7 +816,7 @@
 
     <header>
         <div class="header-left">
-            <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학교 기후변화융합학부 홈페이지">
+            <a href="https://cc.hufs.ac.kr/cc/index.do" target="_blank" title="한국외국어대학 기후변화융합학부 홈페이지">
                 <img src="image/Logo.jpg" onerror="this.src='https://via.placeholder.com/50x50.png?text=Logo'" alt="HUFS Logo" class="hufs-logo">
             </a>
             <h1><a href="#home">HEYONE LAB</a></h1> 
@@ -915,32 +917,41 @@
             </p>
         </div>
 
+        <!-- 🌟 요청하신 순서: 제목 -> 그림 -> 설명 1번 🌟 -->
         <div class="research-item">
+            <div class="research-text">
+                <h3>Advanced Design</h3>
+            </div>
             <div class="research-img">
                 <img src="image/Research%20(1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
             </div>
             <div class="research-text">
-                <h3>Advanced Design</h3>
                 <p>We engineer innovative architectures across multiple length scales, from the material- to device-level. Our group aims to develop high-performance cells that remain exceptionally stable even under extreme thermodynamic operating conditions.</p>
             </div>
         </div>
 
+        <!-- 🌟 요청하신 순서: 제목 -> 그림 -> 설명 2번 🌟 -->
         <div class="research-item">
+            <div class="research-text">
+                <h3>3D Nanotomography</h3>
+            </div>
             <div class="research-img">
                 <img src="image/Research%20(2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
             </div>
             <div class="research-text">
-                <h3>3D Nanotomography</h3>
                 <p>A well-balanced pore structure ensures the seamless transport of electrons, oxygen ions, and gases, simultaneously enhancing electrochemical reactions and mass transport. Given the inherent complexity of electrodes, our group utilizes nanotomography to reconstruct these internal networks, allowing us to analyze and engineer superior architectures precisely.</p>
             </div>
         </div>
 
+        <!-- 🌟 요청하신 순서: 제목 -> 그림 -> 설명 3번 🌟 -->
         <div class="research-item">
+            <div class="research-text">
+                <h3>Multiphysics Simulation</h3>
+            </div>
             <div class="research-img">
                 <img src="image/Research%20(3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
             </div>
             <div class="research-text">
-                <h3>Multiphysics Simulation</h3>
                 <p>High-temperature operation makes direct observation of the internal phenomena exceedingly difficult. Our group bridges this gap by coupling heat and mass transfer with electrochemical reactions, predicting device performance under real-world operating conditions. Ultimately, this provides precise design guidelines for materials, electrodes, and devices.</p>
             </div>
         </div>
@@ -969,7 +980,7 @@
                         <li>Electrochemical Energy Device</li>
                         <li>Micro/Nanofabrication</li>
                         <li>Heat and Mass Transfer</li>
-                        <li>Interfacial/Structural Engineering</li>
+                        <li>Interfacial/Structural Architecture</li>
                     </ul>
 
                     <div class="cv-section">
@@ -1173,7 +1184,7 @@
                 </div>
                 <div class="pub-info">
                     <span class="title"><em>Microextrusion printing for increasing electrode–electrolyte interface in anode-supported solid oxide fuel cells</em></span>
-                    <span class="authors"><strong>H. Seo</strong>*, H. Iwai, M. Kishimoto, C.Ding, M. Saito, H. Yoshida</span>
+                    <span class="authors"><strong>H. Seo</strong>*, H. Iwai, M. Kishimoto, C. Ding, M. Saito, H. Yoshida</span>
                     <span class="journal" style="font-style: normal;">Journal of Power Sources, <strong>450</strong> (2020) 227682 <a href="https://doi.org/10.1016/j.jpowsour.2019.227682" target="_blank" style="margin-left: 5px; font-weight: bold; color: #1a4f8b;">[LINK]</a></span>
                 </div>
             </li>
@@ -1346,28 +1357,34 @@
     </footer>
 
     <script>
+        // 🌟 각 하이라이트 이미지별로 클릭 시 이동할 웹사이트 주소(url)를 직접 입력하세요.
+        // url을 입력하면 해당 사이트로 이동하며, 비워두면 기존처럼 research/${item.id}.pdf 가 열립니다.
         const highlightItems = [
-            { id: "20260114", url: "https://doi.org/10.1002/advs.202516807" },
-            { id: "20251217", url: "https://doi.org/10.1016/j.xcrp.2025.102966" },
-            { id: "20251020", url: "https://doi.org/10.1002/advs.202508800" },
-            { id: "20241107", url: "https://doi.org/10.1039/d4ta03979c" },
+            { id: "20260114", url: "" },
+            { id: "20251217", url: "" },
+            { id: "20251020", url: "" },
+            { id: "20241107", url: "" },
+            { id: "20231214", url: "" },
+            { id: "20220614", url: "" }
         ];
 
         function loadHighlights() {
             const container = document.getElementById('highlight-container');
             if(!container) return;
 
+            const top6 = highlightItems.slice(0, 6);
+
             container.innerHTML = ''; 
 
-            highlightItems.forEach(item => {
+            top6.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
                 
-                // url이 입력되어 있으면 해당 주소로, 없으면 pdf 파일로 연결
+                // url이 입력되어 있으면 해당 주소로, 없으면 PDF 파일로 연결
                 const targetUrl = item.url ? item.url : `research/${item.id}.pdf`;
 
                 card.innerHTML = `
-                    <a href="${targetUrl}" target="_blank" style="display:block; width:100%;">
+                    <a href="${targetUrl}" target="_blank" title="Open Link" style="display:block; width:100%;">
                         <img src="research/${item.id}.jpg" style="width:100%; border-radius:4px; border:1px solid #eaeaea;" onerror="this.src='https://via.placeholder.com/300x400.png?text=Cover'" alt="Cover">
                     </a>
                 `;
