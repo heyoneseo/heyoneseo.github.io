@@ -329,13 +329,17 @@
             align-items: center;
             width: 100%;
         }
-        
-        .highlight-iframe {
-            pointer-events: none;
-            scrollbar-width: none;
+        .highlight-card a {
+            display: block;
+            width: 100%;
+            line-height: 0;
         }
-        .highlight-iframe::-webkit-scrollbar {
-            display: none;
+        .highlight-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            border: 1px solid #eaeaea;
         }
 
         .research-main {
@@ -804,6 +808,7 @@
                 text-align: left;
             }
 
+            /* 🌟 모바일 환경에서는 1열(1개씩) 배치 🌟 */
             #highlight-container {
                 grid-template-columns: 1fr !important;
             }
@@ -1375,8 +1380,8 @@
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
                 card.innerHTML = `
-                    <a href="research/${num}.jpg" target="_blank" title="Open PDF">
-                        <iframe class="highlight-iframe" src="research/${num}.jpg#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
+                    <a href="research/${num}.jpg" target="_blank" title="Open Image">
+                        <img src="research/${num}.jpg" alt="Cover" onerror="this.src='https://via.placeholder.com/300x400.png?text=Cover'">
                     </a>
                 `;
                 container.appendChild(card);
