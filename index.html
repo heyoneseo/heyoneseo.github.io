@@ -329,17 +329,13 @@
             align-items: center;
             width: 100%;
         }
-        .highlight-card a {
-            display: block;
-            width: 100%;
-            line-height: 0;
+        
+        .highlight-iframe {
+            pointer-events: none;
+            scrollbar-width: none;
         }
-        .highlight-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 4px;
-            border: 1px solid #eaeaea;
+        .highlight-iframe::-webkit-scrollbar {
+            display: none;
         }
 
         .research-main {
@@ -360,11 +356,12 @@
             text-align: left;
         }
 
+        /* 🌟 변경점 1: 왼쪽 그림(320px 확대), 오른쪽 제목+설명 배치 🌟 */
         .research-item {
             display: flex;
             gap: 25px;
             margin-bottom: 40px;
-            align-items: flex-start; 
+            align-items: center; 
             background: #ffffff;
             padding: 20px;
             border-radius: 8px;
@@ -372,16 +369,17 @@
             border: 1px solid #f5f5f5;
         }
         .research-img {
-            flex: 1;
-            max-width: 250px;
+            flex: 1.2;
+            max-width: 320px;
         }
         .research-img img {
             width: 100%;
             border-radius: 6px;
             border: 1px solid #eaeaea;
+            display: block;
         }
         .research-text {
-            flex: 2;
+            flex: 1.8;
         }
         .research-text h3 {
             margin: 0 0 10px 0;
@@ -808,7 +806,6 @@
                 text-align: left;
             }
 
-            /* 🌟 모바일 환경에서는 1열(1개씩) 배치 🌟 */
             #highlight-container {
                 grid-template-columns: 1fr !important;
             }
@@ -920,41 +917,33 @@
             </p>
         </div>
 
-        <!-- 1. Advanced Design (제목 -> 그림 -> 설명) -->
+        <!-- 🌟 변경점 2: 왼쪽 그림, 오른쪽 제목+설명 🌟 -->
         <div class="research-item">
+            <div class="research-img">
+                <img src="image/Research%20(1).jpg" onerror="this.src='https://via.placeholder.com/320x200.png?text=Advanced+Design'" alt="Advanced Design">
+            </div>
             <div class="research-text">
                 <h3>Advanced Design</h3>
-            </div>
-            <div class="research-img">
-                <img src="image/Research%20(1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
-            </div>
-            <div class="research-text">
                 <p>We engineer innovative architectures across multiple length scales, from the material- to device-level. Our group aims to develop high-performance cells that remain exceptionally stable even under extreme thermodynamic operating conditions.</p>
             </div>
         </div>
 
-        <!-- 2. 3D Nanotomography (제목 -> 그림 -> 설명) -->
         <div class="research-item">
+            <div class="research-img">
+                <img src="image/Research%20(2).jpg" onerror="this.src='https://via.placeholder.com/320x200.png?text=3D+Nanotomography'" alt="3D Nanotomography">
+            </div>
             <div class="research-text">
                 <h3>3D Nanotomography</h3>
-            </div>
-            <div class="research-img">
-                <img src="image/Research%20(2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
-            </div>
-            <div class="research-text">
                 <p>A well-balanced pore structure ensures the seamless transport of electrons, oxygen ions, and gases, simultaneously enhancing electrochemical reactions and mass transport. Given the inherent complexity of electrodes, our group utilizes nanotomography to reconstruct these internal networks, allowing us to analyze and engineer superior architectures precisely.</p>
             </div>
         </div>
 
-        <!-- 3. Multiphysics Simulation (제목 -> 그림 -> 설명) -->
         <div class="research-item">
+            <div class="research-img">
+                <img src="image/Research%20(3).jpg" onerror="this.src='https://via.placeholder.com/320x200.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
+            </div>
             <div class="research-text">
                 <h3>Multiphysics Simulation</h3>
-            </div>
-            <div class="research-img">
-                <img src="image/Research%20(3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
-            </div>
-            <div class="research-text">
                 <p>High-temperature operation makes direct observation of the internal phenomena exceedingly difficult. Our group bridges this gap by coupling heat and mass transfer with electrochemical reactions, predicting device performance under real-world operating conditions. Ultimately, this provides precise design guidelines for materials, electrodes, and devices.</p>
             </div>
         </div>
@@ -1380,8 +1369,8 @@
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
                 card.innerHTML = `
-                    <a href="research/${num}.jpg" target="_blank" title="Open Image">
-                        <img src="research/${num}.jpg" alt="Cover" onerror="this.src='https://via.placeholder.com/300x400.png?text=Cover'">
+                    <a href="research/${num}.pdf" target="_blank" title="Open PDF">
+                        <iframe class="highlight-iframe" src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
                     </a>
                 `;
                 container.appendChild(card);
