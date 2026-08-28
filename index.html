@@ -804,7 +804,6 @@
                 text-align: left;
             }
 
-            /* 🌟 모바일 환경에서는 1열(1개씩) 배치 🌟 */
             #highlight-container {
                 grid-template-columns: 1fr !important;
             }
@@ -916,6 +915,7 @@
             </p>
         </div>
 
+        <!-- 1. Advanced Design (제목 -> 그림 -> 설명) -->
         <div class="research-item">
             <div class="research-text">
                 <h3>Advanced Design</h3>
@@ -923,10 +923,12 @@
             <div class="research-img">
                 <img src="image/Research%20(1).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Advanced+Design'" alt="Advanced Design">
             </div>
+            <div class="research-text">
                 <p>We engineer innovative architectures across multiple length scales, from the material- to device-level. Our group aims to develop high-performance cells that remain exceptionally stable even under extreme thermodynamic operating conditions.</p>
             </div>
         </div>
 
+        <!-- 2. 3D Nanotomography (제목 -> 그림 -> 설명) -->
         <div class="research-item">
             <div class="research-text">
                 <h3>3D Nanotomography</h3>
@@ -934,10 +936,12 @@
             <div class="research-img">
                 <img src="image/Research%20(2).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=3D+Nanotomography'" alt="3D Nanotomography">
             </div>
+            <div class="research-text">
                 <p>A well-balanced pore structure ensures the seamless transport of electrons, oxygen ions, and gases, simultaneously enhancing electrochemical reactions and mass transport. Given the inherent complexity of electrodes, our group utilizes nanotomography to reconstruct these internal networks, allowing us to analyze and engineer superior architectures precisely.</p>
             </div>
         </div>
 
+        <!-- 3. Multiphysics Simulation (제목 -> 그림 -> 설명) -->
         <div class="research-item">
             <div class="research-text">
                 <h3>Multiphysics Simulation</h3>
@@ -945,6 +949,7 @@
             <div class="research-img">
                 <img src="image/Research%20(3).jpg" onerror="this.src='https://via.placeholder.com/250x150.png?text=Multiphysics+Simulation'" alt="Multiphysics Simulation">
             </div>
+            <div class="research-text">
                 <p>High-temperature operation makes direct observation of the internal phenomena exceedingly difficult. Our group bridges this gap by coupling heat and mass transfer with electrochemical reactions, predicting device performance under real-world operating conditions. Ultimately, this provides precise design guidelines for materials, electrodes, and devices.</p>
             </div>
         </div>
@@ -1351,7 +1356,7 @@
 
     <script>
         const highlightPdfs = [
-            "20260114", "20251217", "20251020", "20241107"
+            "20260114", "20251217", "20251020", "20241107",
         ];
 
         function loadHighlights() {
@@ -1455,6 +1460,7 @@
             subLink.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
                     mainNav.classList.remove('active');
+                    document.querySelectorAll('nav > ul > li').forEach(li => li.classList.remove('mobile-open'));
                 }
             });
         });
