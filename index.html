@@ -329,13 +329,17 @@
             align-items: center;
             width: 100%;
         }
-        
-        .highlight-iframe {
-            pointer-events: none;
-            scrollbar-width: none;
+        .highlight-card a {
+            display: block;
+            width: 100%;
+            line-height: 0;
         }
-        .highlight-iframe::-webkit-scrollbar {
-            display: none;
+        .highlight-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            border: 1px solid #eaeaea;
         }
 
         .research-main {
@@ -356,12 +360,11 @@
             text-align: left;
         }
 
-        /* 🌟 변경점 1: 왼쪽 그림(320px 확대), 오른쪽 제목+설명 배치 🌟 */
         .research-item {
             display: flex;
             gap: 25px;
             margin-bottom: 40px;
-            align-items: center; 
+            align-items: flex-start; 
             background: #ffffff;
             padding: 20px;
             border-radius: 8px;
@@ -369,17 +372,16 @@
             border: 1px solid #f5f5f5;
         }
         .research-img {
-            flex: 1.2;
-            max-width: 320px;
+            flex: 1;
+            max-width: 250px;
         }
         .research-img img {
             width: 100%;
             border-radius: 6px;
             border: 1px solid #eaeaea;
-            display: block;
         }
         .research-text {
-            flex: 1.8;
+            flex: 2;
         }
         .research-text h3 {
             margin: 0 0 10px 0;
@@ -806,6 +808,7 @@
                 text-align: left;
             }
 
+            /* 🌟 모바일 환경에서는 1열(1개씩) 배치 🌟 */
             #highlight-container {
                 grid-template-columns: 1fr !important;
             }
@@ -917,7 +920,6 @@
             </p>
         </div>
 
-        <!-- 🌟 변경점 2: 왼쪽 그림, 오른쪽 제목+설명 🌟 -->
         <div class="research-item">
             <div class="research-img">
                 <img src="image/Research%20(1).jpg" onerror="this.src='https://via.placeholder.com/320x200.png?text=Advanced+Design'" alt="Advanced Design">
@@ -1369,8 +1371,8 @@
                 const card = document.createElement('div');
                 card.className = 'highlight-card';
                 card.innerHTML = `
-                    <a href="research/${num}.pdf" target="_blank" title="Open PDF">
-                        <iframe class="highlight-iframe" src="research/${num}.pdf#view=Fit&scrollbar=0&toolbar=0&navpanes=0" scrolling="no" frameborder="0"></iframe>
+                    <a href="research/${num}.jpg" target="_blank" title="Open Image">
+                        <img src="research/${num}.jpg" alt="Cover" onerror="this.src='https://via.placeholder.com/300x400.png?text=Cover'">
                     </a>
                 `;
                 container.appendChild(card);
